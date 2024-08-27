@@ -12,9 +12,9 @@ const Funfact2 = () => {
                     <div className="row"> 
                     <div className="counter-info-block col-xl-6 wow fadeInUp">
                         <div className="inner">
-                        <div className="sec-title light text-gradient"> <span className="sub-title">Funfacts</span>
-                            <h2>Creativity funfacts <br/>in great numbers</h2>
-                        </div>
+                            <div className="sec-title light text-gradient"> <span className="sub-title">Funfacts</span>
+                                <h2>Creativity funfacts <br/>in great numbers</h2>
+                            </div>
                         </div>
                     </div>
                     <div className="column col-xl-6">

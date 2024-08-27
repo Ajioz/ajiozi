@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import About2 from "@/components/sections/About2";
+import About from "@/components/sections/About";
 import Award2 from "@/components/sections/Award2";
 import Banner from "@/components/sections/Banner";
 import CallToAction from "@/components/sections/CallToAction";
@@ -9,12 +9,13 @@ import Features2 from "@/components/sections/Features2";
 import Features2T2 from "@/components/sections/Features2T2";
 import Features2T3 from "@/components/sections/Features2T3";
 import Features2T4 from "@/components/sections/Features2T4";
+import Funfact1 from "@/components/sections/Funfact1";
 import Funfact2 from "@/components/sections/Funfact2";
 import Map2 from "@/components/sections/Map2";
-import Marquee2 from "@/components/sections/Marquee2";
+import Marquee from "@/components/sections/Marquee";
 import News2 from "@/components/sections/News2";
 import Projects2 from "@/components/sections/Projects2";
-import Services2 from "@/components/sections/Services2";
+import Services from "@/components/sections/Services";
 import Testimonial2 from "@/components/sections/Testimonial2";
 import Video2 from "@/components/sections/Video2";
 import Video2T2 from "@/components/sections/Video2T2";
@@ -24,11 +25,11 @@ export default function Home2() {
     <>
       <Layout headerStyle={2} footerStyle={1}>
         <Banner />
-        <Services2 />
-        <Marquee2 />
-        <About2 />
+        <Services />
+        <Marquee />
+        <About />
         <Video2 />
-        <Funfact2 />
+        <Funfact1 />
         <Features2 />
         <Video2T2 />
         <Features2T2 />

@@ -12,14 +12,14 @@ const Funfact1 = () => {
                     <div className="row"> 
                     <div className="counter-block col-lg-3 col-sm-6 wow fadeInUp">
                         <div className="inner"> <i className="icon flaticon-targeted-marketing"></i>
-                        <div className="count-box"><CounterUp count={450} time={3} /></div>
-                        <h6 className="counter-title">Project Completed</h6>
+                            <div className="count-box"><CounterUp count={450} time={3} /></div>
+                            <h6 className="counter-title">Project Completed</h6>
                         </div>
                     </div>
                     <div className="counter-block col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="300ms">
                         <div className="inner"> <i className="icon flaticon-diplomat"></i>
-                        <div className="count-box"><CounterUp count={326} time={3} /></div>
-                        <h6 className="counter-title">IT Specialists</h6>
+                            <div className="count-box"><CounterUp count={326} time={3} /></div>
+                            <h6 className="counter-title">IT Specialists</h6>
                         </div>
                     </div>
                     <div className="counter-block col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="600ms">
@@ -37,7 +37,14 @@ const Funfact1 = () => {
                         </div>
                     </div>
                     </div>
-                </div>
+                    </div>
+                     <div className="counter-info-block col-xl-6 wow fadeInUp">
+                        <div>
+                            <div className="sec-title light text-gradient">
+                                <h2>Creativity shapes our work</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </>
