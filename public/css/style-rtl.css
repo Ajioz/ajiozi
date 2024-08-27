@@ -2800,7 +2800,7 @@ Header Style One
     display: none;
   }
 }
-.header-style-one .main-box .theme-btn:before {
+.header-style-one  .theme-btn:before {
   background-color: var(--bg-theme-color1);
 }
 
