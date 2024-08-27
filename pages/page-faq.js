@@ -5,7 +5,7 @@ export default function pageFaq() {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
-        <PageTitle pageName="Pricing Grid" />
+        <PageTitle pageName="Frequently Ask Questions" />
         <Faq />
       </Layout>
     </>
