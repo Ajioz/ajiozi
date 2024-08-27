@@ -36,8 +36,8 @@ export default function Header2({ scroll, isSearch, handleSearch, isMobileMenu, 
                 <div className="header-lower"> 
                 <div className="main-box">
                     <div className="logo-box">
-                    <div className="logo"><Link href="/"><img src="images/logo-2.png" alt="" title="Instec"/></Link></div>
-                    <div className="logo-2"><Link href="/"><img src="images/logo.png" alt="" title="Instec"/></Link></div>
+                    <div className="logo"><Link href="/"><img src="images/logo-2.png" alt="" title="Ajiozi"/></Link></div>
+                    <div className="logo-2"><Link href="/"><img src="images/logo.png" alt="" title="Ajiozi"/></Link></div>
                     </div>
                     
                     <button className="ui-btn ui-btn search-btn" onClick={handleSearch}> <span className="icon lnr lnr-icon-search"></span> </button>
