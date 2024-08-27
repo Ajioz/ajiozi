@@ -1,24 +1,23 @@
 import Layout from "@/components/layout/Layout";
 import About from "@/components/sections/About";
-import Award2 from "@/components/sections/Award2";
+import Award from "@/components/sections/Award";
 import Banner from "@/components/sections/Banner";
 import CallToAction from "@/components/sections/CallToAction";
-import Contact2 from "@/components/sections/Contact2";
+import Contact from "@/components/sections/Contact";
 import Faq2 from "@/components/sections/Faq2";
 import Features2 from "@/components/sections/Features2";
 import Features2T2 from "@/components/sections/Features2T2";
 import Features2T3 from "@/components/sections/Features2T3";
 import Features2T4 from "@/components/sections/Features2T4";
-import Funfact1 from "@/components/sections/Funfact1";
-import Funfact2 from "@/components/sections/Funfact2";
+import Funfact from "@/components/sections/Funfact";
 import Map2 from "@/components/sections/Map2";
 import Marquee from "@/components/sections/Marquee";
-import News2 from "@/components/sections/News2";
+import News from "@/components/sections/News";
 import Projects2 from "@/components/sections/Projects2";
 import Services from "@/components/sections/Services";
 import Testimonial2 from "@/components/sections/Testimonial2";
-import Video2 from "@/components/sections/Video2";
-import Video2T2 from "@/components/sections/Video2T2";
+import Video from "@/components/sections/Video";
+import VideoTm from "@/components/sections/VideoTm";
 
 export default function Home2() {
   return (
@@ -28,19 +27,19 @@ export default function Home2() {
         <Services />
         <Marquee />
         <About />
-        <Video2 />
-        <Funfact1 />
+        <Video />
+        <Funfact />
         <Features2 />
-        <Video2T2 />
+        <VideoTm />
         <Features2T2 />
         <Faq2 />
         <Projects2 />
         <Features2T3 />
         <Testimonial2 />
-        <Award2 />
+        <Award />
         <Features2T4 />
-        <Contact2 />
-        <News2 />
+        <Contact />
+        <News />
         <CallToAction />
         <Map2 />
       </Layout>
