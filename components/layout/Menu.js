@@ -14,7 +14,7 @@ export default function Menu() {
           <Link href="/page-projects">Projects</Link>
         </li>
         <li>
-          <Link href="/news-grid">News</Link>
+          <Link href="/article">Blog</Link>
         </li>
         <li>
           <Link href="/page-contact">Contact</Link>

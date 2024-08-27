@@ -5,7 +5,7 @@ export default function pageProjectGrid() {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
-        <PageTitle pageName="Project Grid" />
+        <PageTitle pageName="Projects" />
         <ProjectGrid />
       </Layout>
     </>

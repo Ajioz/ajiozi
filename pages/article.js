@@ -5,7 +5,7 @@ export default function pageNewsGrid() {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
-        <PageTitle pageName="News Grid" />
+        <PageTitle pageName="Tech Article" />
         <NewsGrid />
       </Layout>
     </>
