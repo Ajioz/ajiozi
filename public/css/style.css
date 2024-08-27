@@ -504,13 +504,14 @@ li {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 80px;
-  margin-left: -40px;
+  width: 100px;
+  margin-left: -55px;
   margin-top: -70px;
   height: 80px;
   border-radius: 20px;
   background-position: center center;
   background-image: url(../images/icons/preloader.png);
+  background-repeat: no-repeat;
   -webkit-animation: loading 7s infinite linear;
           animation: loading 7s infinite linear;
   content: "";
@@ -526,20 +527,20 @@ li {
 }
 .preloader:before {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 0;
   right: 0;
-  width: 100%;
+  width: 100px;
   text-align: center;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
   color: var(--theme-color-dark);
   font-weight: 600;
   font-size: 14px;
   font-family: var(--text-font);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  content: "Loading";
+  content: "Loading...";
   -webkit-transition: none;
   transition: none;
 }
