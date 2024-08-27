@@ -14,7 +14,7 @@ export default function ServiceGrid() {
         <div className="service-block-three col-lg-3 col-sm-6 wow fadeInUp">
           <div className="inner-box">
             <div className="content-box">
-              <h3 className="count">02</h3>
+              <h3 className="count">01</h3>
               <i className="icon flaticon-graphic-design"></i>
               <h4 className="title"><Link href="page-service-details">Graphic <br/>Designing</Link></h4>
             </div>
@@ -24,7 +24,7 @@ export default function ServiceGrid() {
         <div className="service-block-three col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="200ms">
           <div className="inner-box">
             <div className="content-box">
-              <h3 className="count">01</h3>
+              <h3 className="count">02</h3>
               <i className="icon flaticon-digital-services"></i>
               <h4 className="title"><Link href="page-service-details">Website <br/>Development</Link></h4>
             </div>
@@ -74,7 +74,7 @@ export default function ServiceGrid() {
         <div className="service-block-three col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="700ms">
           <div className="inner-box">
             <div className="content-box">
-              <h3 className="count">05</h3>
+              <h3 className="count">07</h3>
               <i className="icon flaticon-recommend"></i>
               <h4 className="title"><Link href="page-service-details">UI/UX <br/>Designing</Link></h4>
             </div>
@@ -84,7 +84,7 @@ export default function ServiceGrid() {
         <div className="service-block-three col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="800ms">
           <div className="inner-box">
             <div className="content-box">
-              <h3 className="count">06</h3>
+              <h3 className="count">08</h3>
               <i className="icon flaticon-promotion"></i>
               <h4 className="title"><Link href="page-service-details">SEO & Social <br/>Marketing</Link></h4>
             </div>

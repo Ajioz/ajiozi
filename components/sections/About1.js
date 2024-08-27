@@ -58,7 +58,7 @@ const About1 = () => {
                         <div className="designation">CEO & Founder of Company</div>
                       </div>
                     </div>
-                    <a href="page-about.html" className="theme-btn btn-style-one"><span className="btn-title">Discover more</span></a>
+                    <a href="/" className="theme-btn btn-style-one"><span className="btn-title">Discover more</span></a>
                   </div>
                 </div>
               </div>
