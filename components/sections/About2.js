@@ -9,7 +9,7 @@ const About2 = () => {
             <div className="content-column col-xl-6 col-lg-7 col-md-12 col-sm-12 order-2 wow fadeInRight" data-wow-delay="600ms">
               <div className="inner-column">
                 <div className="sec-title"> <span className="sub-title">about the company</span>
-                  <h2>Expert of software & <br/>tech programing</h2>
+                  <h2>Expert of software & <br/>tech programming</h2>
                   <div className="text">Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any website is the first impression on visitors.</div>
                 </div>
                 <ul className="list-style-two two-col">

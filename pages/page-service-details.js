@@ -5,7 +5,7 @@ import ServiceDetails from "@/components/sections/innerpages/ServiceDetails";
 export default function pageServiceDetails() {
   return (
     <>
-      <Layout headerStyle={2} footerStyle={1}>
+      <Layout headerStyle={1} footerStyle={1}>
         <PageTitle pageName="Service Details" />
         <ServiceDetails />
       </Layout>
