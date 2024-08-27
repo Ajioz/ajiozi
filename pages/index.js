@@ -4,13 +4,14 @@ import Award from "@/components/sections/Award";
 import Banner from "@/components/sections/Banner";
 import CallToAction from "@/components/sections/CallToAction";
 import Contact from "@/components/sections/Contact";
-import Faq2 from "@/components/sections/Faq2";
+import Faq from "@/components/sections/Faq";
+import Features1 from "@/components/sections/Features1";
 import Features2 from "@/components/sections/Features2";
 import Features2T2 from "@/components/sections/Features2T2";
 import Features2T3 from "@/components/sections/Features2T3";
 import Features2T4 from "@/components/sections/Features2T4";
 import Funfact from "@/components/sections/Funfact";
-import Map2 from "@/components/sections/Map2";
+import Map from "@/components/sections/Map";
 import Marquee from "@/components/sections/Marquee";
 import News from "@/components/sections/News";
 import Projects2 from "@/components/sections/Projects2";
@@ -30,9 +31,10 @@ export default function Home2() {
         <Video />
         <Funfact />
         <Features2 />
+        <Features1 />
         <VideoTm />
         <Features2T2 />
-        <Faq2 />
+        <Faq />
         <Projects2 />
         <Features2T3 />
         <Testimonial2 />
@@ -41,7 +43,7 @@ export default function Home2() {
         <Contact />
         <News />
         <CallToAction />
-        <Map2 />
+        <Map />
       </Layout>
     </>
   );
