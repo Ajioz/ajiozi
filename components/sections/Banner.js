@@ -21,7 +21,7 @@ const Banner2 = () => {
                         <div className="auto-container">
                             <div className="content-box"> <span className="sub-title">Solutions for your all it problems</span>
                                 <h1 className="title">Innovative <br/>
-                                Tech Solution</h1>
+                                Tech Solution 1</h1>
                                 <div className="btn-box"> <Link href="page-about" className="theme-btn btn-style-one hover-light"><span className="btn-title">Discover More</span></Link> </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ const Banner2 = () => {
                         <div className="auto-container">
                             <div className="content-box"> <span className="sub-title">Solutions for your all it problems</span>
                                 <h1 className="title">Innovative <br/>
-                                Tech Solution</h1>
+                                Tech Solution 2</h1>
                                 <div className="btn-box"> <Link href="page-about" className="theme-btn btn-style-one hover-light"><span className="btn-title">Discover More</span></Link> </div>
                             </div>
                         </div>

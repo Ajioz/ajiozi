@@ -1,8 +1,8 @@
 import Layout from "@/components/layout/Layout";
 import About2 from "@/components/sections/About2";
 import Award2 from "@/components/sections/Award2";
-import Banner2 from "@/components/sections/Banner2";
-import CallToAction2 from "@/components/sections/CallToAction2";
+import Banner from "@/components/sections/Banner";
+import CallToAction from "@/components/sections/CallToAction";
 import Contact2 from "@/components/sections/Contact2";
 import Faq2 from "@/components/sections/Faq2";
 import Features2 from "@/components/sections/Features2";
@@ -23,7 +23,7 @@ export default function Home2() {
   return (
     <>
       <Layout headerStyle={2} footerStyle={1}>
-        <Banner2 />
+        <Banner />
         <Services2 />
         <Marquee2 />
         <About2 />
@@ -40,7 +40,7 @@ export default function Home2() {
         <Features2T4 />
         <Contact2 />
         <News2 />
-        <CallToAction2 />
+        <CallToAction />
         <Map2 />
       </Layout>
     </>
