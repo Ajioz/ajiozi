@@ -45,10 +45,10 @@ License: copyright commercial
   --theme-color-light: #ffffff;
   --theme-color-dark: #000000;
 
-  --theme-color1: #f1a82a;
+  --theme-color1: #00bcd4;
   --theme-color2: #ffda9a;
   --theme-color3: #eda62a;
-  --theme-color4: #00bcd4;  /* can be swapped wfor --theme-color4 */
+  --theme-color4: #f1a82a;  /* can be swapped wfor --theme-color4 #00bcd4*/
 
 
   --theme-color1-rgb: 241, 168, 42;
@@ -2567,6 +2567,10 @@ Main Header
   display: none;
 }
 
+/* a:hover { 
+  color: goldenrod;
+} */
+
 .main-header .outer-box {
   position: relative;
   display: -webkit-box;
@@ -3168,6 +3172,10 @@ Sticky Header
 .sticky-header .main-menu .navigation > li.current > a,
 .sticky-header .main-menu .navigation > li:hover > a {
   color: var(--theme-color-dark);
+}
+
+.blink:hover {
+  color: goldenrod;
 }
 
 .sticky-header .outer-box,
@@ -12130,4 +12138,12 @@ Sidebar
 .team-contact-form textarea {
   background-color: #fff;
   height: 180px;
+}
+
+.navigation li a:hover {
+  color: goldenrod !important;
+}
+
+a:hover {
+  color: goldenrod !important;
 }

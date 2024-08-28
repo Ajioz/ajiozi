@@ -123,6 +123,7 @@ strong,
   color: #fff;
 }
 
+
 .color-light,
 .marquee .text,
 .pricing-block .inner-box .features-list li,
@@ -203,7 +204,7 @@ strong,
 .features-section-six .image-column .image-box .caption-box .icon-arrow4,
 .icon-lines-9 {
   -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
 }
 
 .main-slider .tp-dottedoverlay {
@@ -269,12 +270,12 @@ strong,
 .contact-form .form-group textarea {
   background-color: #0a090f;
 }
-.contact-form .form-group input:not([type=submit]) {
+.contact-form .form-group input:not([type="submit"]) {
   background-color: #0a090f;
 }
 
-.newsletter-form-three .form-group input[type=text],
-.newsletter-form-three .form-group input[type=email] {
+.newsletter-form-three .form-group input[type="text"],
+.newsletter-form-three .form-group input[type="email"] {
   background-color: rgba(22, 36, 62, 0.7);
 }
 
@@ -300,7 +301,11 @@ strong,
 }
 
 .about-section-two .content-column .bottom-box .author-box .image:before {
-  background: linear-gradient(90.22deg, var(--dark-color1) 0.19%, rgba(22, 36, 62, 0) 99.81%);
+  background: linear-gradient(
+    90.22deg,
+    var(--dark-color1) 0.19%,
+    rgba(22, 36, 62, 0) 99.81%
+  );
 }
 
 .header-style-one {
