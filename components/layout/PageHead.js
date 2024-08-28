@@ -1,19 +1,13 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 const PageHead = ({ headTitle }) => {
-    return (
-        <>
-            <Head>
-                <title>
-                    {headTitle ? headTitle : "Ajiozi | Tech Company"}
-                </title>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700;800&family=Teko:wght@300;400;500;600;700&display=swap"
-                    rel="stylesheet"
-                />
-            </Head>
-        </>
-    )
-}
+  return (
+    <>
+      <Head>
+        <title>{headTitle ? headTitle : "Ajiozi | Tech Company"}</title>
+      </Head>
+    </>
+  );
+};
 
-export default PageHead
+export default PageHead;

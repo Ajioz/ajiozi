@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "author": "Ajiroghene Sunny",
+  "license": "ISC",
   "dependencies": {
     "next": "^14.2.3",
     "react": "^18",
