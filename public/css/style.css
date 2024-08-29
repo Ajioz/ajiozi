@@ -48,7 +48,7 @@ License: copyright commercial
   --theme-color1: #00bcd4;
   --theme-color2: #ffda9a;
   --theme-color3: #eda62a;
-  --theme-color4: #f1a82a;  /* can be swapped wfor --theme-color4 #00bcd4*/
+  --theme-color4: #f1a82a;  /* can be swapped for --theme-color4 #00bcd4*/
 
 
   --theme-color1-rgb: 241, 168, 42;
@@ -12142,7 +12142,7 @@ Sidebar
 }
 
 .navigation li a:hover {
-  color: skyblue !important;
+  color: skyriblue !important;
 }
 
 a:hover {

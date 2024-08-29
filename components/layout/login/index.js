@@ -10,6 +10,7 @@ const LoginModal = ({ showModal, closeModal }) => {
   //send the admin details
   const handleForm = (e) => {
     e.preventDefault();
+    console.log(info);
   };
 
   return (
