@@ -94,9 +94,13 @@ export default function Footer1() {
                       <li className="contact-info">
                         {" "}
                         <i className="icon fa fa-phone"></i>{" "}
-                        <Link href="#" className="tel:+92-666-888-0000">
+                        <Link href="#" className="tel:+1-666-888-0000">
                           +92 666 888 0000
                         </Link>{" "}
+                      </li>
+                      <li className="contact-info">
+                        <i className="icon fa fa-sign"></i>{" "}
+                        <span className="login">Login</span>{" "}
                       </li>
                     </ul>
                   </div>

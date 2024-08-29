@@ -9712,20 +9712,21 @@ Section Title
   font-weight: 500;
   margin-bottom: 0;
 }
-.user-links li:last-child {
+.user-links li:last-child, .login {
   margin-bottom: 0;
 }
-.user-links li a {
+.user-links li a, .login {
   position: relative;
   display: inline-block;
   color: inherit;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-.user-links li a:hover {
+.user-links li a:hover, .login:hover {
   color: #FFFFFF;
+  cursor: pointer;
 }
-.user-links li a:before {
+.user-links li a:before, .login:before {
   position: absolute;
   left: 0;
   bottom: 5px;
@@ -9736,7 +9737,7 @@ Section Title
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-.user-links li a:hover:before {
+.user-links li a:hover:before, .login:hover:before {
   width: 100%;
 }
 .user-links.two-column {
