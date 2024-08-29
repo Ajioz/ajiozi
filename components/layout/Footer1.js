@@ -1,6 +1,22 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
+
 export default function Footer1() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const displayForm = () => {
+    console.log("I got clicked");
+  }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      console.log("Form is active");
+    } else {
+      console.log("Form is closed");
+    }
+  }, [isLoggedIn]);
+  
   return (
     <>
       <footer className="main-footer footer-style-one">
@@ -100,7 +116,7 @@ export default function Footer1() {
                       </li>
                       <li className="contact-info">
                         <i className="icon fa fa-sign"></i>{" "}
-                        <span className="login">Login</span>{" "}
+                        <span className="login" onClick={() =>setIsLoggedIn(!isLoggedIn)}>Login</span>{" "}
                       </li>
                     </ul>
                   </div>
