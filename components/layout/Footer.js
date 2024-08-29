@@ -1,23 +1,145 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+ const FormModal = ({ showModal, closeModal }) => {
+   const [isVisible, setIsVisible] = useState(false);
 
-export default function Footer1() {
+   useEffect(() => {
+     if (showModal) {
+       setIsVisible(true);
+     } else {
+       setTimeout(() => setIsVisible(false), 300); // Delay hiding to allow animation
+     }
+   }, [showModal]);
+
+   if (!isVisible && !showModal) return null;
+
+   return (
+     <div
+       className={`modal ${showModal ? "show" : "hide"}`}
+       onClick={closeModal}
+       style={{
+         position: "fixed",
+         zIndex: 1000,
+         left: 0,
+         top: 0,
+         width: "100%",
+         height: "100%",
+         overflow: "auto",
+         backgroundColor: "rgba(0,0,0,0.4)",
+         opacity: showModal ? 1 : 0,
+         transition: "opacity 0.3s ease-in-out",
+       }}
+     >
+       <div
+         className="modal-content"
+         onClick={(e) => e.stopPropagation()}
+         style={{
+           backgroundColor: "#fefefe",
+           margin: "15% auto",
+           padding: "20px",
+           border: "1px solid #888",
+           width: "80%",
+           maxWidth: "500px",
+           transform: showModal ? "translateY(0)" : "translateY(-50px)",
+           opacity: showModal ? 1 : 0,
+           transition: "all 0.3s ease-in-out",
+         }}
+       >
+         <span
+           className="close"
+           onClick={closeModal}
+           style={{
+             color: "#aaa",
+             float: "right",
+             fontSize: "28px",
+             fontWeight: "bold",
+             cursor: "pointer",
+           }}
+         >
+           &times;
+         </span>
+         <h2 style={{ marginBottom: "20px" }}>Contact Form</h2>
+         <form>
+           <input
+             type="text"
+             placeholder="Name"
+             required
+             style={{
+               width: "100%",
+               padding: "12px 20px",
+               margin: "8px 0",
+               display: "inline-block",
+               border: "1px solid #ccc",
+               boxSizing: "border-box",
+             }}
+           />
+           <input
+             type="email"
+             placeholder="Email"
+             required
+             style={{
+               width: "100%",
+               padding: "12px 20px",
+               margin: "8px 0",
+               display: "inline-block",
+               border: "1px solid #ccc",
+               boxSizing: "border-box",
+             }}
+           />
+           <textarea
+             placeholder="Message"
+             required
+             style={{
+               width: "100%",
+               padding: "12px 20px",
+               margin: "8px 0",
+               display: "inline-block",
+               border: "1px solid #ccc",
+               boxSizing: "border-box",
+               height: "100px",
+             }}
+           ></textarea>
+           <button
+             type="submit"
+             style={{
+               backgroundColor: "#4CAF50",
+               color: "white",
+               padding: "14px 20px",
+               margin: "8px 0",
+               border: "none",
+               cursor: "pointer",
+               width: "100%",
+             }}
+           >
+             Submit
+           </button>
+         </form>
+       </div>
+     </div>
+   );
+ };
+  
+export default function Footer() {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const displayForm = () => {
-    console.log("I got clicked");
-  }
-
-
+  
   useEffect(() => {
     if (isLoggedIn) {
-      console.log("Form is active");
+      setShowModal(true);
     } else {
-      console.log("Form is closed");
+      setShowModal(false);
     }
   }, [isLoggedIn]);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+
+
 
   return (
     <>
@@ -118,7 +240,12 @@ export default function Footer1() {
                       </li>
                       <li className="contact-info">
                         <i className="icon fa fa-sign"></i>{" "}
-                        <span className="login" onClick={() =>setIsLoggedIn(!isLoggedIn)}>Login</span>{" "}
+                        <span
+                          className="login"
+                          onClick={() => setIsLoggedIn(!isLoggedIn)}
+                        >
+                          Login
+                        </span>{" "}
                       </li>
                     </ul>
                   </div>
@@ -198,6 +325,7 @@ export default function Footer1() {
           </div>
         </div>
       </footer>
+      <FormModal showModal={showModal} closeModal={closeModal} />
     </>
   );
 }

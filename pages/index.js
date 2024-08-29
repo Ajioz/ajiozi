@@ -18,10 +18,9 @@ import News from "@/components/sections/News";
 import Projects2 from "@/components/sections/Projects2";
 import Services from "@/components/sections/Services";
 import Testimonial from "@/components/sections/Testimonial1";
-import Video from "@/components/sections/Video";
 import VideoTm from "@/components/sections/VideoTm";
 import Service1T2 from "@/components/sections/Service1T2";
-import Process1 from "@/components/sections/Process1";
+import Process from "@/components/sections/Process1";
 
 export default function Home2() {
   return (
@@ -32,17 +31,17 @@ export default function Home2() {
         <Marquee />
         <About />
         <Faq />
-        <Process1 />
+        <Process />
         <Funfact />
         <Features1 />
         <VideoTm />
         <Features2 />
         <Service1T2 /><br />
         <Features2T2 />
-        <Projects2 />
-        <Features2T4 />
         <Features2T3 />
+        <Features2T4 />
         <Testimonial />
+        <Projects2 />
         <Award />
         <Clients />
         <Contact />

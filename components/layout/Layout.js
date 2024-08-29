@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import BackToTop from '../elements/BackToTop'
 import Breadcrumb from './Breadcrumb'
-import Footer1 from './Footer1'
+import Footer1 from './Footer'
 import Header1 from "./Header1"
 import Header2 from './Header2'
 import PageHead from './PageHead'
