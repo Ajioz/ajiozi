@@ -1,18 +1,18 @@
 import Layout from "@/components/layout/Layout"
 import About1 from "@/components/sections/About1"
-import CallToAction1 from "@/components/sections/CallToAction1"
-import Clients1 from "@/components/sections/Clients1"
-import Contact1 from "@/components/sections/Contact1"
+import CallToAction1 from "@/components/sections/CallToAction"
+import Clients1 from "@/components/sections/Clients"
+import Contact1 from "@/components/sections/Contact"
 import Features1 from "@/components/sections/Features1"
-import Features1T2 from "@/components/sections/Features1T2"
-import Funfact1 from "@/components/sections/Funfact1"
-import Marquee1 from "@/components/sections/Marquee1"
-import News1 from "@/components/sections/News1"
+import Features1T2 from "@/components/sections/Features2"
+import Funfact1 from "@/components/sections/Funfact"
+import Marquee1 from "@/components/sections/Marquee"
+import News1 from "@/components/sections/News"
 import Pricing1 from "@/components/sections/Pricing1"
 import Process1 from "@/components/sections/Process1"
 import Projects1 from "@/components/sections/Projects1"
 import Service1T2 from "@/components/sections/Service1T2"
-import Services1 from "@/components/sections/Services1"
+import Services from "@/components/sections/Services"
 import Slider1 from "@/components/sections/Slider1"
 import Team1 from "@/components/sections/Team1"
 import Testimonial1 from "@/components/sections/Testimonial1"
@@ -24,7 +24,7 @@ export default function Home() {
     <Layout headerStyle={1} footerStyle={1}>
     <Slider1 />
     <About1 />
-    <Services1 />
+    <Services />
     <Marquee1 />
     <Service1T2 />
     <Team1 />

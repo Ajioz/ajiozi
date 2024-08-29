@@ -3,11 +3,13 @@ import Link from "next/link";
 
 
 export default function Footer1() {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const displayForm = () => {
     console.log("I got clicked");
   }
+
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -16,7 +18,7 @@ export default function Footer1() {
       console.log("Form is closed");
     }
   }, [isLoggedIn]);
-  
+
   return (
     <>
       <footer className="main-footer footer-style-one">

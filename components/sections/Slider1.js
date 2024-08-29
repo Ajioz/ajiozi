@@ -14,30 +14,48 @@ const swiperOptions = {
 const Slider1 = () => {
   return (
     <>
-
-    <section className="main-slider">
-      <div className="outer-box">
-        <Swiper {...swiperOptions}>
-          <SwiperSlide className="slide-item">
-            <div className="bg bg-image" style={{ backgroundImage: 'url(/images/main-slider/1.jpg)' }}></div>
-            <div className="auto-container content-box">
-              <div className="text">Solutions for your all it problems</div>
-              <h1 className="title">IT Solutions <br className="d-none d-md-block" />& Services</h1>
-              <Link href="page-taxi" className="theme-btn btn-style-one dark-line"><span className="btn-title">Find a Taxi</span></Link>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="slide-item">
-            <div className="bg bg-image" style={{ backgroundImage: 'url(/images/main-slider/2.jpg)' }}></div>
-            <div className="auto-container content-box">
-              <div className="text">Solutions for your all it problems</div>
-              <h1 className="title">IT Solutions <br className="d-none d-md-block" />& Services</h1>
-              <Link href="page-taxi" className="theme-btn btn-style-one dark-line"><span className="btn-title">Find a Taxi</span></Link>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </div>
-    </section>
-
+      <section className="main-slider">
+        <div className="outer-box">
+          <Swiper {...swiperOptions}>
+            <SwiperSlide className="slide-item">
+              <div
+                className="bg bg-image"
+                style={{ backgroundImage: "url(/images/main-slider/3.jpg)" }}
+              ></div>
+              <div className="auto-container content-box">
+                <div className="text">Solutions for your all it problems</div>
+                <h1 className="title">
+                  IT Solutions <br className="d-none d-md-block" />& Services
+                </h1>
+                <Link
+                  href="page-taxi"
+                  className="theme-btn btn-style-one dark-line"
+                >
+                  <span className="btn-title">Learn More</span>
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="slide-item">
+              <div
+                className="bg bg-image"
+                style={{ backgroundImage: "url(/images/main-slider/2.jpg)" }}
+              ></div>
+              <div className="auto-container content-box">
+                <div className="text">Solutions for your all it problems</div>
+                <h1 className="title">
+                  IT Solutions <br className="d-none d-md-block" />& Services
+                </h1>
+                <Link
+                  href="page-taxi"
+                  className="theme-btn btn-style-one dark-line"
+                >
+                  <span className="btn-title">Learn More</span>
+                </Link>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </section>
     </>
   );
 };
