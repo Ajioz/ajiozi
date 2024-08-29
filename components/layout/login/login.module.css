@@ -22,7 +22,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 500px;
+  max-width: 350px;
   opacity: 0;
   transform: translateY(100%);
   animation-duration: 0.5s;
@@ -40,7 +40,8 @@
 }
 
 .close {
-    text-align: center;
+  text-align: center;
+  margin: -5px -5px 0 0;
   color: #fff;
   width: 30px;
   height: 30px;
@@ -49,7 +50,19 @@
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  background: linear-gradient(to right, darkcyan, white);
+  background: linear-gradient(to right, #4c7aaf, white);
+  position: relative;
+  z-index: 1;
+}
+
+.close::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  cursor: pointer;
 }
 
 .input {
@@ -59,25 +72,23 @@
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-}
-.textarea {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  height: 100px;
+  border-radius: 50px;
 }
 
 .btn {
-  background-color: #4caf50;
+  background-color: #4c7aaf;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+}
+
+.text{
+    font-size: 25px;
+    color: #888;
+    margin: 10px auto;
 }
 
 @keyframes slideIn {

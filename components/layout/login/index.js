@@ -8,29 +8,26 @@ const LoginModal = ({ showModal, closeModal }) => {
           showModal ? styles.slideIn : styles.slideOut
         }`}
       >
-        <span className={styles.close} onClick={closeModal}>
+        <div className={styles.close} onClick={closeModal}>
           &times;
-        </span>
-        <h2 style={{ marginBottom: "20px" }}>Contact Form</h2>
+        </div>
+        <h2 className={styles.text}>Login</h2>
         <form>
           <input
             type="text"
-            placeholder="Name"
+            placeholder="username"
             required
             className={styles.input}
           />
           <input
-            type="email"
-            placeholder="Email"
+            type="password"
+            placeholder="password"
             required
             className={styles.input}
           />
-          <textarea
-            placeholder="Message"
-            required
-            className={styles.textarea}
-          ></textarea>
-          <button type="submit" className={styles.btn}>Submit</button>
+          <button type="submit" className={styles.btn}>
+            Submit
+          </button>
         </form>
       </div>
     </div>

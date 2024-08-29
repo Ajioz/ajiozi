@@ -11,19 +11,13 @@ export default function Footer() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      setShowModal(true);
-    } else {
-      setShowModal(false);
-    }
+    if (isLoggedIn) return setShowModal(true);
+    return setShowModal(false);
   }, [isLoggedIn]);
 
   const closeModal = () => {
-    console.log("closing")
     setShowModal(false);
   };
-
-
 
 
   return (
