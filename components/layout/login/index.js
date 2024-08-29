@@ -1,4 +1,4 @@
-import styles from "./FormModal.module.css";
+import styles from "./login.module.css";
 
 const LoginModal = ({ showModal, closeModal }) => {
   return (
@@ -72,4 +72,4 @@ const LoginModal = ({ showModal, closeModal }) => {
   );
 };
 
-export default FormModal;
+export default LoginModal;
