@@ -2,23 +2,24 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import LoginModal from "./login";
 
- 
-
-  
 export default function Footer() {
-  
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isUser, setIsUser] = useState(false);
 
   useEffect(() => {
-    if (isLoggedIn) return setShowModal(true);
+    if (isOpen) return setShowModal(true);
     return setShowModal(false);
-  }, [isLoggedIn]);
+  }, [isOpen]);
 
   const closeModal = () => {
     setShowModal(false);
+    setIsOpen(false);
   };
 
+  const logOut = () => {};
+
+  const messages = () => {};
 
   return (
     <>
@@ -117,15 +118,32 @@ export default function Footer() {
                           +92 666 888 0000
                         </Link>{" "}
                       </li>
-                      <li className="contact-info">
-                        <i className="icon fa fa-sign"></i>{" "}
-                        <span
-                          className="login"
-                          onClick={() => setIsLoggedIn(!isLoggedIn)}
-                        >
-                          Login
-                        </span>{" "}
-                      </li>
+                      {isUser ? (
+                        <>
+                          <li className="contact-info">
+                            <i className="icon fa fa-message"></i>{" "}
+                            <span className="login" onClick={messages}>
+                              Messages
+                            </span>{" "}
+                            &nbsp; | &#9758; | &nbsp;
+                            <span className="login" onClick={logOut}>
+                              LogOut
+                            </span>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li className="contact-info">
+                            <i className="icon fa fa-sign"></i>{" "}
+                            <span
+                              className="login"
+                              onClick={() => setIsOpen(!isOpen)}
+                            >
+                              Login
+                            </span>{" "}
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </div>
                 </div>

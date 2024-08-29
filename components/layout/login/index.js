@@ -4,13 +4,17 @@ import styles from "./login.module.css";
 const LoginModal = ({ showModal, closeModal }) => {
   const [info, setInfo] = useState({ username: "", password: "" });
 
-  const handleChange = (e) => (props) => {
+  const handleChange = (props) => (e) => {
     setInfo((prev) => ({ ...prev, [props]: e.target.value }));
   };
   //send the admin details
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(info);
+      console.log(info);
+      if (info) {
+          setInfo({ ...info, username: "", password: "" });
+          closeModal();
+      }
   };
 
   return (
