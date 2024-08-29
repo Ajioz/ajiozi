@@ -1,6 +1,17 @@
+import { useState } from "react";
 import styles from "./login.module.css";
 
 const LoginModal = ({ showModal, closeModal }) => {
+  const [info, setInfo] = useState({ username: "", password: "" });
+
+  const handleChange = (e) => (props) => {
+    setInfo((prev) => ({ ...prev, [props]: e.target.value }));
+  };
+  //send the admin details
+  const handleForm = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={`${styles.modal} ${showModal ? styles.show : ""}`}>
       <div
@@ -12,17 +23,21 @@ const LoginModal = ({ showModal, closeModal }) => {
           &times;
         </div>
         <h2 className={styles.text}>Login</h2>
-        <form>
+        <form onSubmit={handleForm}>
           <input
             type="text"
             placeholder="username"
             required
+            value={info.username}
+            onChange={handleChange("username")}
             className={styles.input}
           />
           <input
             type="password"
             placeholder="password"
+            value={info.password}
             required
+            onChange={handleChange("password")}
             className={styles.input}
           />
           <button type="submit" className={styles.btn}>
