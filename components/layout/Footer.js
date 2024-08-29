@@ -19,6 +19,7 @@ export default function Footer() {
   }, [isLoggedIn]);
 
   const closeModal = () => {
+    console.log("closing")
     setShowModal(false);
   };
 

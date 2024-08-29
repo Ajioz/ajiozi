@@ -17,55 +17,20 @@ const LoginModal = ({ showModal, closeModal }) => {
             type="text"
             placeholder="Name"
             required
-            style={{
-              width: "100%",
-              padding: "12px 20px",
-              margin: "8px 0",
-              display: "inline-block",
-              border: "1px solid #ccc",
-              boxSizing: "border-box",
-            }}
+            className={styles.input}
           />
           <input
             type="email"
             placeholder="Email"
             required
-            style={{
-              width: "100%",
-              padding: "12px 20px",
-              margin: "8px 0",
-              display: "inline-block",
-              border: "1px solid #ccc",
-              boxSizing: "border-box",
-            }}
+            className={styles.input}
           />
           <textarea
             placeholder="Message"
             required
-            style={{
-              width: "100%",
-              padding: "12px 20px",
-              margin: "8px 0",
-              display: "inline-block",
-              border: "1px solid #ccc",
-              boxSizing: "border-box",
-              height: "100px",
-            }}
+            className={styles.textarea}
           ></textarea>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: "#4CAF50",
-              color: "white",
-              padding: "14px 20px",
-              margin: "8px 0",
-              border: "none",
-              cursor: "pointer",
-              width: "100%",
-            }}
-          >
-            Submit
-          </button>
+          <button type="submit" className={styles.btn}>Submit</button>
         </form>
       </div>
     </div>
