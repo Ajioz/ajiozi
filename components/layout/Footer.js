@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import LoginModal from "./login";
 
-export default function Footer() {
+export default function Footer({ session }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isUser, setIsUser] = useState(false);
@@ -230,7 +230,12 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      <LoginModal showModal={showModal} closeModal={closeModal} swap={isUserHandler} />
+      <LoginModal
+        showModal={showModal}
+        closeModal={closeModal}
+        swap={isUserHandler}
+        session={session}
+      />
     </>
   );
 }

@@ -1,8 +1,11 @@
+import { SessionProvider } from "next-auth/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../public/css/bootstrap.min.css";
 import "../public/css/style.css";
+
+
 //import '../public/css/responsive.css';
 
 //import 'swiper/css/effect-coverflow';
@@ -26,7 +29,7 @@ function MyApp({ Component, pageProps }) {
     window.wow.init();
   }, []);
   return (
-    <>
+    <SessionProvider session={pageProps.session}>
       {!loading ? (
         <Component {...pageProps} />
       ) : (
@@ -34,7 +37,7 @@ function MyApp({ Component, pageProps }) {
           <span className="loader"></span>
         </div>
       )}
-    </>
+    </SessionProvider>
   );
 }
 

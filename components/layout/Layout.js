@@ -8,7 +8,7 @@ import Header1 from "./Header1"
 import Header2 from './Header2'
 import PageHead from './PageHead'
 
-export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }) {
+export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, session, children }) {
     const [scroll, setScroll] = useState(0)
     // Moblile Menu
     const [isMobileMenu, setMobileMenu] = useState(false)
@@ -35,20 +35,46 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
         window.wow.init();
     }, [])
     return (
-        <>
-            <PageHead />
-            <div className="page-wrapper" id="top">
-                {!headerStyle && <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} />}
-                {headerStyle == 1 ? <Header1 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
-                {headerStyle == 2 ? <Header2 scroll={scroll} isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} isSearch={isSearch} handleSearch={handleSearch} /> : null}
-                <main className="main">
-                    {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} />}
-                    {children}
-                </main>
-                {!footerStyle && < Footer1 />}
-                {footerStyle == 1 ? < Footer1 /> : null}
-            </div>
-                <BackToTop />
-        </>
-    )
+      <>
+        <PageHead />
+        <div className="page-wrapper" id="top">
+          {!headerStyle && (
+            <Header1
+              scroll={scroll}
+              isMobileMenu={isMobileMenu}
+              handleMobileMenu={handleMobileMenu}
+              isSearch={isSearch}
+              handleSearch={handleSearch}
+            />
+          )}
+          {headerStyle == 1 ? (
+            <Header1
+              scroll={scroll}
+              isMobileMenu={isMobileMenu}
+              handleMobileMenu={handleMobileMenu}
+              isSearch={isSearch}
+              handleSearch={handleSearch}
+            />
+          ) : null}
+          {headerStyle == 2 ? (
+            <Header2
+              scroll={scroll}
+              isMobileMenu={isMobileMenu}
+              handleMobileMenu={handleMobileMenu}
+              isSearch={isSearch}
+              handleSearch={handleSearch}
+            />
+          ) : null}
+          <main className="main">
+            {breadcrumbTitle && (
+              <Breadcrumb breadcrumbTitle={breadcrumbTitle} />
+            )}
+            {children}
+          </main>
+          {!footerStyle && <Footer1 session={session} />}
+          {footerStyle == 1 ? <Footer1 session={session} /> : null}
+        </div>
+        <BackToTop />
+      </>
+    );
 }
