@@ -10,7 +10,8 @@
   background-color: #fff;
   box-shadow: 0 0px 1px 0px rgba(0, 0, 0, 0.5);
   margin: 1px auto;
-  justify-content: space-evenly;
+  padding: 0 20px;
+  justify-content: space-between;
   align-items: center;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -25,10 +26,31 @@
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
   -webkit-transform: scale(0.989 0.99);
   transform: scale(1.001, 1.001);
-  color: #333;
   cursor: pointer;
+  color: #333;
 }
 
 .container:hover .chevron {
   color: #333;
+}
+.sn {
+  width: 10px;
+}
+.name {
+  width: 150px;
+}
+.message {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.email {
+  width: 200px;
+}
+.phone {
+  width: 150px;
+}
+.date {
+  width: 100px;
 }

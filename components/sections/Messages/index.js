@@ -3,12 +3,12 @@ import classes from "./messages.module.css";
 
 const Messages = () => {
   // Add this function at the top of your component or in a separate utils file
-  const truncateMessage = (message, maxLength = 50) => {
+  const truncateMessage = (message, maxLength = 30) => {
     return message.length > maxLength
       ? message.slice(0, maxLength) + "..."
       : message;
-    };
-    
+  };
+
   return (
     <div className={classes.layout}>
       <div className={classes.container}>
@@ -25,7 +25,7 @@ const Messages = () => {
         <div className={classes.name}>Ajiroghene Sunday</div>
         <div className={classes.message}>
           {truncateMessage(
-            "I want to connect for a project, I want to connect for a project , I want to connect for a project"
+            "I want to connect for a project, I want to connect for a project , I want to connect for a project", 50
           )}
         </div>
         <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
