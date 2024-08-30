@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 
-const LoginModal = ({ showModal, closeModal, swap }) => {
+const LoginModal = ({ showModal, closeModal, swap }, props) => {
+  const router = useRouter();
   const [info, setInfo] = useState({ email: "", password: "" });
+
+  console.log(props.session)
 
   const handleChange = (props) => (e) => {
     setInfo((prev) => ({ ...prev, [props]: e.target.value }));
@@ -15,8 +19,8 @@ const LoginModal = ({ showModal, closeModal, swap }) => {
     if (info) {
       const result = await signIn("credentials", {
         redirect: false,
-        email,
-        password,
+        email: info.email,
+        password: info.password,
       });
       if (result.error) router.replace("/article");
       else {
@@ -41,7 +45,7 @@ const LoginModal = ({ showModal, closeModal, swap }) => {
         <form onSubmit={handleForm}>
           <input
             type="email"
-            placeholder="email"
+            placeholder="john@email.com"
             required
             value={info.email}
             onChange={handleChange("email")}
@@ -65,3 +69,4 @@ const LoginModal = ({ showModal, closeModal, swap }) => {
 };
 
 export default LoginModal;
+

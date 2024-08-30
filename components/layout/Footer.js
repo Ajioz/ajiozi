@@ -101,7 +101,7 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Control of admin action */}
               <div className="footer-column col-xl-3 col-sm-6">
                 <div className="footer-widget contact-widget">
@@ -234,3 +234,6 @@ export default function Footer() {
     </>
   );
 }
+
+
+
