@@ -2,7 +2,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 
-const LoginModal = ({ showModal, closeModal }) => {
+const LoginModal = ({ showModal, closeModal, swap }) => {
   const [info, setInfo] = useState({ email: "", password: "" });
 
   const handleChange = (props) => (e) => {
@@ -18,11 +18,12 @@ const LoginModal = ({ showModal, closeModal }) => {
         email,
         password,
       });
-      if (!result.error) {
-        router.replace("/profile");
+      if (result.error) router.replace("/article");
+      else {
+        setInfo({ ...info, email: "", password: "" });
+        closeModal();
+        swap();
       }
-      setInfo({ ...info, email: "", password: "" });
-      closeModal();
     }
   };
 

@@ -3,7 +3,6 @@ import Link from "next/link";
 import LoginModal from "./login";
 
 export default function Footer() {
-
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isUser, setIsUser] = useState(false);
@@ -18,14 +17,19 @@ export default function Footer() {
     setIsOpen(false);
   };
 
-  const logOut = () => {};
+  const logOut = () => {
+    setIsUser(false);
+  };
 
   const messages = () => {};
+
+  const isUserHandler = () => {
+    setIsUser(true);
+  };
 
   return (
     <>
       <footer className="main-footer footer-style-one">
-
         <div className="icon-dots-2"></div>
 
         <div className="widgets-section">
@@ -97,7 +101,8 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-
+              
+              {/* Control of admin action */}
               <div className="footer-column col-xl-3 col-sm-6">
                 <div className="footer-widget contact-widget">
                   <h5 className="widget-title">Contact</h5>
@@ -224,9 +229,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        
       </footer>
-      <LoginModal showModal={showModal} closeModal={closeModal} />
+      <LoginModal showModal={showModal} closeModal={closeModal} swap={isUserHandler} />
     </>
   );
 }
