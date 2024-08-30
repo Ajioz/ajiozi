@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import styles from "./login.module.css";
 
-const LoginModal = ({ showModal, closeModal, swap }, props) => {
+const LoginModal = ({ showModal, closeModal, swap }) => {
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
   const router = useRouter();
   const [info, setInfo] = useState({ email: "", password: "" });
 
-  console.log(props.session)
 
   const handleChange = (props) => (e) => {
     setInfo((prev) => ({ ...prev, [props]: e.target.value }));

@@ -21,10 +21,10 @@ import Testimonial from "@/components/sections/Testimonial1";
 import VideoTm from "@/components/sections/VideoTm";
 import Service1T2 from "@/components/sections/Service1T2";
 import Process from "@/components/sections/Process1";
-import { getSession } from "next-auth/react";
+
 
 export default function Home() {
-  // console.log(props.session)
+
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
@@ -54,21 +54,3 @@ export default function Home() {
     </>
   );
 }
-
-
-// export async function getServerSideProps(context) {
-//   const session = await getSession({ req: context.req });
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/",
-//         permanent: false,
-//       },
-//     };
-//   }
-//   return {
-//     props: {
-//       session,
-//     },
-//   };
-// }
