@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 import LoginModal from "./login";
 
 export default function Footer({ session }) {
+  
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isUser, setIsUser] = useState(false);
@@ -27,7 +30,9 @@ export default function Footer({ session }) {
     }
   };
 
-  const messages = () => {};
+  const messages = () => {
+    router.push("/page-message");
+  };
 
   return (
     <>
