@@ -3,6 +3,7 @@ import Link from "next/link";
 import LoginModal from "./login";
 
 export default function Footer() {
+
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isUser, setIsUser] = useState(false);
@@ -24,7 +25,9 @@ export default function Footer() {
   return (
     <>
       <footer className="main-footer footer-style-one">
+
         <div className="icon-dots-2"></div>
+
         <div className="widgets-section">
           <div className="auto-container">
             <div className="row">
@@ -221,6 +224,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        
       </footer>
       <LoginModal showModal={showModal} closeModal={closeModal} />
     </>

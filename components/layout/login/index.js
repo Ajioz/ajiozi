@@ -1,20 +1,29 @@
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 
 const LoginModal = ({ showModal, closeModal }) => {
-  const [info, setInfo] = useState({ username: "", password: "" });
+  const [info, setInfo] = useState({ email: "", password: "" });
 
   const handleChange = (props) => (e) => {
     setInfo((prev) => ({ ...prev, [props]: e.target.value }));
   };
+
   //send the admin details
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
-      console.log(info);
-      if (info) {
-          setInfo({ ...info, username: "", password: "" });
-          closeModal();
+    if (info) {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
+      if (!result.error) {
+        router.replace("/profile");
       }
+      setInfo({ ...info, email: "", password: "" });
+      closeModal();
+    }
   };
 
   return (
@@ -30,11 +39,11 @@ const LoginModal = ({ showModal, closeModal }) => {
         <h2 className={styles.text}>Login</h2>
         <form onSubmit={handleForm}>
           <input
-            type="text"
-            placeholder="username"
+            type="email"
+            placeholder="email"
             required
-            value={info.username}
-            onChange={handleChange("username")}
+            value={info.email}
+            onChange={handleChange("email")}
             className={styles.input}
           />
           <input
