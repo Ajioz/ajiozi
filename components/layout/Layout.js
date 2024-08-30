@@ -7,8 +7,14 @@ import Footer1 from './Footer'
 import Header1 from "./Header1"
 import Header2 from './Header2'
 import PageHead from './PageHead'
+import { useAuth } from "@/hooks/useAuth";
 
-export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, session, children }) {
+export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }) {
+
+  const { session, loading } = useAuth();
+  if (loading) return <div>Loading...</div>;
+  
+
     const [scroll, setScroll] = useState(0)
     // Moblile Menu
     const [isMobileMenu, setMobileMenu] = useState(false)

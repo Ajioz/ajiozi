@@ -21,15 +21,13 @@ import Testimonial from "@/components/sections/Testimonial1";
 import VideoTm from "@/components/sections/VideoTm";
 import Service1T2 from "@/components/sections/Service1T2";
 import Process from "@/components/sections/Process1";
-import { useAuth } from "@/hooks/useAuth";
 
 
 export default function Home() {
-  const { session, loading } = useAuth();
-  if (loading) return <div>Loading...</div>;
+
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1} session={session}>
+      <Layout headerStyle={1} footerStyle={1}>
         <Slider1 />
         <Services />
         <Marquee />

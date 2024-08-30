@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 
-const LoginModal = ({ showModal, closeModal, swap, session }) => {
-
+const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
   const router = useRouter();
   const [info, setInfo] = useState({ email: "", password: "" });
 
@@ -12,10 +11,9 @@ const LoginModal = ({ showModal, closeModal, swap, session }) => {
     setInfo((prev) => ({ ...prev, [props]: e.target.value }));
   };
 
-  if (!session) {
-      return <div>Please log in</div>;
-  }
-  
+  if (session) handleUser(true);
+
+
   //send the admin details
   const handleForm = async (e) => {
     e.preventDefault();
@@ -25,11 +23,13 @@ const LoginModal = ({ showModal, closeModal, swap, session }) => {
         email: info.email,
         password: info.password,
       });
-      if (result.error) router.replace("/article");
-      else {
-        setInfo({ ...info, email: "", password: "" });
+      if (result.error) {
+        router.replace("/article");
+      } else {
+        // Reset the form before closing the modal
+        setInfo({ email: "", password: "" });
         closeModal();
-        swap();
+        handleUser(true);
       }
     }
   };
@@ -72,4 +72,3 @@ const LoginModal = ({ showModal, closeModal, swap, session }) => {
 };
 
 export default LoginModal;
-

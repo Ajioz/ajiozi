@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 import LoginModal from "./login";
 
 export default function Footer({ session }) {
@@ -17,15 +18,16 @@ export default function Footer({ session }) {
     setIsOpen(false);
   };
 
-  const logOut = () => {
-    setIsUser(false);
+  const handleUser = async (state) => {
+    if (!state) {
+      await signOut({ redirect: false });
+      setIsUser(false);
+    } else {
+      setIsUser(true);
+    }
   };
 
   const messages = () => {};
-
-  const isUserHandler = () => {
-    setIsUser(true);
-  };
 
   return (
     <>
@@ -134,8 +136,11 @@ export default function Footer({ session }) {
                               Messages
                             </span>{" "}
                             &nbsp; | &#9758; | &nbsp;
-                            <span className="login" onClick={logOut}>
-                              LogOut
+                            <span
+                              className="login"
+                              onClick={() => handleUser(false)}
+                            >
+                              Logout
                             </span>
                           </li>
                         </>
@@ -233,12 +238,9 @@ export default function Footer({ session }) {
       <LoginModal
         showModal={showModal}
         closeModal={closeModal}
-        swap={isUserHandler}
+        handleUser={handleUser}
         session={session}
       />
     </>
   );
 }
-
-
-
