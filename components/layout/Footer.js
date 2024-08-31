@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import LoginModal from "./login";
 
 export default function Footer({ session }) {
-  
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -100,9 +99,9 @@ export default function Footer({ session }) {
                         <Link href="#">Our Projects</Link>
                       </li>
                       <li>
-                        <Link href="page-contact">Contact</Link> &nbsp; &#9758;
+                        <Link href="contact">Contact</Link> &nbsp; &#9758;
                         &nbsp;
-                        <Link href="page-faq">FAQ</Link>
+                        <Link href="faq">FAQ</Link>
                       </li>
                     </ul>
                   </div>

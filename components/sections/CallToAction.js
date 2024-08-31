@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 const CallToAction1 = () => {
   return (
     <>
@@ -16,7 +16,7 @@ const CallToAction1 = () => {
                 Let Us Help You Bring Your App Vision to Life...
               </h3>
             </div>
-            <Link href="page-about" className="theme-btn btn-style-one dark-bg">
+            <Link href="about" className="theme-btn btn-style-one dark-bg">
               <span className="btn-title">Discover More</span>
             </Link>
           </div>
@@ -25,4 +25,4 @@ const CallToAction1 = () => {
     </>
   );
 };
-export default CallToAction1
+export default CallToAction1;

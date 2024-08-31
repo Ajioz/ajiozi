@@ -111,7 +111,7 @@ export default function Header2({
               <div className="btn-box">
                 {" "}
                 <Link
-                  href="page-contact"
+                  href="contact"
                   className="theme-btn btn-style-one hover-light"
                 >
                   <span className="btn-title">Get Solution</span>

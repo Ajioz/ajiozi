@@ -12,8 +12,7 @@ import { useAuth } from "@/hooks/useAuth";
 export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }) {
 
   const { session, loading } = useAuth();
-  if (loading) return <div>Loading...</div>;
-  
+    
 
     const [scroll, setScroll] = useState(0)
     // Moblile Menu

@@ -37,7 +37,7 @@ const Banner2 = () => {
                 <div className="btn-box">
                   {" "}
                   <Link
-                    href="page-about"
+                    href="about"
                     className="theme-btn btn-style-one hover-light"
                   >
                     <span className="btn-title">Discover More</span>
@@ -65,7 +65,7 @@ const Banner2 = () => {
                 <div className="btn-box">
                   {" "}
                   <Link
-                    href="page-about"
+                    href="about"
                     className="theme-btn btn-style-one hover-light"
                   >
                     <span className="btn-title">Discover More</span>
