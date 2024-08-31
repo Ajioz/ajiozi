@@ -33,7 +33,10 @@ const Messages = () => {
         <div className={classes.date}>Aug 24th, 2024</div>
         <i
           className={`${"icon fa fa-trash"} ${classes.chevron}`}
-          onClick={() => handleDelete(1)}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDelete(1);
+          }}
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
@@ -51,7 +54,10 @@ const Messages = () => {
         <div className={classes.date}>Aug 24th, 2024</div>
         <i
           className={`${"icon fa fa-trash"} ${classes.chevron}`}
-          onClick={() => handleDelete(2)}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDelete(2);
+          }}
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
@@ -66,7 +72,10 @@ const Messages = () => {
         <div className={classes.date}>Aug 24th, 2024</div>
         <i
           className={`${"icon fa fa-trash"} ${classes.chevron}`}
-          onClick={() => handleDelete(3)}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDelete(3);
+          }}
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
