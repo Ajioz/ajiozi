@@ -24,7 +24,10 @@ const Messages = () => {
       <div className={classes.container} onClick={() => handleDetails(1)}>
         <div className={classes.sn}>1</div>
         <div className={classes.name}>Ajiroghene Sunday</div>
-        <div className={classes.message}>I want to connect for a project</div>
+        <div className={classes.message}>
+          {" "}
+          {truncateMessage("I want to connect for a project")}
+        </div>
         <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
         <div className={classes.phone}>+234-8064107055</div>
         <div className={classes.date}>Aug 24th, 2024</div>
@@ -55,7 +58,9 @@ const Messages = () => {
       <div className={classes.container} onClick={() => handleDetails(3)}>
         <div className={classes.sn}>3</div>
         <div className={classes.name}>Ajiroghene Sunday</div>
-        <div className={classes.message}>I want to connect for a project</div>
+        <div className={classes.message}>
+          {truncateMessage("I want to connect for a project")}
+        </div>
         <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
         <div className={classes.phone}>+234-8064107055</div>
         <div className={classes.date}>Aug 24th, 2024</div>
