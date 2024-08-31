@@ -36,7 +36,7 @@
 
 .modalContent.slideOut {
   animation-name: slideOut;
-  animation-fill-mode: forwards;
+  animation-fill-mode: 0.5s ease-out forwards;
 }
 
 .close {
@@ -50,7 +50,7 @@
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  background: linear-gradient(to right, #f1a82a, white);
+  background: linear-gradient(to right, #00bcd4, white);
   position: relative;
   z-index: 1;
   transition: background-color 0.3s, color 0.3s;
@@ -69,7 +69,7 @@
 .close:hover,
 .close:focus {
   color: #fff;
-  background: #00bcd4;
+  background: #f1a82a;
 }
 
 .input {
@@ -83,7 +83,7 @@
 }
 
 .btn {
-  background-color: #f1a82a;
+  background-color: #00bcd4;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -95,7 +95,7 @@
 .btn:hover,
 .btn:focus {
   color: #fff;
-  background: #00bcd4;
+  background: #f1a82a;
 }
 
 .text {

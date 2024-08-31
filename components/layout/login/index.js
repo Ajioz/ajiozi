@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
@@ -6,13 +6,28 @@ import styles from "./login.module.css";
 const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
   const router = useRouter();
   const [info, setInfo] = useState({ email: "", password: "" });
+  const [animateOut, setAnimateOut] = useState(false);
 
   const handleChange = (props) => (e) => {
     setInfo((prev) => ({ ...prev, [props]: e.target.value }));
   };
 
-  if (session) handleUser(true);
+  const handleSlideOut = () => {
+    setAnimateOut(true); // Trigger the slideOut animation
+  };
 
+  useEffect(() => {
+    // If animateOut is true, set a timeout to remove the navbar after the animation
+    if (animateOut) {
+      const timer = setTimeout(() => {
+        closeModal();
+        setAnimateOut(false);
+      }, 500); // Match this duration with your animation duration
+      return () => clearTimeout(timer);
+    }
+  }, [animateOut, closeModal]);
+
+  if (session) handleUser(true);
 
   //send the admin details
   const handleForm = async (e) => {
@@ -38,10 +53,10 @@ const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
     <div className={`${styles.modal} ${showModal ? styles.show : ""}`}>
       <div
         className={`${styles.modalContent} ${
-          showModal ? styles.slideIn : styles.slideOut
+          animateOut ? styles.slideOut : styles.slideIn
         }`}
       >
-        <div className={styles.close} onClick={closeModal}>
+        <div className={styles.close} onClick={handleSlideOut}>
           &times;
         </div>
         <h2 className={styles.text}>Login</h2>
