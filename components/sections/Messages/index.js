@@ -3,18 +3,17 @@ import { useRouter } from "next/router";
 import classes from "./messages.module.css";
 
 const Messages = () => {
-
-    const router = useRouter();
+  const router = useRouter();
   // Add this function at the top of your component or in a separate utils file
   const truncateMessage = (message, maxLength = 30) => {
     return message.length > maxLength
       ? message.slice(0, maxLength) + "..."
       : message;
-    };
-    
-    const handleDetails = (id) => {
-        router.push(`/page-message/${id}`);
-    }
+  };
+
+  const handleDetails = (id) => {
+    router.push(`/message/${id}`);
+  };
 
   return (
     <div className={classes.layout}>

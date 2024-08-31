@@ -30,7 +30,7 @@ export default function Footer({ session }) {
   };
 
   const messages = () => {
-    router.push("/page-message");
+    router.push("/message");
   };
 
   return (
