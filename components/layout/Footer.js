@@ -45,7 +45,7 @@ export default function Footer({ session }) {
                 <div className="footer-widget about-widget">
                   <div className="widget-content">
                     <div className="logo">
-                      <Link href="#">
+                      <Link href="/">
                         {" "}
                         <img src="images/logo.png" alt="" />
                       </Link>
