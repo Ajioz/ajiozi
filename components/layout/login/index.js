@@ -22,6 +22,7 @@ const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
       const timer = setTimeout(() => {
         closeModal();
         setAnimateOut(false);
+        setInfo({ email: "", password: "" }); // Reset the form before closing the modal
       }, 500); // Match this duration with your animation duration
       return () => clearTimeout(timer);
     }
@@ -40,11 +41,11 @@ const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
       });
       if (result.error) {
         router.replace("/article");
+        setInfo({ email: "", password: "" }); // Reset the form before closing the modal
       } else {
-        // Reset the form before closing the modal
-        setInfo({ email: "", password: "" });
         closeModal();
         handleUser(true);
+        setInfo({ email: "", password: "" }); // Reset the form before closing the modal
       }
     }
   };
