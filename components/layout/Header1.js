@@ -21,8 +21,7 @@ export default function Header1({
             <div className="top-left">
               <ul className="list-style-one">
                 <li>
-                  <i className="fa fa-map-marker"></i> 86 Broklyn Golden Street.
-                  New York
+                  <i className="fa fa-map-marker"></i> 31 Birmingham, London
                 </li>
                 <li>
                   <i className="fa fa-envelope"></i>{" "}
@@ -76,7 +75,7 @@ export default function Header1({
             <div className="logo-box">
               <div className="logo">
                 <Link href="/">
-                  <img src="images/logo.png" alt="" title="Instec" />
+                  <img src="images/logo.png" alt="" title="Ajioz" />
                 </Link>
               </div>
             </div>
@@ -158,7 +157,7 @@ export default function Header1({
                 <div className="contact-info-box">
                   <span className="icon lnr-icon-clock" />
                   <span className="title">Send Email</span>
-                  Mon - Sat 8:00 - 6:30, Sunday - CLOSED
+                  Sun - Fri 8:00 - 6:30, Saturday - CLOSED
                 </div>
               </li>
             </ul>

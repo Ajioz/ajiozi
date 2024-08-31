@@ -1,24 +1,26 @@
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 export default function Menu() {
+  const pathname = usePathname();
+
+  // Remove the console.log statement
+  // console.log(router.prefetch());
+
   return (
     <>
       <ul className="navigation">
-        <li className="current">
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/services">Services</Link>
-        </li>
-        <li>
-          <Link href="/projects">Projects</Link>
-        </li>
-        <li>
-          <Link href="/article">Blog</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
+        {[ 
+          { href: '/', label: 'Home' },
+          { href: '/services', label: 'Services' },
+          { href: '/projects', label: 'Projects' },
+          { href: '/article', label: 'Blog' },
+          { href: '/contact', label: 'Contact' },
+        ].map(({ href, label }) => (
+          <li key={href} className={pathname === href ? 'current' : ''}>
+            <Link href={href}>{label}</Link>
+          </li>
+        ))}
       </ul>
     </>
   );

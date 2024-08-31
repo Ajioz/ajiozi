@@ -15,6 +15,10 @@ const Messages = () => {
     router.push(`/message/${id}`);
   };
 
+  const handleDelete = (id) => {
+    console.log(`${id} deleted!`);
+  };
+
   return (
     <div className={classes.layout}>
       <div className={classes.container} onClick={() => handleDetails(1)}>
@@ -24,6 +28,10 @@ const Messages = () => {
         <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
         <div className={classes.phone}>+234-8064107055</div>
         <div className={classes.date}>Aug 24th, 2024</div>
+        <i
+          className={`${"icon fa fa-trash"} ${classes.chevron}`}
+          onClick={() => handleDelete(1)}
+        ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
       <div className={classes.container} onClick={() => handleDetails(2)}>
@@ -38,6 +46,10 @@ const Messages = () => {
         <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
         <div className={classes.phone}>+234-8064107055</div>
         <div className={classes.date}>Aug 24th, 2024</div>
+        <i
+          className={`${"icon fa fa-trash"} ${classes.chevron}`}
+          onClick={() => handleDelete(2)}
+        ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
       <div className={classes.container} onClick={() => handleDetails(3)}>
@@ -47,6 +59,10 @@ const Messages = () => {
         <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
         <div className={classes.phone}>+234-8064107055</div>
         <div className={classes.date}>Aug 24th, 2024</div>
+        <i
+          className={`${"icon fa fa-trash"} ${classes.chevron}`}
+          onClick={() => handleDelete(3)}
+        ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
     </div>
