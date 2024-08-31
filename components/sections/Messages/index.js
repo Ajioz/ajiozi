@@ -22,15 +22,22 @@ const Messages = () => {
   return (
     <div className={classes.layout}>
       <div className={classes.container} onClick={() => handleDetails(1)}>
-        <div className={classes.sn}>1</div>
-        <div className={classes.name}>Ajiroghene Sunday</div>
+        <div className={classes.sn}>{truncateMessage(1, 3)}</div>
+        <div className={classes.name}>
+          {truncateMessage("Ajiroghene Sunday", 18)}
+        </div>
         <div className={classes.message}>
-          {" "}
           {truncateMessage("I want to connect for a project")}
         </div>
-        <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
-        <div className={classes.phone}>+234-8064107055</div>
-        <div className={classes.date}>Aug 24th, 2024</div>
+        <div className={classes.email}>
+          {truncateMessage("sunny.ajiroghene@gmail.com", 20)}
+        </div>
+        <div className={classes.phone}>
+          {truncateMessage("+234 - 8064107055", 18)}
+        </div>
+        <div className={classes.date}>
+          {truncateMessage("Aug 24th, 2024", 14)}
+        </div>
         <i
           className={`${"icon fa fa-trash"} ${classes.chevron}`}
           onClick={(e) => {
@@ -40,41 +47,54 @@ const Messages = () => {
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
-      <div className={classes.container} onClick={() => handleDetails(2)}>
-        <div className={classes.sn}>2</div>
-        <div className={classes.name}>Ajiroghene Sunday</div>
-        <div className={classes.message}>
-          {truncateMessage(
-            "I want to connect for a project, I want to connect for a project , I want to connect for a project",
-            50
-          )}
+      <div className={classes.container} onClick={() => handleDetails(1)}>
+        <div className={classes.sn}>{truncateMessage(2, 3)}</div>
+        <div className={classes.name}>
+          {truncateMessage("Ajiroghene Sunday", 18)}
         </div>
-        <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
-        <div className={classes.phone}>+234-8064107055</div>
-        <div className={classes.date}>Aug 24th, 2024</div>
+        <div className={classes.message}>
+          {truncateMessage("I want to connect for a project")}
+        </div>
+        <div className={classes.email}>
+          {truncateMessage("sunny.ajiroghene@gmail.com", 20)}
+        </div>
+        <div className={classes.phone}>
+          {truncateMessage("+234 - 8064107055", 18)}
+        </div>
+        <div className={classes.date}>
+          {truncateMessage("Aug 24th, 2024", 14)}
+        </div>
         <i
           className={`${"icon fa fa-trash"} ${classes.chevron}`}
           onClick={(e) => {
             e.stopPropagation();
-            handleDelete(2);
+            handleDelete(1);
           }}
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
-      <div className={classes.container} onClick={() => handleDetails(3)}>
-        <div className={classes.sn}>3</div>
-        <div className={classes.name}>Ajiroghene Sunday</div>
+      <div className={classes.container} onClick={() => handleDetails(1)}>
+        <div className={classes.sn}>{truncateMessage(3, 3)}</div>
+        <div className={classes.name}>
+          {truncateMessage("Ajiroghene Sunday", 18)}
+        </div>
         <div className={classes.message}>
           {truncateMessage("I want to connect for a project")}
         </div>
-        <div className={classes.email}>sunny.ajiroghene@gmail.com</div>
-        <div className={classes.phone}>+234-8064107055</div>
-        <div className={classes.date}>Aug 24th, 2024</div>
+        <div className={classes.email}>
+          {truncateMessage("sunny.ajiroghene@gmail.com", 20)}
+        </div>
+        <div className={classes.phone}>
+          {truncateMessage("+234 - 8064107055", 18)}
+        </div>
+        <div className={classes.date}>
+          {truncateMessage("Aug 24th, 2024", 14)}
+        </div>
         <i
           className={`${"icon fa fa-trash"} ${classes.chevron}`}
           onClick={(e) => {
             e.stopPropagation();
-            handleDelete(3);
+            handleDelete(1);
           }}
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
