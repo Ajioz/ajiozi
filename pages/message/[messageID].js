@@ -6,13 +6,14 @@ export default function MessageDetail() {
   const router = useRouter();
   const { messageID } = router.query;
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div className={styles.container}>
       {/* Original Vertical Sidebar */}
       <div className={styles.navbar}>
-        <div className={styles.navItem}>📥</div>
-        <div className={styles.navItem}>⭐</div>
-        <div className={styles.navItem}>✉️</div>
-        <div className={styles.navItem}>🗑️</div>
+        <i className={`icon fa fa-gear ${styles.navItem}`}></i>
+        <i className={`icon fa fa-house ${styles.navItem}`}></i>
+        <i className={`icon fa fa-bars ${styles.navItem}`}></i>
+        <i className={`icon fa fa-suitcase ${styles.navItem}`}></i>
+        <i className={`icon fa fa-person ${styles.navItem}`}></i>
         {/* Add more items as needed */}
       </div>
 
@@ -20,6 +21,7 @@ export default function MessageDetail() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         {/* Header with Sidebar Navigation */}
         <div className={styles.headerSidebar}>
+          <i className={`icon fa fa-bars ${styles.chevron}`}></i>
           <div className={styles.logo}>ajiozMail</div>
           <div className={styles.searchBar}>
             <input type="text" placeholder="Search mail" />
@@ -46,6 +48,9 @@ export default function MessageDetail() {
             <li>
               <i className={`icon fa fa-arrow-right ${styles.chevron}`}></i>
             </li>
+            <li>
+              <i className={`icon fa fa-ellipsis-v ${styles.chevron}`}></i>
+            </li>
           </ul>
           <ul className={styles.iconsRight}>
             <li>2 of 120</li>
@@ -61,13 +66,14 @@ export default function MessageDetail() {
         {/* Message Detail */}
         <div className={styles.messageContainer}>
           <div className={styles.messageHeader}>
-            <div className="subject">
-              <h4>What’s the Difference Between localhost and 127.0.0.1? </h4>
+            <div className={styles.subject}>
+              <h4>Mail from </h4>
+              <p>{"sunny.ajiroghene@gmail.com"}</p>
             </div>
-            <div className="controls">
-              <button className={styles.actionButton}>Reply</button>
-              <button className={styles.actionButton}>Forward</button>
-              <button className={styles.actionButton}>Delete</button>
+            <div className={styles.controls}>
+              <i className={`icon fa fa-reply ${styles.chevron}`}></i>
+              <i className={`icon fa fa-forward ${styles.chevron}`}></i>
+              <i className={`icon fa fa-trash ${styles.chevron}`}></i>
             </div>
           </div>
 

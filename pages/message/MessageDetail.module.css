@@ -1,5 +1,10 @@
 /* MessageDetail.module.css */
 
+.container{
+  display: flex;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
 /* Original Vertical Sidebar */
 .navbar {
   width: 75px;
@@ -8,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 150px;
 }
 
 .navItem {
@@ -29,9 +34,9 @@
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f1f3f4;
+  /* border-bottom: 1px solid #ddd; */
+  /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .headerSidebar .logo {
@@ -45,7 +50,7 @@
   flex: 1;
   display: flex;
   align-items: center;
-  background-color: #f1f3f4;
+  background-color: white;
   border-radius: 24px;
   padding: 0 15px;
 }
@@ -84,8 +89,9 @@
 /* Message Area */
 .messageContainer {
   flex: 1;
-  padding: 20px;
+  padding: 20px 80px;
   overflow-y: auto;
+  background-color: #fff;
 }
 
 .messageHeader {
@@ -98,8 +104,23 @@
 }
 
 .messageHeader .subject {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  width: 50%;
+}
+.messageHeader .subject h4, .messageHeader .subject p{
   font-size: 18px;
-  font-weight: bold;
+  margin: 10px;
+  font-family: monospace;
+}
+.messageHeader .subject p{
+  font-style: italic;
+  background-color: #eee;
+  padding: 2px 20px;
+  border-radius: 50px;
 }
 
 .messageHeader .controls {
@@ -111,6 +132,8 @@
   display: flex;
   width: 100%;
   height: 50px;
+  border-radius: 50px 50px 0 0;
+  background-color: white;
 }
 
 .iconsLeft{
@@ -130,6 +153,9 @@
 .messageContent {
   white-space: pre-wrap;
   line-height: 1.5;
+  background-color: #f0f0f0;
+  padding: 50px;
+  min-height: 80vh;
 }
 
 .actions {
@@ -138,13 +164,3 @@
   gap: 10px;
 }
 
-.actionButton {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  background-color: #f5f5f5;
-  cursor: pointer;
-}
-
-.actionButton:hover {
-  background-color: #e8eaed;
-}
