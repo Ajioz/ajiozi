@@ -158,9 +158,40 @@
   min-height: 80vh;
 }
 
-.actions {
-  margin-top: 20px;
+.author {
+  margin: 0;
   display: flex;
-  gap: 10px;
+  width: 300px;
+  height: fit-content;
+  background: azure;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+.author .chip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #00bcd4, #eda62a);
+  color: #fff;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.author .contacts{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 200px;
+  height: 50px;
+  margin: 0;
+  background: #fff;
+}
+
+.author .contacts p{
+  margin: 0 10px;
+}

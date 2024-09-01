@@ -2,9 +2,14 @@ import React from "react";
 import { useRouter } from "next/router";
 import styles from "./MessageDetail.module.css";
 
+const fullName = "Ajiroghene Sunny";
+
 export default function MessageDetail() {
   const router = useRouter();
   const { messageID } = router.query;
+
+  const firstName = fullName.split(" ")[0];
+  const lastName = fullName.split(" ")[1];
   return (
     <div className={styles.container}>
       {/* Original Vertical Sidebar */}
@@ -79,7 +84,15 @@ export default function MessageDetail() {
 
           <div className={styles.messageContent}>
             <h2>Medium Daily Digest</h2>
-            <p>Today's Highlights</p>
+            <div className={styles.author}>
+              <div
+                className={styles.chip}
+              >{`${firstName[0]}${lastName[0]}`}</div>
+              <div className={styles.contacts}>
+                <p>{"Ajiroghene Sunny"}</p>
+                <p>+234{-8064107055}</p>
+              </div>
+            </div>
             <p>
               What's the Difference Between localhost and 127.0.0.1? This
               article explains the differences...
