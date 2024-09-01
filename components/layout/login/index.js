@@ -16,13 +16,17 @@ const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
     setAnimateOut(true); // Trigger the slideOut animation
   };
 
+  const reset = () => {
+    setInfo({ email: "", password: "" }); // Reset the form before closing the modal
+  };
+
   useEffect(() => {
     // If animateOut is true, set a timeout to remove the navbar after the animation
     if (animateOut) {
       const timer = setTimeout(() => {
         closeModal();
         setAnimateOut(false);
-        setInfo({ email: "", password: "" }); // Reset the form before closing the modal
+        reset();
       }, 500); // Match this duration with your animation duration
       return () => clearTimeout(timer);
     }
@@ -41,11 +45,11 @@ const LoginModal = ({ showModal, closeModal, handleUser, session }) => {
       });
       if (result.error) {
         router.replace("/article");
-        setInfo({ email: "", password: "" }); // Reset the form before closing the modal
+        reset();
       } else {
         closeModal();
         handleUser(true);
-        setInfo({ email: "", password: "" }); // Reset the form before closing the modal
+        reset();
       }
     }
   };
