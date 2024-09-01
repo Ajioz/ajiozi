@@ -13,20 +13,23 @@ export default function MessageDetail() {
     <div className={styles.container}>
       {/* Original Vertical Sidebar */}
       <div className={styles.navbar}>
-        <i className={`icon fa fa-gear ${styles.navItem}`}></i>
-        <i className={`icon fa fa-house ${styles.navItem}`}></i>
-        <i className={`icon fa fa-bars ${styles.navItem}`}></i>
-        <i className={`icon fa fa-suitcase ${styles.navItem}`}></i>
-        <i className={`icon fa fa-person ${styles.navItem}`}></i>
-        {/* Add more items as needed */}
+        <div className={styles.navMenu}>
+          <i className={`icon fa fa-bars ${styles.chevron}`}></i>
+        </div>
+        <div className={styles.navIcon}>
+          <i className={`icon fa fa-gear ${styles.navItem}`}></i>
+          <i className={`icon fa fa-house ${styles.navItem}`}></i>
+          <i className={`icon fa fa-bars ${styles.navItem}`}></i>
+          <i className={`icon fa fa-suitcase ${styles.navItem}`}></i>
+          <i className={`icon fa fa-person ${styles.navItem}`}></i>
+        </div>
       </div>
 
       {/* Main Content Area */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         {/* Header with Sidebar Navigation */}
         <div className={styles.headerSidebar}>
-          <i className={`icon fa fa-bars ${styles.chevron}`}></i>
-          <div className={styles.logo}>ajiozMail</div>
+          <div className={styles.logo}>ajioz<span>Mail</span></div>
           <div className={styles.searchBar}>
             <input type="text" placeholder="Search mail" />
           </div>
