@@ -89,13 +89,16 @@ export default function MessageDetail() {
                 className={styles.chip}
               >{`${firstName[0]}${lastName[0]}`}</div>
               <div className={styles.contacts}>
-                <p>{"Ajiroghene Sunny"}</p>
-                <p>+234{-8064107055}</p>
+                <p>
+                  <strong>{"Ajiroghene Sunny"}</strong>
+                </p>
+                <p>
+                  <cite>+234{-8064107055}</cite>
+                </p>
               </div>
             </div>
             <p>
-              What's the Difference Between localhost and 127.0.0.1? This
-              article explains the differences...
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem unde alias eum perferendis fugit deleniti saepe suscipit error, repellat sequi recusandae autem odit tenetur ipsam dignissimos ipsa corporis, repudiandae praesentium. Corrupti ratione veniam et, molestiae nulla a porro! Eos ea quidem ipsam blanditiis laboriosam ullam quos vel est quis doloremque doloribus, aspernatur, nesciunt commodi perspiciatis, ad laborum! Beatae veniam voluptatibus est quas rerum eius exercitationem in delectus nihil, fugit cupiditate amet? Unde quia neque minus sequi corrupti at deleniti reprehenderit alias voluptatibus ipsa quibusdam, a amet enim saepe maxime. Fuga, omnis vero corrupti blanditiis optio natus, voluptates repellendus odit voluptatibus aut inventore sint deleniti dolore eum! Consequatur sed alias asperiores expedita a dolores cupiditate dolorem ut tempora necessitatibus magnam, hic nobis suscipit perferendis? Aut, perferendis nemo, quidem iure doloribus dicta porro nam error enim asperiores optio aliquid pariatur soluta aperiam ullam fugiat accusamus quod, libero provident deleniti harum et magni blanditiis eveniet. Minus suscipit totam ut, ducimus odio animi soluta et earum corrupti cum modi veritatis tenetur vel laudantium, ipsum obcaecati sed sequi odit molestiae iusto ex nemo? Amet dolore omnis perspiciatis voluptates repellat fugiat autem voluptatem, ducimus soluta assumenda molestias voluptatum cupiditate eum blanditiis, ut dolorum, sequi quisquam nostrum.
             </p>
             {/* Add more content as needed */}
           </div>

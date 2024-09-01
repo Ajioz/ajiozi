@@ -158,12 +158,18 @@
   min-height: 80vh;
 }
 
+.messageContent > p{
+  margin: 15px auto;
+  border-left: solid 4px darkcyan;
+  padding-left: 50px;
+  margin: 30px 20px;
+}
+
 .author {
   margin: 0;
   display: flex;
   width: 300px;
   height: fit-content;
-  background: azure;
   align-items: center;
   justify-content: flex-start;
 }
@@ -187,11 +193,13 @@
   justify-content: center;
   align-items: flex-start;
   width: 200px;
-  height: 50px;
+  height: 40px;
   margin: 0;
-  background: #fff;
 }
 
 .author .contacts p{
   margin: 0 10px;
+  width: fit-content;
+  padding: 0;
+  line-height: 20px;
 }
