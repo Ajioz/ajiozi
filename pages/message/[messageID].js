@@ -20,7 +20,7 @@ export default function MessageDetail() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         {/* Header with Sidebar Navigation */}
         <div className={styles.headerSidebar}>
-          <div className={styles.logo}>Gmail</div>
+          <div className={styles.logo}>ajiozMail</div>
           <div className={styles.searchBar}>
             <input type="text" placeholder="Search mail" />
           </div>
@@ -31,6 +31,31 @@ export default function MessageDetail() {
             {/* Add more header navigation items as needed */}
           </div>
           <div className={styles.profileIcon}></div>
+        </div>
+        <div className={styles.quickIcons}>
+          <ul className={styles.iconsLeft}>
+            <li>
+              <i className={`icon fa fa-arrow-left ${styles.chevron}`}></i>
+            </li>
+            <li>
+              <i className={`icon fa fa-envelope ${styles.chevron}`}></i>
+            </li>
+            <li>
+              <i className={`icon fa fa-trash ${styles.chevron}`}></i>
+            </li>
+            <li>
+              <i className={`icon fa fa-arrow-right ${styles.chevron}`}></i>
+            </li>
+          </ul>
+          <ul className={styles.iconsRight}>
+            <li>2 of 120</li>
+            <li>
+              <i className={`icon fa fa-chevron-left ${styles.chevron}`}></i>
+            </li>
+            <li>
+              <i className={`icon fa fa-chevron-right ${styles.chevron}`}></i>
+            </li>
+          </ul>
         </div>
 
         {/* Message Detail */}

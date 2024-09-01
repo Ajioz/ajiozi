@@ -107,6 +107,26 @@
   gap: 10px;
 }
 
+.quickIcons{
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+.iconsLeft{
+  display: flex;
+  width: 50%;
+  margin: 0 20px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.iconsRight{
+  display: flex;
+  width: 50%;
+  margin: 0 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
 .messageContent {
   white-space: pre-wrap;
   line-height: 1.5;
