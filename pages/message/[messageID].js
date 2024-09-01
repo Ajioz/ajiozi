@@ -1,4 +1,3 @@
-import React from "react";
 import { useRouter } from "next/router";
 import styles from "./MessageDetail.module.css";
 
@@ -57,15 +56,9 @@ export default function MessageDetail() {
               <i className={`icon fa fa-ellipsis-v ${styles.chevron}`}></i>
             </li>
           </ul>
-          <ul className={styles.iconsRight}>
-            <li>2 of 120</li>
-            <li>
-              <i className={`icon fa fa-chevron-left ${styles.chevron}`}></i>
-            </li>
-            <li>
-              <i className={`icon fa fa-chevron-right ${styles.chevron}`}></i>
-            </li>
-          </ul>
+          <div className={styles.iconsRight}>
+            <p>2 of 120</p>
+          </div>
         </div>
 
         {/* Message Detail */}
@@ -76,6 +69,7 @@ export default function MessageDetail() {
               <p>{"sunny.ajiroghene@gmail.com"}</p>
             </div>
             <div className={styles.controls}>
+              <date className={styles.chevron}>{"Sep 1, 2024"}</date>
               <i className={`icon fa fa-reply ${styles.chevron}`}></i>
               <i className={`icon fa fa-forward ${styles.chevron}`}></i>
               <i className={`icon fa fa-trash ${styles.chevron}`}></i>
@@ -98,7 +92,30 @@ export default function MessageDetail() {
               </div>
             </div>
             <p>
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem unde alias eum perferendis fugit deleniti saepe suscipit error, repellat sequi recusandae autem odit tenetur ipsam dignissimos ipsa corporis, repudiandae praesentium. Corrupti ratione veniam et, molestiae nulla a porro! Eos ea quidem ipsam blanditiis laboriosam ullam quos vel est quis doloremque doloribus, aspernatur, nesciunt commodi perspiciatis, ad laborum! Beatae veniam voluptatibus est quas rerum eius exercitationem in delectus nihil, fugit cupiditate amet? Unde quia neque minus sequi corrupti at deleniti reprehenderit alias voluptatibus ipsa quibusdam, a amet enim saepe maxime. Fuga, omnis vero corrupti blanditiis optio natus, voluptates repellendus odit voluptatibus aut inventore sint deleniti dolore eum! Consequatur sed alias asperiores expedita a dolores cupiditate dolorem ut tempora necessitatibus magnam, hic nobis suscipit perferendis? Aut, perferendis nemo, quidem iure doloribus dicta porro nam error enim asperiores optio aliquid pariatur soluta aperiam ullam fugiat accusamus quod, libero provident deleniti harum et magni blanditiis eveniet. Minus suscipit totam ut, ducimus odio animi soluta et earum corrupti cum modi veritatis tenetur vel laudantium, ipsum obcaecati sed sequi odit molestiae iusto ex nemo? Amet dolore omnis perspiciatis voluptates repellat fugiat autem voluptatem, ducimus soluta assumenda molestias voluptatum cupiditate eum blanditiis, ut dolorum, sequi quisquam nostrum.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem unde alias eum perferendis fugit deleniti saepe
+              suscipit error, repellat sequi recusandae autem odit tenetur ipsam
+              dignissimos ipsa corporis, repudiandae praesentium. Corrupti
+              ratione veniam et, molestiae nulla a porro! Eos ea quidem ipsam
+              blanditiis laboriosam ullam quos vel est quis doloremque
+              doloribus, aspernatur, nesciunt commodi perspiciatis, ad laborum!
+              Beatae veniam voluptatibus est quas rerum eius exercitationem in
+              delectus nihil, fugit cupiditate amet? Unde quia neque minus sequi
+              corrupti at deleniti reprehenderit alias voluptatibus ipsa
+              quibusdam, a amet enim saepe maxime. Fuga, omnis vero corrupti
+              blanditiis optio natus, voluptates repellendus odit voluptatibus
+              aut inventore sint deleniti dolore eum! Consequatur sed alias
+              asperiores expedita a dolores cupiditate dolorem ut tempora
+              necessitatibus magnam, hic nobis suscipit perferendis? Aut,
+              perferendis nemo, quidem iure doloribus dicta porro nam error enim
+              asperiores optio aliquid pariatur soluta aperiam ullam fugiat
+              accusamus quod, libero provident deleniti harum et magni
+              blanditiis eveniet. Minus suscipit totam ut, ducimus odio animi
+              soluta et earum corrupti cum modi veritatis tenetur vel
+              laudantium, ipsum obcaecati sed sequi odit molestiae iusto ex
+              nemo? Amet dolore omnis perspiciatis voluptates repellat fugiat
+              autem voluptatem, ducimus soluta assumenda molestias voluptatum
+              cupiditate eum blanditiis, ut dolorum, sequi quisquam nostrum.
             </p>
             {/* Add more content as needed */}
           </div>
