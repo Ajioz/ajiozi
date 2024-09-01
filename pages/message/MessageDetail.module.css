@@ -63,7 +63,7 @@
   margin-right: 20px;
 }
 .headerSidebar .logo  span{
-  color: darkred;
+  color: #00bcd4;
 }
 
 .headerSidebar .searchBar {
@@ -257,4 +257,99 @@
   width: fit-content;
   padding: 0;
   line-height: 20px;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .navbar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  .navbar .navMenu {
+    display: none;
+  }
+
+  .navbar .navIcon {
+    display: none;
+  }
+
+  .headerSidebar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .headerSidebar .logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .headerSidebar .searchBar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .headerSidebar .headerNav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .messageContainer {
+    padding: 10px;
+  }
+
+  .messageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .messageHeader .subject {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .messageHeader .controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .quickIcons {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .iconsLeft, .iconsRight {
+    width: 100%;
+    justify-content: space-around;
+    margin: 10px 0;
+  }
+
+  .iconsLeft li {
+    margin: 5px;
+  }
+
+  .iconsRight p {
+    width: auto;
+  }
+
+  .messageContent {
+    padding: 20px;
+  }
+
+  .messageContent > p {
+    padding-left: 20px;
+    margin: 20px 10px;
+  }
+
+  .author {
+    width: 100%;
+  }
 }
