@@ -7,8 +7,10 @@ import { getEventById, getAllEvents } from "@/dummy";
 import { showItem } from "@/components/util/helpers";
 
 export default function MessageDetail() {
+
   const router = useRouter();
   const { messageID } = router.query;
+
   const scrollContainerRef = useRef(null);
   const messages = getAllEvents();
 
@@ -27,7 +29,7 @@ export default function MessageDetail() {
   useEffect(() => {
     const { pageItemPosition, length } = showItem(messages, messageID, null);
     setTrack({ ...track, position: pageItemPosition, size: length });
-  }, []);
+  }, [messageID]);
 
   const nextMsg = (props) => {
     const { pageItemPosition, length, locatedItem } = showItem(
@@ -37,6 +39,8 @@ export default function MessageDetail() {
     );
     setContent((prev) => (prev = locatedItem));
     setTrack({ ...track, position: pageItemPosition, size: length });
+
+    router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
   };
 
   const name = content?.name;
