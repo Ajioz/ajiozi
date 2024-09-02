@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
 }
-.navbar .navMenu{
+.navbar .navMenu {
   height: 10vh;
   width: 100%;
   width: 100%;
@@ -23,11 +23,11 @@
   justify-content: center;
 }
 
-.navbar .navMenu .chevron{
+.navbar .navMenu .chevron {
   font-size: 30px;
   color: #000;
 }
-.navbar .navIcon{
+.navbar .navIcon {
   height: 90vh;
   width: 100%;
   padding-top: 100px;
@@ -55,14 +55,13 @@
   background-color: #f1f3f4;
 }
 
-
 .headerSidebar .logo {
   font-size: 24px;
   font-weight: bold;
   color: #4285f4;
   margin-right: 20px;
 }
-.headerSidebar .logo  span{
+.headerSidebar .logo span {
   color: #00bcd4;
 }
 
@@ -163,6 +162,21 @@
   transition: box-shadow 0.1s ease;
 }
 
+.scrollBorder {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.1s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add elevation effect */
+}
 
 .iconsLeft {
   display: flex;
@@ -326,7 +340,8 @@
     height: auto;
   }
 
-  .iconsLeft, .iconsRight {
+  .iconsLeft,
+  .iconsRight {
     width: 100%;
     justify-content: space-around;
     margin: 10px 0;

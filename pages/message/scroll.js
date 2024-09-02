@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
-const Scroll = ({ scrollContainerRef }) => {
+const Scroll = ({ scrollContainerRef, border }) => {
   const [scrollY, setScrollY] = useState(0);
+
+  //   const [addBorder, setAddBorder] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +20,13 @@ const Scroll = ({ scrollContainerRef }) => {
     };
   }, [scrollContainerRef]);
 
-  return (
-    <div>
-      <p>Current Scroll Position: {scrollY}</p>
-    </div>
-  );
+  if (scrollY > 25) {
+    border(true);
+  } else {
+    border(false);
+  }
+
+  return;
 };
 
 export default Scroll;
