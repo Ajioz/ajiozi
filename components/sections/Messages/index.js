@@ -22,7 +22,6 @@ const Messages = () => {
   
   const handleDelete = (id) => {
     setMessages(getEventsById(messages, id));
-    console.log(`${id} deleted!`);
   };
 
   return (
@@ -30,10 +29,10 @@ const Messages = () => {
       {messages.map((message, index) => (
         <div
           className={classes.container}
-          onClick={() => handleDetails(1)}
+          onClick={() => handleDetails(message.id)}
           key={message.id}
         >
-          <div className={classes.sn}>{truncateMessage(index+1, 3)}</div>
+          <div className={classes.sn}>{truncateMessage(index + 1, 3)}</div>
           <div className={classes.name}>
             {truncateMessage(message.name, 18)}
           </div>
@@ -43,7 +42,9 @@ const Messages = () => {
           <div className={classes.email}>
             {truncateMessage(message.email, 20)}
           </div>
-          <div className={classes.phone}>{truncateMessage(message.phone, 18)}</div>
+          <div className={classes.phone}>
+            {truncateMessage(message.phone, 18)}
+          </div>
           <div className={classes.date}>
             {truncateMessage(message.date, 14)}
           </div>

@@ -3,24 +3,24 @@ import { useRef, useState } from "react";
 import styles from "./MessageDetail.module.css";
 import Scroll from "./scroll";
 import Link from "next/link";
-
-const fullName = "Ajiroghene Sunny";
+import { getEventById } from "@/dummy";
 
 export default function MessageDetail() {
   const scrollContainerRef = useRef(null);
-
-  const [addShadow, setAddShadow] = useState(styles.quickIcons);
-
   const router = useRouter();
   const { messageID } = router.query;
+
+  const [addShadow, setAddShadow] = useState(styles.quickIcons);
+  const [content, setContent] = useState(getEventById(messageID));
 
   const border = (props) => {
     if (props) setAddShadow(styles.scrollBorder);
     else setAddShadow(styles.quickIcons);
   };
 
-  const firstName = fullName.split(" ")[0];
-  const lastName = fullName.split(" ")[1];
+  const name = content.name;
+  const firstName = name.split(" ")[0];
+  const lastName = name.split(" ")[1];
 
   return (
     <div className={styles.container}>
@@ -86,10 +86,10 @@ export default function MessageDetail() {
           <div className={styles.messageHeader}>
             <div className={styles.subject}>
               <h4>Mail from </h4>
-              <p>{"sunny.ajiroghene@gmail.com"}</p>
+              <p>{content.email}</p>
             </div>
             <div className={styles.controls}>
-              <date className={styles.chevron}>{"Sep 1, 2024"}</date>
+              <date className={styles.chevron}>{content.date}</date>
               <i className={`icon fa fa-reply ${styles.chevron}`}></i>
               <i className={`icon fa fa-forward ${styles.chevron}`}></i>
               <i className={`icon fa fa-trash ${styles.chevron}`}></i>
@@ -97,40 +97,21 @@ export default function MessageDetail() {
           </div>
 
           <div className={styles.messageContent}>
-            <h2>Medium Daily Digest</h2>
+            <h2>{content.subject}</h2>
             <div className={styles.author}>
-              <div
-                className={styles.chip}
-              >{`${firstName[0]}${lastName[0]}`}</div>
+              <div className={styles.chip}>
+                {`${firstName[0]}${lastName[0]}`}
+              </div>
               <div className={styles.contacts}>
                 <p>
-                  <strong>{"Ajiroghene Sunny"}</strong>
+                  <strong>{name}</strong>
                 </p>
                 <p>
-                  <cite>+234{-8064107055}</cite>
+                  <cite>{content.phone}</cite>
                 </p>
               </div>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem unde alias eum perferendis fugit deleniti saepe
-              suscipit error, repellat sequi recusandae autem odit tenetur ipsam
-              dignissimos ipsa corporis, repudiandae praesentium. Corrupti
-              ratione veniam et, molestiae nulla a porro! Eos ea quidem ipsam
-              blanditiis laboriosam ullam quos vel est quis doloremque
-              doloribus, aspernatur, nesciunt commodi perspiciatis, ad laborum!
-              Beatae veniam voluptatibus est quas rerum eius exercitationem in
-              delectus nihil, fugit cupiditate amet? Unde quia neque minus sequi
-              corrupti at deleniti reprehenderit alias voluptatibus ipsa
-              quibusdam, a amet enim saepe maxime. Fuga, omnis vero corrupti
-              blanditiis optio natus, voluptates repellendus odit voluptatibus
-              aut inventore sint deleniti dolore eum! Consequatur sed alias
-              asperiores expedita a dolores cupiditate dolorem ut tempora
-              necessitatibus magnam, hic nobis suscipit perferendis? Aut,
-              perferendis nemo, quidem iure doloribus dicta porro nam error enim
-              asperiores optio aliquid pariatur soluta aperiam ullam fugiat
-              accusamus quod, libero provident deleniti harum et magni
-            </p>
+            <p>{content.message}</p>
             {/* Add more content as needed */}
           </div>
         </div>
