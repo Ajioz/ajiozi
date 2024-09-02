@@ -8,9 +8,15 @@ export const showItem = (arrayObj, currentId, locate) => {
   let nextItemID;
 
   if (locate === "prev") {
-    nextItemID = ids[pageItemPosition - 1];
+    let prevNum = pageItemPosition - 1;
+    if (prevNum < 0) prevNum = 0;
+    nextItemID = ids[prevNum];
   } else if (locate === "next") {
-    nextItemID = ids[pageItemPosition + 1];
+    let nextNum = pageItemPosition + 1;
+    if (nextNum >= ids.length) nextNum = ids.length - 1;
+    nextItemID = ids[nextNum];
+  } else {
+    throw new Error('Invalid locate value. Use "prev" or "next".');
   }
 
   return arrayObj.find((obj) => obj.id === nextItemID);
