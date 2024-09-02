@@ -1,13 +1,10 @@
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./MessageDetail.module.css";
 import Scroll from "./scroll";
 import Link from "next/link";
 import { getEventById, getAllEvents } from "@/dummy";
-
-
-let position;
-let size;
+import { showItem } from "@/components/util/helpers";
 
 export default function MessageDetail() {
   const router = useRouter();
@@ -17,11 +14,20 @@ export default function MessageDetail() {
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
   const [content, setContent] = useState(getEventById(messageID));
+  const [track, setTrack] = useState({
+    position: 0,
+    size: getAllEvents().length,
+  });
 
   const border = (props) => {
     if (props) setAddShadow(styles.scrollBorder);
     else setAddShadow(styles.quickIcons);
   };
+
+  useEffect(() => {
+    const { pageItemPosition, length } = showItem(messages, messageID, null);
+    setTrack({ ...track, position: pageItemPosition, size: length });
+  }, []);
 
   const nextMsg = (props) => {
     const { pageItemPosition, length, locatedItem } = showItem(
@@ -30,13 +36,12 @@ export default function MessageDetail() {
       props
     );
     setContent((prev) => (prev = locatedItem));
-    position = pageItemPosition;
-    size = length
+    setTrack({ ...track, position: pageItemPosition, size: length });
   };
 
-  const name = content.name;
-  const firstName = name.split(" ")[0];
-  const lastName = name.split(" ")[1];
+  const name = content?.name;
+  const firstName = name?.split(" ")[0];
+  const lastName = name?.split(" ")[1];
 
   return (
     <div className={styles.container}>
@@ -94,7 +99,7 @@ export default function MessageDetail() {
           </ul>
           <div className={styles.iconsRight}>
             <p>
-              {position} of {size}
+              {track.position+1} of {track.size}
             </p>
           </div>
         </div>
@@ -104,10 +109,10 @@ export default function MessageDetail() {
           <div className={styles.messageHeader}>
             <div className={styles.subject}>
               <h4>Mail from </h4>
-              <p>{content.email}</p>
+              <p>{content?.email}</p>
             </div>
             <div className={styles.controls}>
-              <date className={styles.chevron}>{content.date}</date>
+              <date className={styles.chevron}>{content?.date}</date>
               <i className={`icon fa fa-reply ${styles.chevron}`}></i>
               <i className={`icon fa fa-forward ${styles.chevron}`}></i>
               <i className={`icon fa fa-trash ${styles.chevron}`}></i>
@@ -115,21 +120,21 @@ export default function MessageDetail() {
           </div>
 
           <div className={styles.messageContent}>
-            <h2>{content.subject}</h2>
+            <h2>{content?.subject}</h2>
             <div className={styles.author}>
               <div className={styles.chip}>
-                {`${firstName[0]}${lastName[0]}`}
+                {firstName && `${firstName[0]}${lastName[0]}`}
               </div>
               <div className={styles.contacts}>
                 <p>
                   <strong>{name}</strong>
                 </p>
                 <p>
-                  <cite>{content.phone}</cite>
+                  <cite>{content?.phone}</cite>
                 </p>
               </div>
             </div>
-            <p>{content.message}</p>
+            <p>{content?.message}</p>
             {/* Add more content as needed */}
           </div>
         </div>

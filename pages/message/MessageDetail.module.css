@@ -62,7 +62,8 @@
   margin-right: 20px;
 }
 .headerSidebar .logo span {
-  color: #00bcd4;
+  /* color: #00bcd4; */
+  color: rgb(109, 219, 5);
 }
 
 .headerSidebar .searchBar {

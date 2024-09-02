@@ -37,7 +37,7 @@ const Messages = () => {
             {truncateMessage(message.name, 18)}
           </div>
           <div className={classes.message}>
-            {truncateMessage(message.message)}
+            {truncateMessage(message.subject)}
           </div>
           <div className={classes.email}>
             {truncateMessage(message.email, 20)}
