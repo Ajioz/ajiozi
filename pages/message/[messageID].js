@@ -11,12 +11,22 @@ export default function MessageDetail() {
   const { messageID } = router.query;
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
+
   const [content, setContent] = useState(getEventById(messageID));
+  const [position, setPosition] = useState(0)
 
   const border = (props) => {
     if (props) setAddShadow(styles.scrollBorder);
     else setAddShadow(styles.quickIcons);
   };
+
+  const prevMsg = () => {
+    
+  }
+
+  const nextMsg = () => {
+
+  }
 
   const name = content.name;
   const firstName = name.split(" ")[0];
@@ -60,7 +70,7 @@ export default function MessageDetail() {
         </div>
         <div className={addShadow}>
           <ul className={styles.iconsLeft}>
-            <li onClick={() => router.back()}>
+            <li onClick={prevMsg}>
               <i className={`icon fa fa-arrow-left ${styles.chevron}`}></i>
             </li>
             <li>
@@ -70,7 +80,10 @@ export default function MessageDetail() {
               <i className={`icon fa fa-trash ${styles.chevron}`}></i>
             </li>
             <li>
-              <i className={`icon fa fa-arrow-right ${styles.chevron}`}></i>
+              <i
+                className={`icon fa fa-arrow-right ${styles.chevron}`}
+                onClick={nextMsg}
+              ></i>
             </li>
             <li>
               <i className={`icon fa fa-ellipsis-v ${styles.chevron}`}></i>
