@@ -18,6 +18,7 @@ export const showItem = (arrayObj, currentId, locate) => {
   } else {
     throw new Error('Invalid locate value. Use "prev" or "next".');
   }
+  const locatedItem = arrayObj.find((obj) => obj.id === nextItemID);
 
-  return arrayObj.find((obj) => obj.id === nextItemID);
+  return { pageItemPosition, length: ids.length, locatedItem };
 };

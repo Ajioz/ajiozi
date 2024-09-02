@@ -3,30 +3,36 @@ import { useRef, useState } from "react";
 import styles from "./MessageDetail.module.css";
 import Scroll from "./scroll";
 import Link from "next/link";
-import { getEventById } from "@/dummy";
+import { getEventById, getAllEvents } from "@/dummy";
+
+
+let position;
+let size;
 
 export default function MessageDetail() {
-  const scrollContainerRef = useRef(null);
   const router = useRouter();
   const { messageID } = router.query;
+  const scrollContainerRef = useRef(null);
+  const messages = getAllEvents();
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
-
   const [content, setContent] = useState(getEventById(messageID));
-  const [position, setPosition] = useState(0)
 
   const border = (props) => {
     if (props) setAddShadow(styles.scrollBorder);
     else setAddShadow(styles.quickIcons);
   };
 
-  const prevMsg = () => {
-    
-  }
-
-  const nextMsg = () => {
-
-  }
+  const nextMsg = (props) => {
+    const { pageItemPosition, length, locatedItem } = showItem(
+      messages,
+      messageID,
+      props
+    );
+    setContent((prev) => (prev = locatedItem));
+    position = pageItemPosition;
+    size = length
+  };
 
   const name = content.name;
   const firstName = name.split(" ")[0];
@@ -70,7 +76,7 @@ export default function MessageDetail() {
         </div>
         <div className={addShadow}>
           <ul className={styles.iconsLeft}>
-            <li onClick={prevMsg}>
+            <li onClick={() => nextMsg("prev")}>
               <i className={`icon fa fa-arrow-left ${styles.chevron}`}></i>
             </li>
             <li>
@@ -79,18 +85,17 @@ export default function MessageDetail() {
             <li>
               <i className={`icon fa fa-trash ${styles.chevron}`}></i>
             </li>
-            <li>
-              <i
-                className={`icon fa fa-arrow-right ${styles.chevron}`}
-                onClick={nextMsg}
-              ></i>
+            <li onClick={() => nextMsg("next")}>
+              <i className={`icon fa fa-arrow-right ${styles.chevron}`}></i>
             </li>
             <li>
               <i className={`icon fa fa-ellipsis-v ${styles.chevron}`}></i>
             </li>
           </ul>
           <div className={styles.iconsRight}>
-            <p>2 of 120</p>
+            <p>
+              {position} of {size}
+            </p>
           </div>
         </div>
 
