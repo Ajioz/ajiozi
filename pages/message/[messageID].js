@@ -1,14 +1,22 @@
 import { useRouter } from "next/router";
+import { useRef } from "react";
 import styles from "./MessageDetail.module.css";
+import Scroll from "./scroll";
+
 
 const fullName = "Ajiroghene Sunny";
 
 export default function MessageDetail() {
+
+  const scrollContainerRef = useRef(null);
+  
   const router = useRouter();
   const { messageID } = router.query;
 
+
   const firstName = fullName.split(" ")[0];
   const lastName = fullName.split(" ")[1];
+
   return (
     <div className={styles.container}>
       {/* Original Vertical Sidebar */}
@@ -29,7 +37,9 @@ export default function MessageDetail() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         {/* Header with Sidebar Navigation */}
         <div className={styles.headerSidebar}>
-          <div className={styles.logo}>ajioz<span>Mail</span></div>
+          <div className={styles.logo}>
+            ajioz<span>Mail</span>
+          </div>
           <div className={styles.searchBar}>
             <input type="text" placeholder="Search mail" />
           </div>
@@ -65,7 +75,7 @@ export default function MessageDetail() {
         </div>
 
         {/* Message Detail */}
-        <div className={styles.messageContainer}>
+        <div className={styles.messageContainer} ref={scrollContainerRef}>
           <div className={styles.messageHeader}>
             <div className={styles.subject}>
               <h4>Mail from </h4>
@@ -118,11 +128,24 @@ export default function MessageDetail() {
               laudantium, ipsum obcaecati sed sequi odit molestiae iusto ex
               nemo? Amet dolore omnis perspiciatis voluptates repellat fugiat
               autem voluptatem, ducimus soluta assumenda molestias voluptatum
+              cupiditate eum blanditiis, ut dolorum, sequi quisquam nostrum. aut
+              inventore sint deleniti dolore eum! Consequatur sed alias
+              asperiores expedita a dolores cupiditate dolorem ut tempora
+              necessitatibus magnam, hic nobis suscipit perferendis? Aut,
+              perferendis nemo, quidem iure doloribus dicta porro nam error enim
+              asperiores optio aliquid pariatur soluta aperiam ullam fugiat
+              accusamus quod, libero provident deleniti harum et magni
+              blanditiis eveniet. Minus suscipit totam ut, ducimus odio animi
+              soluta et earum corrupti cum modi veritatis tenetur vel
+              laudantium, ipsum obcaecati sed sequi odit molestiae iusto ex
+              nemo? Amet dolore omnis perspiciatis voluptates repellat fugiat
+              autem voluptatem, ducimus soluta assumenda molestias voluptatum
               cupiditate eum blanditiis, ut dolorum, sequi quisquam nostrum.
             </p>
             {/* Add more content as needed */}
           </div>
         </div>
+        <Scroll scrollContainerRef={scrollContainerRef} />
       </div>
     </div>
   );

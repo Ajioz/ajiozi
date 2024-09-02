@@ -160,7 +160,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.1s ease;
 }
 
 
@@ -178,7 +178,7 @@
   width: 40px;
   height: fit-content;
   text-align: center;
-  transition: all 0.3s ease; /* Add smooth transition */
+  transition: all 0.1s ease; /* Add smooth transition */
 }
 
 .iconsLeft li:hover {
