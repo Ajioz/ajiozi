@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 const Scroll = ({ scrollContainerRef, border }) => {
   const [scrollY, setScrollY] = useState(0);
 
-  //   const [addBorder, setAddBorder] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (scrollContainerRef.current) {

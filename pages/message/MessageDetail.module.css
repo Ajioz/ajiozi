@@ -147,6 +147,9 @@
   display: flex;
   gap: 10px;
 }
+.messageHeader .controls > i:hover {
+cursor: pointer;
+}
 
 .quickIcons {
   display: flex;

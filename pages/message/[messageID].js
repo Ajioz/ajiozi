@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import styles from "./MessageDetail.module.css";
 import Scroll from "./scroll";
+import Link from "next/link";
 
 const fullName = "Ajiroghene Sunny";
 
@@ -41,9 +42,11 @@ export default function MessageDetail() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         {/* Header with Sidebar Navigation */}
         <div className={styles.headerSidebar}>
-          <div className={styles.logo}>
-            ajioz<span>Mail</span>
-          </div>
+          <Link href="/message">
+            <div className={styles.logo}>
+              ajioz<span>Mail</span>
+            </div>
+          </Link>
           <div className={styles.searchBar}>
             <input type="text" placeholder="Search mail" />
           </div>
@@ -57,7 +60,7 @@ export default function MessageDetail() {
         </div>
         <div className={addShadow}>
           <ul className={styles.iconsLeft}>
-            <li>
+            <li onClick={() => router.back()}>
               <i className={`icon fa fa-arrow-left ${styles.chevron}`}></i>
             </li>
             <li>

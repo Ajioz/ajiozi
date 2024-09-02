@@ -21,6 +21,7 @@ const Messages = () => {
 
   return (
     <div className={classes.layout}>
+
       <div className={classes.container} onClick={() => handleDetails(1)}>
         <div className={classes.sn}>{truncateMessage(1, 3)}</div>
         <div className={classes.name}>
@@ -47,6 +48,7 @@ const Messages = () => {
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
+
       <div className={classes.container} onClick={() => handleDetails(2)}>
         <div className={classes.sn}>{truncateMessage(2, 3)}</div>
         <div className={classes.name}>
@@ -73,6 +75,7 @@ const Messages = () => {
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
+
       <div className={classes.container} onClick={() => handleDetails(3)}>
         <div className={classes.sn}>{truncateMessage(3, 3)}</div>
         <div className={classes.name}>
@@ -99,6 +102,7 @@ const Messages = () => {
         ></i>
         <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>
       </div>
+      
     </div>
   );
 };
