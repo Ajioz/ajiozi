@@ -10,6 +10,11 @@ export const getAllDocs = async (client, collection, sort, filter) => {
   return await db.collection(collection).find(filter).sort(sort).toArray();
 };
 
+export const getOneDoc = async (client, collection, target) => {
+  const db = client.db();
+  return await db.collection(collection).find({ target });
+};
+
 const isValidEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -41,9 +46,16 @@ const messageHandler = async (req, res) => {
           .json({ status: false, message: "Invalid input" });
       }
 
-      const newMessage = { email, name, subject, phone, message };
+      const newMessage = {
+        email,
+        name,
+        subject,
+        phone,
+        message,
+        isRead: false,
+      };
 
-      const result = await insertDoc(client, "messages", newMessage);
+      const result = await insertDoc(client, "message", newMessage);
       newMessage.id = result._id;
 
       return res.status(201).json({
@@ -60,6 +72,22 @@ const messageHandler = async (req, res) => {
       client.close(); // Ensure the client is closed after the operations
     }
   } else if (req.method === "GET") {
+    let client = await connectDB();
+    try {
+      const { id } = req.body;
+      if (id === undefined) {
+        const docs = getAllDocs(client, "message", { _id: -1 }, {});
+        return res.status(200).json({ docs });
+      } else {
+        const msg = await getOneDoc(client, "message", id);
+        if (!msg) {
+          return res
+            .status(422)
+            .json({ message: `No message with id: ${id} exists` });
+        }
+        return res.status(200).json({ message: msg });
+      }
+    } catch (error) {}
   } else if (req.method === "PATCH") {
   } else if (req.method === "DELETE") {
   } else {
