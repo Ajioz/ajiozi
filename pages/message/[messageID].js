@@ -7,7 +7,6 @@ import { getEventById, getAllEvents } from "@/dummy";
 import { showItem } from "@/components/lib/helpers";
 
 export default function MessageDetail() {
-
   const router = useRouter();
   const { messageID } = router.query;
 
@@ -21,6 +20,12 @@ export default function MessageDetail() {
     size: getAllEvents().length,
   });
 
+  const navigator = (props) => {
+    const { locatedItem } = showItem(messages, messageID, props);
+    setContent((prev) => (prev = locatedItem));
+    return locatedItem;
+  };
+
   const border = (props) => {
     if (props) setAddShadow(styles.scrollBorder);
     else setAddShadow(styles.quickIcons);
@@ -32,14 +37,23 @@ export default function MessageDetail() {
   }, [messageID]);
 
   const nextMsg = (props) => {
-    const { pageItemPosition, length, locatedItem } = showItem(
-      messages,
-      messageID,
-      props
-    );
-    setContent((prev) => (prev = locatedItem));
-
+    const locatedItem = navigator(props);
     router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
+  };
+
+  const deleteMsg = async (id) => {
+    const locatedItem = navigator("next");
+    const response = await fetch("/api/message", {
+      method: "DELETE",
+      body: JSON.stringify({id}),
+      headers: {
+        "Content-Type:": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
+    }
   };
 
   const name = content?.name;
@@ -102,7 +116,7 @@ export default function MessageDetail() {
           </ul>
           <div className={styles.iconsRight}>
             <p>
-              {track.position+1} of {track.size}
+              {track.position + 1} of {track.size}
             </p>
           </div>
         </div>
