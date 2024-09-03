@@ -29,7 +29,7 @@ const DUMMY = [
       "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
     email: "lovely_brian@hotmail.com",
     phone: "+234-6066368660",
-    isRead: false,
+    isRead: true,
     date: "2022-04-10",
   },
   {

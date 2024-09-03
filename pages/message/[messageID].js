@@ -4,7 +4,7 @@ import styles from "./MessageDetail.module.css";
 import Scroll from "./scroll";
 import Link from "next/link";
 import { getEventById, getAllEvents } from "@/dummy";
-import { showItem } from "@/components/util/helpers";
+import { showItem } from "@/components/lib/helpers";
 
 export default function MessageDetail() {
 

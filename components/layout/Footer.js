@@ -1,32 +1,38 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { getAllEvents } from "@/dummy";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import LoginModal from "./login";
+import { countProps } from "../lib/helpers";
 
 const style = {
-  position: 'relative',
-  display: 'inline-block',
-}
+  position: "relative",
+  display: "inline-block",
+};
 
 const badgeStyle = {
-  position: 'absolute',
-  top: '-5px',
-  right: '-10px',
-  backgroundColor: 'red',
-  width: '15px',
-  height: '15px',
-  color: 'white',
-  borderRadius: '50%',
-  padding: '2px 6px',
-  fontSize: '12px',
-}
+  position: "absolute",
+  top: "-5px",
+  right: "-9px",
+  backgroundColor: "red",
+  width: "20px", // Increased width
+  height: "20px", // Increased height
+  color: "white",
+  borderRadius: "50%",
+  display: "flex", // Added flex display
+  justifyContent: "center", // Center horizontally
+  alignItems: "center", // Center vertically
+  fontSize: "12px",
+};
 
 export default function Footer({ session }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isUser, setIsUser] = useState(false);
+
+  const allItems = getAllEvents();
 
   useEffect(() => {
     if (isOpen) return setShowModal(true);
@@ -154,8 +160,15 @@ export default function Footer({ session }) {
                         <>
                           <li className="contact-info">
                             <i className="icon fa fa-message"></i>{" "}
-                            <span className="login" onClick={messages} style={style}>
-                              Messages <span style={badgeStyle}>3</span>
+                            <span
+                              className="login"
+                              onClick={messages}
+                              style={style}
+                            >
+                              Messages{" "}
+                              <span style={badgeStyle}>
+                                {countProps(allItems, true)}
+                              </span>
                             </span>{" "}
                             &nbsp; | &#9758; | &nbsp;
                             <span
