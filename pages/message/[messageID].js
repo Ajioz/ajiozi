@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
 import { useRef, useState, useEffect } from "react";
-import styles from "./MessageDetail.module.css";
-import Scroll from "./scroll";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import { getEventById, getAllEvents } from "@/dummy";
+import Scroll from "./scroll";
 import { showItem } from "@/components/lib/helpers";
+import { getEventById, getAllEvents } from "@/dummy";
+import styles from "./MessageDetail.module.css";
 
 export default function MessageDetail() {
   const router = useRouter();
@@ -41,18 +41,18 @@ export default function MessageDetail() {
     router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
   };
 
-  const deleteMsg = async (id) => {
-    const locatedItem = navigator("next");
+  const deleteMsg = async () => {
     const response = await fetch("/api/message", {
       method: "DELETE",
-      body: JSON.stringify({id}),
+      body: JSON.stringify({ id: messageID }),
       headers: {
-        "Content-Type:": "application/json",
+        "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-      router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
+      const locatedItem = navigator("next");
+      router.push(`/message/${locatedItem.id}`, undefined, { shallow: true });
     }
   };
 
@@ -105,7 +105,10 @@ export default function MessageDetail() {
               <i className={`icon fa fa-envelope ${styles.chevron}`}></i>
             </li>
             <li>
-              <i className={`icon fa fa-trash ${styles.chevron}`}></i>
+              <i
+                className={`icon fa fa-trash ${styles.chevron}`}
+                onClick={deleteMsg}
+              ></i>
             </li>
             <li onClick={() => nextMsg("next")}>
               <i className={`icon fa fa-arrow-right ${styles.chevron}`}></i>
@@ -132,7 +135,10 @@ export default function MessageDetail() {
               <date className={styles.chevron}>{content?.date}</date>
               <i className={`icon fa fa-reply ${styles.chevron}`}></i>
               <i className={`icon fa fa-forward ${styles.chevron}`}></i>
-              <i className={`icon fa fa-trash ${styles.chevron}`}></i>
+              <i
+                className={`icon fa fa-trash ${styles.chevron}`}
+                onClick={deleteMsg}
+              ></i>
             </div>
           </div>
 
