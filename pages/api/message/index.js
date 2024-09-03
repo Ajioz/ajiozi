@@ -72,9 +72,12 @@ const messageHandler = async (req, res) => {
       client.close(); // Ensure the client is closed after the operations
     }
   } else if (req.method === "GET") {
-    let client = await connectDB();
+    let client;
+
     try {
+      client = await connectDB();
       const { id } = req.body;
+
       if (id === undefined) {
         const docs = getAllDocs(client, "message", { _id: -1 }, {});
         return res.status(200).json({ docs });
@@ -87,10 +90,69 @@ const messageHandler = async (req, res) => {
         }
         return res.status(200).json({ message: msg });
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+      return res
+        .status(500)
+        .json({ message: "Error fetching messages", status: false });
+    } finally {
+      client.close(); // Ensure the client is closed after the operations
+    }
   } else if (req.method === "PATCH") {
-  } else if (req.method === "DELETE") {
-  } else {
+    let client;
+
+    try {
+      client = await connectDB();
+      const { id } = req.body;
+      const db = client.db();
+      const message = await db.collection("message").findOne({ _id: id });
+
+      if (!message) {
+        return res.status(404).json({ message: "No such message" });
+      }
+
+      const updateMsg = await db
+        .collection("message")
+        .updateOne({ _id: id }, { $set: { isRead: true } });
+
+      if (updateMsg) {
+        return res.status(201).json({ message: "Updated successfully" });
+      }
+    } catch (error) {
+      console.error("Error updating message:", error);
+      return res
+        .status(500)
+        .json({ message: "Error updating message", status: false });
+    } finally {
+      client.close(); // Ensure the client is closed after the operations
+    }
+  }
+  
+  else if (req.method === "DELETE") {
+    let client;
+  
+    try {
+      client = await connectDB();
+      const { id } = req.body;
+      const deleteMsg = await client.db().collection("message").deleteOne({ _id: id });
+
+      if (!deleteMsg) {
+        return res.status(422).json({ message: "Could not delete message" });
+      }
+
+      return res.status(200).json({ message: "Successfully deleted message" });
+      
+    } catch (error) {
+      console.error("Error updating message:", error);
+      return res
+        .status(500)
+        .json({ message: "Error updating message", status: false });
+    } finally {
+      client.close(); // Ensure the client is closed after the operations
+    }
+  }
+  
+  else {
     return res
       .status(405)
       .json({ message: "Method not allowed", status: false });
