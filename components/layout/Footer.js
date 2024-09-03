@@ -4,6 +4,24 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import LoginModal from "./login";
 
+const style = {
+  position: 'relative',
+  display: 'inline-block',
+}
+
+const badgeStyle = {
+  position: 'absolute',
+  top: '-5px',
+  right: '-10px',
+  backgroundColor: 'red',
+  width: '15px',
+  height: '15px',
+  color: 'white',
+  borderRadius: '50%',
+  padding: '2px 6px',
+  fontSize: '12px',
+}
+
 export default function Footer({ session }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -136,8 +154,8 @@ export default function Footer({ session }) {
                         <>
                           <li className="contact-info">
                             <i className="icon fa fa-message"></i>{" "}
-                            <span className="login" onClick={messages}>
-                              Messages
+                            <span className="login" onClick={messages} style={style}>
+                              Messages <span style={badgeStyle}>3</span>
                             </span>{" "}
                             &nbsp; | &#9758; | &nbsp;
                             <span
