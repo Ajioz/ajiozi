@@ -38,7 +38,6 @@ export default function MessageDetail() {
       props
     );
     setContent((prev) => (prev = locatedItem));
-    setTrack({ ...track, position: pageItemPosition, size: length });
 
     router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
   };

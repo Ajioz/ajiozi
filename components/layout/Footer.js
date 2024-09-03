@@ -165,11 +165,15 @@ export default function Footer({ session }) {
                               onClick={messages}
                               style={style}
                             >
-                              Messages{" "}
-                              <span style={badgeStyle}>
-                                {countProps(allItems, true)}
-                              </span>
-                            </span>{" "}
+                              Messages
+                              {countProps(allItems, false) ? (
+                                <span style={badgeStyle}>
+                                  {countProps(allItems, false)}
+                                </span>
+                              ) : (
+                                ""
+                              )}
+                            </span>
                             &nbsp; | &#9758; | &nbsp;
                             <span
                               className="login"

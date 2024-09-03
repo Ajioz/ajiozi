@@ -7,7 +7,7 @@ const DUMMY = [
       "Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.",
     email: "emewasale211@gmail.com",
     phone: "+234-70968635686",
-    isRead: true,
+    isRead: false,
     date: "2020-05-12",
   },
   {
@@ -18,7 +18,7 @@ const DUMMY = [
       "We know: Networking is no fun if you are an introvert person. That's why we came up with this event - it'll be so much easier. Promised!",
     email: "festus.onus@yahoo.com",
     phone: "+234-8326868668",
-    isRead: false,
+    isRead: true,
     date: "2021-05-30",
   },
   {
@@ -40,7 +40,7 @@ const DUMMY = [
       "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
     email: "osaz@gmail.com",
     phone: "+234-3293686602",
-    isRead: true,
+    isRead: false,
     date: "2023-01-09",
   },
   {
