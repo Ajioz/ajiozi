@@ -27,7 +27,7 @@ const messageHandler = async (req, res) => {
     }
 
     try {
-      const { email, name, subject } = req.body;
+      const { name, email, subject, phone, message } = req.body;
 
       if (!isValidEmail(email)) {
         return res
@@ -41,7 +41,7 @@ const messageHandler = async (req, res) => {
           .json({ status: false, message: "Invalid input" });
       }
 
-      const newMessage = { email, name, message };
+      const newMessage = { email, name, subject, phone, message };
 
       const result = await insertDoc(client, "messages", newMessage);
       newMessage.id = result._id;
