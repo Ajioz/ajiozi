@@ -26,27 +26,26 @@ export const countProps = (arrayObj, target) => {
 };
 
 export const notify = (state, error) => {
-  let notification;
   switch (state) {
-    case state === "pending":
-      return notification = {
+    case "pending":
+      return {
         status: "pending",
         title: "Sending message...",
         message: "Your message is on its way",
       };
-    case state === "success":
-      return notification = {
+    case "success":
+      return {
         status: "success",
         title: "Success",
         message: "Successfully sent message",
       };
-    case state === "error":
-      return (notification = {
+    case "error":
+      return {
         status: "error",
         title: "Error",
         message: error,
-      });
+      };
     default:
-      break;
+      throw new Error(`Invalid state: ${state}`);
   }
 };
