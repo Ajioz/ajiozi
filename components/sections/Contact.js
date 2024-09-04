@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import Notification from "../ui/notification";
 
-
-
 const Contact2 = () => {
   const [requestStatus, setRequestStatus] = useState(); //pending, success, error||none
   const [requestError, setRequestError] = useState();
@@ -33,7 +31,7 @@ const Contact2 = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setRequestStatus("pending");
-    
+
     try {
       const res = await fetch("/api/message", {
         method: "POST",
@@ -59,28 +57,33 @@ const Contact2 = () => {
         });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setRequestError(error.message);
       setRequestStatus("error");
     }
   };
 
-  let notification;
-  if (requestStatus === "pending") {
-    notification = {
-      status: "pending",
-      title: "Sending message...",
-      message: "Your message is on its way",
-    };
-  }
+  let notification = {
+    status: "pending",
+    title: "Sending message...",
+    message: "Your message is on its way",
+  };
+  // // let notification;
+  // if (requestStatus === "pending") {
+  //   notification = {
+  //     status: "pending",
+  //     title: "Sending message...",
+  //     message: "Your message is on its way",
+  //   };
+  // }
 
-  if (requestStatus === "success") {
-    notification = {
-      status: "success",
-      title: "Success",
-      message: "Successfully sent message",
-    };
-  }
+  // if (requestStatus === "success") {
+  //   notification = {
+  //     status: "success",
+  //     title: "Success",
+  //     message: "Successfully sent message",
+  //   };
+  // }
 
   if (requestStatus === "error") {
     notification = {
@@ -183,6 +186,11 @@ const Contact2 = () => {
             </div>
           </div>
         </div>
+        {/* <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        /> */}
         {notification && (
           <Notification
             status={notification.status}
