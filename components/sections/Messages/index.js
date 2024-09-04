@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import classes from "./messages.module.css";
-import { getAllEvents, getEventsById } from "@/dummy";
+
 
 const Messages = ({ messages }) => {
   const router = useRouter();
+  const [messageList, setMessageList] = useState(messages);
 
-  // const [messages, setMessages] = useState(getAllEvents());
-
-  // Add this function at the top of your component or in a separate utils file
   const truncateMessage = (message, maxLength = 30) => {
     return message.length > maxLength
       ? message.slice(0, maxLength) + "..."
@@ -20,12 +18,13 @@ const Messages = ({ messages }) => {
   };
 
   const handleDelete = (id) => {
-    setMessages(getEventsById(messages, id));
+    const updatedMessages = messageList.filter((message) => message.id !== id);
+    setMessageList(updatedMessages);
   };
 
   return (
     <div className={classes.layout}>
-      {messages.map((message, index) => (
+      {messageList.map((message, index) => (
         <div
           className={
             message.isRead ? classes.containerRead : classes.containerUnread
@@ -33,7 +32,7 @@ const Messages = ({ messages }) => {
           onClick={() => handleDetails(message.id)}
           key={message.id}
         >
-          <div className={classes.sn}>{truncateMessage(index + 1, 3)}</div>
+          <div className={classes.sn}>{index + 1}</div>
           <div className={classes.name}>
             {truncateMessage(message.name, 18)}
           </div>
@@ -66,12 +65,27 @@ const Messages = ({ messages }) => {
 export default Messages;
 
 export async function getServerSideProps() {
-  const data = await fetch("/api/message");
-  const messages = await data.json();
-
-  return {
-    props: {
-      messages,
-    },
-  };
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    const res = await fetch(`${apiUrl}/api/message`);
+    
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    
+    const data = await res.json();
+    return {
+      props: {
+        messages: data.messages || [],
+      },
+    };
+  } catch (error) {
+    console.error("Failed to fetch messages:", error);
+    return {
+      props: {
+        messages: [],
+        error: 'Failed to fetch messages. Please try again later.',
+      },
+    };
+  }
 }
