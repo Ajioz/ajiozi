@@ -58,8 +58,9 @@ const messageHandler = async (req, res) => {
             isRead: false,
           };
 
-          const result = await insertDoc(client, "message", newMessage);
-          newMessage.id = result._id;
+          
+          await insertDoc(client, "message", newMessage);
+
 
           return res.status(201).json({
             message: "Message saved successfully!",

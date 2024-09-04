@@ -1,23 +1,94 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Notification from "../ui/notification";
+
+
 
 const Contact2 = () => {
+  const [requestStatus, setRequestStatus] = useState(); //pending, success, error||none
+  const [requestError, setRequestError] = useState();
+  const [data, setData] = useState({
+    email: "",
+    name: "",
+    subject: "",
+    phone: "",
+    message: "",
+  });
 
-    const [data, setData] = useState({
-      email: "",
-      name: "",
-      subject: "",
-      phone: "",
-      message: "",
-    });
+  const handleChange = (props) => (e) => {
+    setData((prev) => ({ ...prev, [props]: e.target.value }));
+  };
 
-    const handleChange = (props) => (e) => {
-      setData((prev) => ({ ...prev, [props]: e.target.value }));
+  useEffect(() => {
+    let timer;
+    if (requestStatus === "success" || requestStatus === "error") {
+      timer = setTimeout(() => {
+        setRequestStatus(null);
+        setRequestError(null);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [requestStatus]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setRequestStatus("pending");
+    
+    try {
+      const res = await fetch("/api/message", {
+        method: "POST",
+        body: JSON.stringify(data), // Convert msgDetail to JSON string
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const response = await res.json();
+
+      if (response.ok) {
+        setRequestStatus("error");
+        throw new Error(response.message) || "Something went wrong";
+      } else {
+        setRequestStatus("success");
+        setData({
+          email: "",
+          name: "",
+          subject: "",
+          phone: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.log(error)
+      setRequestError(error.message);
+      setRequestStatus("error");
+    }
+  };
+
+  let notification;
+  if (requestStatus === "pending") {
+    notification = {
+      status: "pending",
+      title: "Sending message...",
+      message: "Your message is on its way",
     };
+  }
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      console.log(data);
+  if (requestStatus === "success") {
+    notification = {
+      status: "success",
+      title: "Success",
+      message: "Successfully sent message",
     };
+  }
+
+  if (requestStatus === "error") {
+    notification = {
+      status: "error",
+      title: "Error",
+      message: requestError,
+    };
+  }
 
   return (
     <>
@@ -112,8 +183,15 @@ const Contact2 = () => {
             </div>
           </div>
         </div>
+        {notification && (
+          <Notification
+            status={notification.status}
+            title={notification.title}
+            message={notification.message}
+          />
+        )}
       </section>
     </>
   );
 };
-export default Contact2
+export default Contact2;
