@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import classes from "./messages.module.css";
 import { getAllEvents, getEventsById } from "@/dummy";
 
-const Messages = () => {
+const Messages = ({ messages }) => {
   const router = useRouter();
 
-  const [messages, setMessages] = useState(getAllEvents());
+  // const [messages, setMessages] = useState(getAllEvents());
 
   // Add this function at the top of your component or in a separate utils file
   const truncateMessage = (message, maxLength = 30) => {
@@ -64,3 +64,14 @@ const Messages = () => {
 };
 
 export default Messages;
+
+export async function getServerSideProps() {
+  const data = await fetch("/api/message");
+  const messages = await data.json();
+
+  return {
+    props: {
+      messages,
+    },
+  };
+}
