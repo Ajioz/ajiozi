@@ -2,7 +2,7 @@ export const extractIds = (arrayObj) => {
   return arrayObj.map(({ id }) => id);
 };
 
-export const showItem = (arrayObj, currentId, locate) => {  
+export const showItem = (arrayObj, currentId, locate) => {
   const ids = extractIds(arrayObj);
   const pageItemPosition = ids.indexOf(currentId);
   let nextItemID;
@@ -21,7 +21,32 @@ export const showItem = (arrayObj, currentId, locate) => {
   return { pageItemPosition, length: ids.length, locatedItem };
 };
 
-
 export const countProps = (arrayObj, target) => {
   return arrayObj.filter((item) => item.isRead === target).length;
+};
+
+export const notify = (state, error) => {
+  let notification;
+  switch (state) {
+    case state === "pending":
+      return notification = {
+        status: "pending",
+        title: "Sending message...",
+        message: "Your message is on its way",
+      };
+    case state === "success":
+      return notification = {
+        status: "success",
+        title: "Success",
+        message: "Successfully sent message",
+      };
+    case state === "error":
+      return (notification = {
+        status: "error",
+        title: "Error",
+        message: error,
+      });
+    default:
+      break;
+  }
 };

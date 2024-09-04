@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Notification from "../ui/notification";
+import { notify } from "../lib/helpers";
 
 const Contact2 = () => {
   const [requestStatus, setRequestStatus] = useState(); //pending, success, error||none
@@ -43,55 +44,26 @@ const Contact2 = () => {
 
       const response = await res.json();
 
-      if (response.ok) {
-        setRequestStatus("error");
-        throw new Error(response.message) || "Something went wrong";
-      } else {
-        setRequestStatus("success");
-        setData({
-          email: "",
-          name: "",
-          subject: "",
-          phone: "",
-          message: "",
-        });
+      if (!res.ok) {
+        throw new Error(response.message || "Something went wrong");
       }
+
+      setRequestStatus("success");
+      setData({
+        email: "",
+        name: "",
+        subject: "",
+        phone: "",
+        message: "",
+      });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setRequestError(error.message);
       setRequestStatus("error");
     }
   };
 
-  let notification = {
-    status: "pending",
-    title: "Sending message...",
-    message: "Your message is on its way",
-  };
-  // // let notification;
-  // if (requestStatus === "pending") {
-  //   notification = {
-  //     status: "pending",
-  //     title: "Sending message...",
-  //     message: "Your message is on its way",
-  //   };
-  // }
-
-  // if (requestStatus === "success") {
-  //   notification = {
-  //     status: "success",
-  //     title: "Success",
-  //     message: "Successfully sent message",
-  //   };
-  // }
-
-  if (requestStatus === "error") {
-    notification = {
-      status: "error",
-      title: "Error",
-      message: requestError,
-    };
-  }
+  const notification = notify(requestStatus, requestError);
 
   return (
     <>
@@ -186,11 +158,6 @@ const Contact2 = () => {
             </div>
           </div>
         </div>
-        {/* <Notification
-          status={notification.status}
-          title={notification.title}
-          message={notification.message}
-        /> */}
         {notification && (
           <Notification
             status={notification.status}

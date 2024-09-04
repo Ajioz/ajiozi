@@ -37,7 +37,6 @@ function Notification(props) {
       document.getElementById("notifications")
     );
   }
-
   return null;
 }
 
