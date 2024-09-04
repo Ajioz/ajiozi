@@ -1,6 +1,10 @@
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { notify } from "@/components/lib/helpers";
+import Notification from "@/components/ui/notification";
+
 export default function Contactpage() {
+  const [requestStatus, setRequestStatus] = useState(null); //pending, success, error||none
+  const [requestError, setRequestError] = useState(null);
   const [data, setData] = useState({
     email: "",
     name: "",
@@ -13,12 +17,52 @@ export default function Contactpage() {
     setData((prev) => ({ ...prev, [props]: e.target.value }));
   };
 
-  const handleSubmit = async(e) => {
-	  e.preventDefault();
-	  console.log(data)
+  useEffect(() => {
+    let timer;
+    if (requestStatus === "success" || requestStatus === "error") {
+      timer = setTimeout(() => {
+        setRequestStatus(null);
+        setRequestError(null);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [requestStatus]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/message", {
+        method: "POST",
+        body: JSON.stringify(data), // Convert msgDetail to JSON string
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const response = await res.json();
+
+      if (!res.ok) {
+        throw new Error(response.message || "Something went wrong");
+      }
+
+      setRequestStatus("success");
+      setData({
+        email: "",
+        name: "",
+        subject: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      setRequestError(error.message);
+      setRequestStatus("error");
+    }
   };
 
-	
+  const notification = notify(requestStatus, requestError);
+
   return (
     <>
       {/* Contact Details Start */}
@@ -177,6 +221,13 @@ export default function Contactpage() {
         ></iframe>
       </section>
       {/* End Map Section */}
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
     </>
   );
 }

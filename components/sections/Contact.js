@@ -3,8 +3,8 @@ import Notification from "../ui/notification";
 import { notify } from "../lib/helpers";
 
 const Contact2 = () => {
-  const [requestStatus, setRequestStatus] = useState(); //pending, success, error||none
-  const [requestError, setRequestError] = useState();
+  const [requestStatus, setRequestStatus] = useState(null); //pending, success, error||none
+  const [requestError, setRequestError] = useState(null);
   const [data, setData] = useState({
     email: "",
     name: "",

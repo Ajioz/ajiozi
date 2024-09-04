@@ -45,7 +45,13 @@ export const notify = (state, error) => {
         title: "Error",
         message: error,
       };
+    case null:
+      return 0;
     default:
-      throw new Error(`Invalid state: ${state}`);
+      return {
+        status: "error",
+        title: "Error",
+        message: `Invalid state: ${state}`,
+      };
   }
 };
