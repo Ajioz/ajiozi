@@ -62,7 +62,7 @@ const Messages = ({ messages }) => {
             message.isRead ? classes.containerRead : classes.containerUnread
           }
           onClick={() => handleDetails(message._id)}
-          key={message.id}
+          key={message._id}
         >
           <div className={classes.sn}>{index + 1}</div>
           <div className={classes.name}>
@@ -84,7 +84,7 @@ const Messages = ({ messages }) => {
             className={`${"icon fa fa-trash"} ${classes.chevron}`}
             onClick={(e) => {
               e.stopPropagation();
-              handleDelete(message.id);
+              handleDelete(message._id);
             }}
           ></i>
           <i className={`${"icon fa fa-chevron-right"} ${classes.chevron}`}></i>

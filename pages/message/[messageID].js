@@ -6,19 +6,17 @@ import { showItem } from "@/components/lib/helpers";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
-export default function MessageDetail({ messageID, message, messages }) {
+export default function MessageDetail({ messageID, message, messages, pageItemPosition }) {
   const router = useRouter();
-  // const { messageID } = router.query;
-
-  if (!message) return <p>Loading...</p>;
+  // const { messageID } = router
 
   const scrollContainerRef = useRef(null);
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
   const [content, setContent] = useState(message);
   const [track, setTrack] = useState({
-    position: 0,
-    size: messages.length,
+    position: pageItemPosition,
+    size: messages?.length,
   });
 
   const navigator = (props) => {
@@ -173,15 +171,13 @@ export async function getStaticProps(context) {
   if (!messageID) return { notFound: true, } // This will return a 404 page
   const messages = await fetchMessages();
   const message = await fetchMessage(messageID);
+  const { pageItemPosition } = showItem(messages, messageID, null);
+  console.log(pageItemPosition);
 
-  if (!message) {
-    return {
-      notFound: true, // This will return a 404 page
-    };
-  }
+  if (!message) return { notFound: true } // This will return a 404 page
 
   return {
-    props: { message, messages },
+    props: { messageID, message, messages, pageItemPosition },
     revalidate: 10, // 10 minutes
   };
 }
@@ -192,7 +188,6 @@ export async function getStaticPaths() {
     params: { messageID: message._id.toString() },
   }));
  
-
   return {
     paths,
     fallback: true,
