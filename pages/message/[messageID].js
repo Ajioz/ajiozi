@@ -6,27 +6,38 @@ import { showItem } from "@/components/lib/helpers";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
-export default function MessageDetail({ initialMessage, messages }) {
+export default function MessageDetail({ messageID, message, messages }) {
   const router = useRouter();
-  const { messageID } = router.query;
 
-  const [content, setContent] = useState(initialMessage);
+  // Add a loading state
+  const [isLoading, setIsLoading] = useState(!message);
 
+  // Use useEffect to fetch the message if it's not available
   useEffect(() => {
-    if (messageID && messages) {
-      const currentMessage = messages.find(msg => msg.id === messageID);
-      if (currentMessage) {
-        setContent(currentMessage);
-      }
+    if (!message) {
+      fetchMessage(messageID).then((fetchedMessage) => {
+        setContent(fetchedMessage);
+        setIsLoading(false);
+      }).catch((error) => {
+        console.error("Error fetching message:", error);
+        setIsLoading(false);
+      });
     }
-  }, [messageID, messages]);
+  }, [messageID, message]);
+
+  // Show loading state
+  if (isLoading) return <p>Loading...</p>;
+
+  // Show error state if message is still not available after loading
+  if (!message && !isLoading) return <p>Error: Message not found</p>;
 
   const scrollContainerRef = useRef(null);
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
+  const [content, setContent] = useState(message);
   const [track, setTrack] = useState({
     position: 0,
-    size: messages?.length,
+    size: messages.length,
   });
 
   const navigator = (props) => {
@@ -47,9 +58,7 @@ export default function MessageDetail({ initialMessage, messages }) {
 
   const nextMsg = (props) => {
     const locatedItem = navigator(props);
-    if (locatedItem && locatedItem.id) {
-      router.push(`/message/${locatedItem.id}`, undefined, { shallow: true });
-    }
+    router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
   };
 
   const deleteMsg = async () => {
@@ -179,45 +188,23 @@ export default function MessageDetail({ initialMessage, messages }) {
 }
 
 export async function getStaticProps(context) {
-  try {
-    const messageID = context.params.messageID;
-    const messages = await fetchMessages();
-    const initialMessage = await fetchMessage(messageID);
-
-    if (!initialMessage) {
-      return {
-        notFound: true,
-      };
-    }
-
-    return {
-      props: { initialMessage, messages },
-      revalidate: 10, // 10 minutes
-    };
-  } catch (error) {
-    console.error("Error in getStaticProps:", error);
-    return {
-      notFound: true,
-    };
-  }
+  const messageID = context.params.messageID;
+  const messages = await fetchMessages();
+  const message = await fetchMessage(messageID);
+  return {
+    props: { messages, message, messageID },
+    revalidate: 10, //10 minutes
+  };
 }
 
 export async function getStaticPaths() {
-  try {
-    const messages = await fetchMessages();
-    const paths = messages.map((message) => ({ 
-      params: { messageID: message._id.toString() } 
-    }));
+  const messages = await fetchMessages();
+  const paths = messages.map((message) => ({
+    params: { messageID: message._id },
+  }));
 
-    return {
-      paths,
-      fallback: 'blocking',
-    };
-  } catch (error) {
-    console.error("Error in getStaticPaths:", error);
-    return {
-      paths: [],
-      fallback: 'blocking',
-    };
-  }
+  return {
+    paths,
+    fallback: true,
+  };
 }

@@ -17,6 +17,17 @@ export const fetchMessages = async () => {
 };
 
 export const fetchMessage = async (id) => {
-  const data = await fetchMessages();
-  return data.find((message) => message._id === id);
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const res = await fetch(`${apiUrl}/api/message/${id}`);
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error(`Failed to fetch message with id ${id}:`, error);
+    return null;
+  }
 };

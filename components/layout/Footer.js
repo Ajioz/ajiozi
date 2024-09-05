@@ -32,8 +32,14 @@ export default function Footer({ session }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isUser, setIsUser] = useState(false);
+  const [allItems, setAllItems] = useState();
 
-  const allItems = getAllEvents();
+  useEffect(() => {
+    const getAllMessages = async () => {
+      setAllItems(await fetchMessages());
+    };
+    getAllMessages();
+  }, []);
 
   useEffect(() => {
     if (isOpen) return setShowModal(true);
