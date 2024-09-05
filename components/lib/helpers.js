@@ -1,10 +1,10 @@
 export const extractIds = (arrayObj) => {
-  return arrayObj.map(({ id }) => id);
+  return arrayObj?.map(({ id }) => id);
 };
 
 export const showItem = (arrayObj, currentId, locate) => {
   const ids = extractIds(arrayObj);
-  const pageItemPosition = ids.indexOf(currentId);
+  const pageItemPosition = ids?.indexOf(currentId);
   let nextItemID;
   if (locate === "prev") {
     let prevNum = pageItemPosition - 1;
@@ -15,10 +15,10 @@ export const showItem = (arrayObj, currentId, locate) => {
     if (nextNum >= ids.length) nextNum = ids.length - 1;
     nextItemID = ids[nextNum];
   } else {
-    nextItemID = ids[pageItemPosition];
+    if(pageItemPosition) nextItemID = ids[pageItemPosition];
   }
-  const locatedItem = arrayObj.find((obj) => obj.id === nextItemID);
-  return { pageItemPosition, length: ids.length, locatedItem };
+  const locatedItem = arrayObj?.find((obj) => obj.id === nextItemID);
+  return { pageItemPosition, length: ids?.length, locatedItem };
 };
 
 export const countProps = (arrayObj, target) => {

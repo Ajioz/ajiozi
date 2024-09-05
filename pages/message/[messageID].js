@@ -6,17 +6,27 @@ import { showItem } from "@/components/lib/helpers";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
-export default function MessageDetail({ message, messages }) {
+export default function MessageDetail({ initialMessage, messages }) {
   const router = useRouter();
   const { messageID } = router.query;
+
+  const [content, setContent] = useState(initialMessage);
+
+  useEffect(() => {
+    if (messageID && messages) {
+      const currentMessage = messages.find(msg => msg.id === messageID);
+      if (currentMessage) {
+        setContent(currentMessage);
+      }
+    }
+  }, [messageID, messages]);
 
   const scrollContainerRef = useRef(null);
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
-  const [content, setContent] = useState(message(messageID));
   const [track, setTrack] = useState({
     position: 0,
-    size: messages.length,
+    size: messages?.length,
   });
 
   const navigator = (props) => {
@@ -37,7 +47,9 @@ export default function MessageDetail({ message, messages }) {
 
   const nextMsg = (props) => {
     const locatedItem = navigator(props);
-    router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
+    if (locatedItem && locatedItem.id) {
+      router.push(`/message/${locatedItem.id}`, undefined, { shallow: true });
+    }
   };
 
   const deleteMsg = async () => {
@@ -167,19 +179,45 @@ export default function MessageDetail({ message, messages }) {
 }
 
 export async function getStaticProps(context) {
-  const messages = await fetchMessages();
-  const message = await fetchMessage();
-  return {
-    props: { messages, message },
-  };
+  try {
+    const messageID = context.params.messageID;
+    const messages = await fetchMessages();
+    const initialMessage = await fetchMessage(messageID);
+
+    if (!initialMessage) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: { initialMessage, messages },
+      revalidate: 10, // 10 minutes
+    };
+  } catch (error) {
+    console.error("Error in getStaticProps:", error);
+    return {
+      notFound: true,
+    };
+  }
 }
 
 export async function getStaticPaths() {
-  const messages = await fetchMessages();
-  const paths = messages.map((message) => ({ params: { messageID: message._id } }));
+  try {
+    const messages = await fetchMessages();
+    const paths = messages.map((message) => ({ 
+      params: { messageID: message._id.toString() } 
+    }));
 
-  return {
-    paths,
-    fallback: true,
-  };
+    return {
+      paths,
+      fallback: 'blocking',
+    };
+  } catch (error) {
+    console.error("Error in getStaticPaths:", error);
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
 }
