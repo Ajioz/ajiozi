@@ -29,10 +29,7 @@ export async function getStaticPaths() {
   return { paths, fallback: "blocking" };
 }
 
-export default function MessageDetail({
-  initialMessages,
-  initialMessage,
-}) {
+export default function MessageDetail({ initialMessages, initialMessage }) {
   const scrollContainerRef = useRef(null);
   const router = useRouter();
   const { messageID } = router.query;
@@ -56,9 +53,9 @@ export default function MessageDetail({
         const result = showItem(messages, messageID, null);
         if (result) {
           const { pageItemPosition, length } = result;
-          setTrack({ 
-            position: pageItemPosition ?? 0, 
-            size: length ?? messages.length 
+          setTrack({
+            position: pageItemPosition ?? 0,
+            size: length ?? messages.length,
           });
         }
       } catch (error) {
@@ -74,9 +71,9 @@ export default function MessageDetail({
     if (result) {
       const { locatedItem, pageItemPosition, length } = result;
       setContent(locatedItem ?? {});
-      setTrack({ 
-        position: pageItemPosition ?? 0, 
-        size: length ?? messages.length 
+      setTrack({
+        position: pageItemPosition ?? 0,
+        size: length ?? messages.length,
       });
       return locatedItem;
     }
@@ -177,7 +174,7 @@ export default function MessageDetail({
           </ul>
           <div className={styles.iconsRight}>
             <p>
-              {(track.position + 1)} of {track.size}
+              {track.position + 1} of {track.size}
             </p>
           </div>
         </div>
