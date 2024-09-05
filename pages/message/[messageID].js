@@ -3,30 +3,32 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Scroll from "./scroll";
 import { showItem } from "@/components/lib/helpers";
-// import { getEventById, getAllEvents } from "@/dummy";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
 export default function MessageDetail() {
-  const scrollContainerRef = useRef(null);
 
+  const scrollContainerRef = useRef(null);
   const router = useRouter();
   const { messageID } = router.query;
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
   const [content, setContent] = useState({});
   const [messages, setMessages] = useState([]);
-  const [track, setTrack] = useState({ position: 0, size: messages?.length });
-
-  // const messages = getAllEvents();
+  const [track, setTrack] = useState({ position: 0, size: 0 });
 
   useEffect(() => {
     const getMessages = async () => {
-      setMessages(await fetchMessages());
-      setContent(await fetchMessage(messageID));
+      const fetchedMessages = await fetchMessages();
+      setMessages(fetchedMessages);
+      const fetchedContent = await fetchMessage(messageID);
+      setContent(fetchedContent);
+
+      const { pageItemPosition, length } = showItem(fetchedMessages, messageID, null);
+      setTrack({ position: pageItemPosition, size: length });
     };
     getMessages();
-  }, [track]);
+  }, [messageID]);
 
   const navigator = (props) => {
     const { locatedItem } = showItem(messages, messageID, props);
@@ -38,11 +40,6 @@ export default function MessageDetail() {
     if (props) setAddShadow(styles.scrollBorder);
     else setAddShadow(styles.quickIcons);
   };
-
-  useEffect(() => {
-    const { pageItemPosition, length } = showItem(messages, messageID, null);
-    setTrack({ ...track, position: pageItemPosition, size: length });
-  }, [messageID]);
 
   const nextMsg = (props) => {
     const locatedItem = navigator(props);
