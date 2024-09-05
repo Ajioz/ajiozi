@@ -15,7 +15,7 @@ export const showItem = (arrayObj, currentId, locate) => {
     if (nextNum >= ids.length) nextNum = ids.length - 1;
     nextItemID = ids[nextNum];
   } else {
-    if (pageItemPosition !== -1) nextItemID = ids[pageItemPosition];
+    if (pageItemPosition) nextItemID = ids[pageItemPosition];
   }
   const locatedItem = arrayObj?.find((obj) => obj._id === nextItemID);
   return { pageItemPosition, length: ids?.length, locatedItem };

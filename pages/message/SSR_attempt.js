@@ -3,32 +3,31 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Scroll from "./scroll";
 import { showItem } from "@/components/lib/helpers";
-// import { getEventById, getAllEvents } from "@/dummy";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
-export default function MessageDetail() {
+export default function MessageDetail({
+  messageID,
+  message,
+  allMessages,
+  pageItemPosition,
+}) {
+  const router = useRouter();
+  const myPrams = router;
+
   const scrollContainerRef = useRef(null);
 
-  const router = useRouter();
-  const { messageID } = router.query;
-
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
-  const [content, setContent] = useState({});
-  const [messages, setMessages] = useState([]);
-  const [track, setTrack] = useState({ position: 0, size: messages?.length });
+  const [content, setContent] = useState(message);
+  const [messages, setMessages] = useState(allMessages);
 
-  // const messages = getAllEvents();
-
-  useEffect(() => {
-    const getMessages = async () => {
-      setMessages(await fetchMessages());
-      setContent(await fetchMessage(messageID));
-    };
-    getMessages();
-  }, [track]);
+  const [track, setTrack] = useState({
+    position: pageItemPosition,
+    size: messages?.length,
+  });
 
   const navigator = (props) => {
+    console.log(pageItemPosition);
     const { locatedItem } = showItem(messages, messageID, props);
     setContent((prev) => (prev = locatedItem));
     return locatedItem;
@@ -42,7 +41,8 @@ export default function MessageDetail() {
   useEffect(() => {
     const { pageItemPosition, length } = showItem(messages, messageID, null);
     setTrack({ ...track, position: pageItemPosition, size: length });
-  }, [messageID]);
+    console.log({ messageID });
+  }, [myPrams.messageID]);
 
   const nextMsg = (props) => {
     const locatedItem = navigator(props);
@@ -173,4 +173,33 @@ export default function MessageDetail() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  const messageID = context.params?.messageID;
+  console.log("Message ID from params:", messageID);
+
+  const allMessages = await fetchMessages();
+  const message = await fetchMessage(messageID);
+  const { pageItemPosition } = showItem(allMessages, messageID, null);
+  console.log("Page Item Position:", pageItemPosition);
+
+  if (!message) return { notFound: true }; // This will return a 404 page
+
+  return {
+    props: { messageID, message, allMessages, pageItemPosition },
+    revalidate: 10, // 10 minutes
+  };
+}
+
+export async function getStaticPaths() {
+  const messages = await fetchMessages();
+  const paths = messages.map((message) => ({
+    params: { messageID: message._id.toString() },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
 }
