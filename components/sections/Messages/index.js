@@ -45,7 +45,7 @@ const Messages = ({ messages }) => {
       await response.json();
       if (response.ok) {
         const updatedMessages = messageList.filter(
-          (message) => message.id !== id
+          (message) => message._id !== id
         );
         setMessageList(updatedMessages);
       }

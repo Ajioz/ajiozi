@@ -1,4 +1,5 @@
 import React from "react";
+import { getSession } from "next-auth/react";
 import Messages from "@/components/sections/Messages";
 import Layout from "@/components/layout/Layout";
 import PageTitle from "@/components/sections/PageTitle";
@@ -17,12 +18,22 @@ const MessagesPage = ({ messages }) => {
 
 export default MessagesPage;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
   const messages = await fetchMessages();
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
+      session,
       messages,
     },
   };
 }
-
