@@ -6,15 +6,14 @@ import { showItem } from "@/components/lib/helpers";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
-export default function MessageDetail() {
+export default function MessageDetail({ message, messages }) {
   const router = useRouter();
   const { messageID } = router.query;
 
   const scrollContainerRef = useRef(null);
-  const messages = fetchMessages();
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
-  const [content, setContent] = useState(fetchMessage(messageID));
+  const [content, setContent] = useState(message(messageID));
   const [track, setTrack] = useState({
     position: 0,
     size: messages.length,
@@ -165,4 +164,22 @@ export default function MessageDetail() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  const messages = await fetchMessages();
+  const message = await fetchMessage();
+  return {
+    props: { messages, message },
+  };
+}
+
+export async function getStaticPaths() {
+  const messages = await fetchMessages();
+  const paths = messages.map((message) => ({ params: { messageID: message._id } }));
+
+  return {
+    paths,
+    fallback: true,
+  };
 }
