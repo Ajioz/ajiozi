@@ -72,7 +72,6 @@ export default function MessageDetail({
         console.error("Error fetching the message:", error);
       }
     };
-
     updateMessages();
   }, [messageID, messages, initialMessageID]);
 
@@ -90,6 +89,42 @@ export default function MessageDetail({
       router.push(`/message/${locatedItem._id}`, undefined, { shallow: true });
     }
   };
+
+  useEffect(() => {
+    const messageRead = async (id) => {
+      if (!id) return;
+
+      try {
+        const response = await fetch("/api/message", {
+          method: "PATCH",
+          body: JSON.stringify({ id }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to mark message as read');
+        }
+
+        const result = await response.json();
+        console.log('Message marked as read:', result);
+
+        // Update local state
+        setMessages(prevMessages => 
+          prevMessages.map(msg => 
+            msg._id === id ? { ...msg, isRead: true } : msg
+          )
+        );
+      } catch (error) {
+        console.error("Error marking message as read:", error);
+      }
+    };
+
+    if (messageID && !content.isRead) {
+      messageRead(messageID);
+    }
+  }, [messageID, content.isRead]);
 
   const deleteMsg = async () => {
     try {
