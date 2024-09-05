@@ -8,13 +8,14 @@ import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
 export async function getStaticProps({ params }) {
   const messages = await fetchMessages();
-  const messageID = params?.messageID || messages[0]?._id || null; // Safely access the first message ID
+  const messageID = params?.messageID || messages[0]?._id || null;
   const message = messageID ? await fetchMessage(messageID) : null;
 
   return {
     props: {
-      initialMessages: messages || [], // Default to an empty array if undefined
-      initialMessage: message || {}, // Default to an empty object if undefined
+      initialMessages: messages || [],
+      initialMessage: message || {},
+      initialMessageID: messageID,
     },
     revalidate: 10,
   };
@@ -32,59 +33,59 @@ export async function getStaticPaths() {
 export default function MessageDetail({
   initialMessages,
   initialMessage,
+  initialMessageID,
 }) {
   const scrollContainerRef = useRef(null);
   const router = useRouter();
   const { messageID } = router.query;
 
-  const [content, setContent] = useState(initialMessage ?? {});
-  const [messages, setMessages] = useState(initialMessages ?? []);
+  const [content, setContent] = useState(initialMessage || {});
+  const [messages, setMessages] = useState(initialMessages || []);
   const [track, setTrack] = useState({
     position: 0,
-    size: initialMessages?.length ?? 0,
+    size: initialMessages.length || 0,
   });
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
 
+  // Function to handle tracking update
+  const updateTrack = (messagesArray, currentMessageID) => {
+    const { pageItemPosition = 0, length = messagesArray.length } =
+      showItem(messagesArray, currentMessageID, null) || {};
+    setTrack({ position: pageItemPosition, size: length });
+  };
+
+  // Initialize track state on first render based on the initial message
+  useEffect(() => {
+    updateTrack(initialMessages, initialMessageID);
+  }, [initialMessages, initialMessageID]);
+
+  // Fetch message content and update track when messageID changes
   useEffect(() => {
     const updateMessages = async () => {
-      if (!messageID) return;
+      if (!messageID || messageID === initialMessageID) return;
 
       try {
         const fetchedContent = await fetchMessage(messageID);
-        setContent(fetchedContent ?? {});
-
-        const result = showItem(messages, messageID, null);
-        if (result) {
-          const { pageItemPosition, length } = result;
-          setTrack({ 
-            position: pageItemPosition ?? 0, 
-            size: length ?? messages.length 
-          });
-        }
+        setContent(fetchedContent || {});
+        updateTrack(messages, messageID);
       } catch (error) {
         console.error("Error fetching the message:", error);
       }
     };
 
     updateMessages();
-  }, [messageID, messages]);
+  }, [messageID, messages, initialMessageID]);
 
-  const navigator = (direction) => {
-    const result = showItem(messages, messageID, direction);
-    if (result) {
-      const { locatedItem, pageItemPosition, length } = result;
-      setContent(locatedItem ?? {});
-      setTrack({ 
-        position: pageItemPosition ?? 0, 
-        size: length ?? messages.length 
-      });
-      return locatedItem;
-    }
-    return null;
+  // Function to handle navigation
+  const navigator = (props) => {
+    const { locatedItem = {} } = showItem(messages, messageID, props) || {};
+    setContent(locatedItem || {});
+    updateTrack(messages, locatedItem._id);
+    return locatedItem;
   };
 
-  const nextMsg = (direction) => {
-    const locatedItem = navigator(direction);
+  const nextMsg = (props) => {
+    const locatedItem = navigator(props);
     if (locatedItem?._id) {
       router.push(`/message/${locatedItem._id}`, undefined, { shallow: true });
     }
@@ -102,22 +103,24 @@ export default function MessageDetail({
 
       if (response.ok) {
         const locatedItem = navigator("next");
-        router.push(`/message/${locatedItem?._id ?? ""}`, undefined, {
-          shallow: true,
-        });
+        if (locatedItem?._id) {
+          router.push(`/message/${locatedItem._id}`, undefined, {
+            shallow: true,
+          });
+        }
       }
     } catch (error) {
       console.error("Error deleting the message:", error);
     }
   };
 
-  const name = content?.name ?? "";
-  const firstName = name.split(" ")[0] ?? "";
-  const lastName = name.split(" ")[1] ?? "";
-
-  const border = (hasScroll) => {
-    setAddShadow(hasScroll ? styles.scrollBorder : styles.quickIcons);
+  const border = (props) => {
+    setAddShadow(props ? styles.scrollBorder : styles.quickIcons);
   };
+
+  const name = content?.name || "";
+  const firstName = name.split(" ")[0] || "";
+  const lastName = name.split(" ")[1] || "";
 
   return (
     <div className={styles.container}>
@@ -177,7 +180,7 @@ export default function MessageDetail({
           </ul>
           <div className={styles.iconsRight}>
             <p>
-              {(track.position + 1)} of {track.size}
+              {track.position + 1} of {track.size}
             </p>
           </div>
         </div>
