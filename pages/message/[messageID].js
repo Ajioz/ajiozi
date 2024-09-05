@@ -8,28 +8,9 @@ import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
 export default function MessageDetail({ messageID, message, messages }) {
   const router = useRouter();
+  // const { messageID } = router.query;
 
-  // Add a loading state
-  const [isLoading, setIsLoading] = useState(!message);
-
-  // Use useEffect to fetch the message if it's not available
-  useEffect(() => {
-    if (!message) {
-      fetchMessage(messageID).then((fetchedMessage) => {
-        setContent(fetchedMessage);
-        setIsLoading(false);
-      }).catch((error) => {
-        console.error("Error fetching message:", error);
-        setIsLoading(false);
-      });
-    }
-  }, [messageID, message]);
-
-  // Show loading state
-  if (isLoading) return <p>Loading...</p>;
-
-  // Show error state if message is still not available after loading
-  if (!message && !isLoading) return <p>Error: Message not found</p>;
+  if (!message) return <p>Loading...</p>;
 
   const scrollContainerRef = useRef(null);
 
@@ -188,20 +169,29 @@ export default function MessageDetail({ messageID, message, messages }) {
 }
 
 export async function getStaticProps(context) {
-  const messageID = context.params.messageID;
+  const messageID = context.params?.messageID;
+  if (!messageID) return { notFound: true, } // This will return a 404 page
   const messages = await fetchMessages();
   const message = await fetchMessage(messageID);
+
+  if (!message) {
+    return {
+      notFound: true, // This will return a 404 page
+    };
+  }
+
   return {
-    props: { messages, message, messageID },
-    revalidate: 10, //10 minutes
+    props: { message, messages },
+    revalidate: 10, // 10 minutes
   };
 }
 
 export async function getStaticPaths() {
   const messages = await fetchMessages();
   const paths = messages.map((message) => ({
-    params: { messageID: message._id },
+    params: { messageID: message._id.toString() },
   }));
+ 
 
   return {
     paths,

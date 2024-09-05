@@ -61,7 +61,7 @@ const Messages = ({ messages }) => {
           className={
             message.isRead ? classes.containerRead : classes.containerUnread
           }
-          onClick={() => handleDetails(message.id)}
+          onClick={() => handleDetails(message._id)}
           key={message.id}
         >
           <div className={classes.sn}>{index + 1}</div>
