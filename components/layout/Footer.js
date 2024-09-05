@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import LoginModal from "./login";
 import { countProps } from "../lib/helpers";
+import { fetchMessages } from "@/utils/util-fetch";
 
 const style = {
   position: "relative",

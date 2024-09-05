@@ -22,7 +22,7 @@ export const showItem = (arrayObj, currentId, locate) => {
 };
 
 export const countProps = (arrayObj, target) => {
-  return arrayObj.filter((item) => item.isRead === target).length;
+  return arrayObj?.filter((item) => item.isRead === target).length;
 };
 
 export const notify = (state, error) => {

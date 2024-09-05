@@ -58,9 +58,7 @@ const messageHandler = async (req, res) => {
             isRead: false,
           };
 
-          
           await insertDoc(client, "message", newMessage);
-
 
           return res.status(201).json({
             message: "Message saved successfully!",
@@ -78,7 +76,7 @@ const messageHandler = async (req, res) => {
         const { id } = req.body; // Keep using req.body
         if (!id) {
           const docs = await getAllDocs(client, "message", { _id: -1 }, {});
-          return res.status(200).json({ docs });
+          return res.status(200).json(docs);
         } else {
           const msg = await getOneDoc(client, "message", id);
           if (!msg) {

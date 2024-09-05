@@ -6,7 +6,6 @@ export const fetchMessages = async () => {
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
-
     return await res.json();
   } catch (error) {
     console.error("Failed to fetch messages:", error);
@@ -15,4 +14,9 @@ export const fetchMessages = async () => {
       error: "Failed to fetch messages. Please try again later.",
     };
   }
+};
+
+export const fetchMessage = async (id) => {
+  const data = await fetchMessages();
+  return data.find((message) => message._id === id);
 };

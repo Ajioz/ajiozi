@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import classes from "./messages.module.css";
-import { fetchMessages } from "@/utils/util-fetch";
 
 const Messages = ({ messages }) => {
+
+
   const router = useRouter();
   const [messageList, setMessageList] = useState(messages);
 
   const truncateMessage = (message, maxLength = 30) => {
-    return message.length > maxLength
+    return message?.length > maxLength
       ? message.slice(0, maxLength) + "..."
       : message;
   };
@@ -40,7 +41,7 @@ const Messages = ({ messages }) => {
 
   return (
     <div className={classes.layout}>
-      {messageList.map((message, index) => (
+      {messageList?.map((message, index) => (
         <div
           className={
             message.isRead ? classes.containerRead : classes.containerUnread
@@ -80,11 +81,3 @@ const Messages = ({ messages }) => {
 
 export default Messages;
 
-export async function getServerSideProps() {
-  const messages = await fetchMessages();
-  return {
-    props: {
-      messages,
-    },
-  };
-}

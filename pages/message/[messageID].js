@@ -3,21 +3,21 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Scroll from "./scroll";
 import { showItem } from "@/components/lib/helpers";
-import { getEventById, getAllEvents } from "@/dummy";
 import styles from "./MessageDetail.module.css";
+import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
 export default function MessageDetail() {
   const router = useRouter();
   const { messageID } = router.query;
 
   const scrollContainerRef = useRef(null);
-  const messages = getAllEvents();
+  const messages = fetchMessages();
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
-  const [content, setContent] = useState(getEventById(messageID));
+  const [content, setContent] = useState(fetchMessage(messageID));
   const [track, setTrack] = useState({
     position: 0,
-    size: getAllEvents().length,
+    size: messages.length,
   });
 
   const navigator = (props) => {
