@@ -17,9 +17,25 @@ const Messages = ({ messages }) => {
     router.push(`/message/${id}`);
   };
 
-  const handleDelete = (id) => {
-    const updatedMessages = messageList.filter((message) => message.id !== id);
-    setMessageList(updatedMessages);
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch("/api/message", {
+        method: "DELETE",
+        body: JSON.stringify({ id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      await response.json();
+      if (response.ok) {
+        const updatedMessages = messageList.filter(
+          (message) => message.id !== id
+        );
+        setMessageList(updatedMessages);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
