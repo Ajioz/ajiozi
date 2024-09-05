@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import classes from "./messages.module.css";
-
+import { fetchMessages } from "@/utils/util-fetch";
 
 const Messages = ({ messages }) => {
   const router = useRouter();
@@ -65,27 +65,10 @@ const Messages = ({ messages }) => {
 export default Messages;
 
 export async function getServerSideProps() {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-    const res = await fetch(`${apiUrl}/api/message`);
-    
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    
-    const data = await res.json();
-    return {
-      props: {
-        messages: data.messages || [],
-      },
-    };
-  } catch (error) {
-    console.error("Failed to fetch messages:", error);
-    return {
-      props: {
-        messages: [],
-        error: 'Failed to fetch messages. Please try again later.',
-      },
-    };
-  }
+  const messages = await fetchMessages();
+  return {
+    props: {
+      messages,
+    },
+  };
 }
