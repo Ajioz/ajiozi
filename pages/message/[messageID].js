@@ -6,7 +6,12 @@ import { showItem } from "@/components/lib/helpers";
 import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
-export default function MessageDetail({ messageID, message, messages, pageItemPosition }) {
+export default function MessageDetail({
+  messageID,
+  message,
+  allMessages,
+  pageItemPosition,
+}) {
   const router = useRouter();
   // const { messageID } = router
 
@@ -14,13 +19,15 @@ export default function MessageDetail({ messageID, message, messages, pageItemPo
 
   const [addShadow, setAddShadow] = useState(styles.quickIcons);
   const [content, setContent] = useState(message);
+  const [messages, setMessages] = useState(allMessages);
+
   const [track, setTrack] = useState({
     position: pageItemPosition,
     size: messages?.length,
   });
 
   const navigator = (props) => {
-    const { locatedItem } = showItem(messages, messageID, props);
+    const { locatedItem } = showItem(setMessages, messageID, props);
     setContent((prev) => (prev = locatedItem));
     return locatedItem;
   };
@@ -31,13 +38,13 @@ export default function MessageDetail({ messageID, message, messages, pageItemPo
   };
 
   useEffect(() => {
-    const { pageItemPosition, length } = showItem(messages, messageID, null);
+    const { pageItemPosition, length } = showItem(setMessages, messageID, null);
     setTrack({ ...track, position: pageItemPosition, size: length });
   }, [messageID]);
 
   const nextMsg = (props) => {
     const locatedItem = navigator(props);
-    router.push(`/message/${locatedItem.id}`, undefined, { shallow: true }); // Update the URL with the new messageID
+    router.push(`/message/${locatedItem._id}`, undefined, { shallow: true }); // Update the URL with the new messageID
   };
 
   const deleteMsg = async () => {
@@ -168,16 +175,17 @@ export default function MessageDetail({ messageID, message, messages, pageItemPo
 
 export async function getStaticProps(context) {
   const messageID = context.params?.messageID;
-  if (!messageID) return { notFound: true, } // This will return a 404 page
-  const messages = await fetchMessages();
-  const message = await fetchMessage(messageID);
-  const { pageItemPosition } = showItem(messages, messageID, null);
-  console.log(pageItemPosition);
+  console.log("Message ID from params:", messageID);
 
-  if (!message) return { notFound: true } // This will return a 404 page
+  const allMessages = await fetchMessages();
+  const message = await fetchMessage(messageID);
+  const { pageItemPosition } = showItem(allMessages, messageID, null);
+  console.log("Page Item Position:", pageItemPosition);
+
+  if (!message) return { notFound: true }; // This will return a 404 page
 
   return {
-    props: { messageID, message, messages, pageItemPosition },
+    props: { messageID, message, allMessages, pageItemPosition },
     revalidate: 10, // 10 minutes
   };
 }
@@ -187,7 +195,7 @@ export async function getStaticPaths() {
   const paths = messages.map((message) => ({
     params: { messageID: message._id.toString() },
   }));
- 
+
   return {
     paths,
     fallback: true,

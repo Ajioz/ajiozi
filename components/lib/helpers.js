@@ -1,5 +1,5 @@
 export const extractIds = (arrayObj) => {
-  return arrayObj?.map(({ id }) => id);
+  return arrayObj?.map(({ _id }) => _id);
 };
 
 export const showItem = (arrayObj, currentId, locate) => {
@@ -15,9 +15,9 @@ export const showItem = (arrayObj, currentId, locate) => {
     if (nextNum >= ids.length) nextNum = ids.length - 1;
     nextItemID = ids[nextNum];
   } else {
-    if(pageItemPosition) nextItemID = ids[pageItemPosition];
+    if (pageItemPosition !== -1) nextItemID = ids[pageItemPosition];
   }
-  const locatedItem = arrayObj?.find((obj) => obj.id === nextItemID);
+  const locatedItem = arrayObj?.find((obj) => obj._id === nextItemID);
   return { pageItemPosition, length: ids?.length, locatedItem };
 };
 
