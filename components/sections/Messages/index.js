@@ -2,8 +2,23 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import classes from "./messages.module.css";
 
-const Messages = ({ messages }) => {
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffTime = now - date;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffYears = now.getFullYear() - date.getFullYear();
 
+  if (diffYears >= 1) {
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  } else if (diffDays < 1) {
+    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  } else {
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+};
+
+const Messages = ({ messages }) => {
 
   const router = useRouter();
   const [messageList, setMessageList] = useState(messages);
@@ -63,7 +78,7 @@ const Messages = ({ messages }) => {
             {truncateMessage(message.phone, 18)}
           </div>
           <div className={classes.date}>
-            {truncateMessage(message.date, 14)}
+            {truncateMessage(formatDate(message.createdAt), 14)}
           </div>
           <i
             className={`${"icon fa fa-trash"} ${classes.chevron}`}

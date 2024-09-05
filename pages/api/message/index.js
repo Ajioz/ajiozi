@@ -56,6 +56,7 @@ const messageHandler = async (req, res) => {
             phone,
             message,
             isRead: false,
+            createdAt: new Date(), // Add this line
           };
 
           await insertDoc(client, "message", newMessage);
@@ -75,7 +76,8 @@ const messageHandler = async (req, res) => {
       case "GET":
         const { id } = req.body; // Keep using req.body
         if (!id) {
-          const docs = await getAllDocs(client, "message", { _id: -1 }, {});
+          // Change the sort order to descending by createdAt
+          const docs = await getAllDocs(client, "message", { createdAt: -1 }, {});
           return res.status(200).json(docs);
         } else {
           const msg = await getOneDoc(client, "message", id);
