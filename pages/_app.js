@@ -5,7 +5,6 @@ import "swiper/css/pagination";
 import "../public/css/bootstrap.min.css";
 import "../public/css/style.css";
 
-
 //import '../public/css/responsive.css';
 
 //import 'swiper/css/effect-coverflow';
@@ -30,14 +29,17 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <SessionProvider session={pageProps.session}>
-      {!loading ? (
-        <Component {...pageProps} />
-      ) : (
-        <div className="preloader">
-          <span className="loader"></span>
-        </div>
-      )}
+      <Component {...pageProps} />
     </SessionProvider>
+    // <SessionProvider session={pageProps.session}>
+    //   {!loading ? (
+    //     <Component {...pageProps} />
+    //   ) : (
+    //     <div className="preloader">
+    //       <span className="loader"></span>
+    //     </div>
+    //   )}
+    // </SessionProvider>
   );
 }
 
