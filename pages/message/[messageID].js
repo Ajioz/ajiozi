@@ -7,7 +7,6 @@ import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
 export default function MessageDetail() {
-
   const scrollContainerRef = useRef(null);
   const router = useRouter();
   const { messageID } = router.query;
@@ -19,51 +18,69 @@ export default function MessageDetail() {
 
   useEffect(() => {
     const getMessages = async () => {
-      const fetchedMessages = await fetchMessages();
-      setMessages(fetchedMessages);
-      const fetchedContent = await fetchMessage(messageID);
-      setContent(fetchedContent);
+      try {
+        if (!messages.length) {
+          const fetchedMessages = await fetchMessages();
+          setMessages(fetchedMessages);
+        }
+        const fetchedContent = await fetchMessage(messageID);
+        setContent(fetchedContent);
 
-      const { pageItemPosition, length } = showItem(fetchedMessages, messageID, null);
-      setTrack({ position: pageItemPosition, size: length });
+        const { pageItemPosition, length } = showItem(
+          messages,
+          messageID,
+          null
+        );
+        setTrack({ position: pageItemPosition, size: length });
+      } catch (error) {
+        console.error("Error fetching messages or content:", error);
+      }
     };
-    getMessages();
-  }, [messageID]);
+
+    if (messageID) {
+      getMessages();
+    }
+  }, [messageID, messages]);
 
   const navigator = (props) => {
     const { locatedItem } = showItem(messages, messageID, props);
-    setContent((prev) => (prev = locatedItem));
+    setContent((prev) => ({ ...prev, ...locatedItem }));
     return locatedItem;
   };
 
   const border = (props) => {
-    if (props) setAddShadow(styles.scrollBorder);
-    else setAddShadow(styles.quickIcons);
+    setAddShadow(props ? styles.scrollBorder : styles.quickIcons);
   };
 
   const nextMsg = (props) => {
     const locatedItem = navigator(props);
-    router.push(`/message/${locatedItem._id}`, undefined, { shallow: true }); // Update the URL with the new messageID
-  };
-
-  const deleteMsg = async () => {
-    const response = await fetch("/api/message", {
-      method: "DELETE",
-      body: JSON.stringify({ id: messageID }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      const locatedItem = navigator("next");
-      router.push(`/message/${locatedItem.id}`, undefined, { shallow: true });
+    if (locatedItem?._id) {
+      router.push(`/message/${locatedItem._id}`, undefined, { shallow: true });
     }
   };
 
-  const name = content?.name;
-  const firstName = name?.split(" ")[0];
-  const lastName = name?.split(" ")[1];
+  const deleteMsg = async () => {
+    try {
+      const response = await fetch("/api/message", {
+        method: "DELETE",
+        body: JSON.stringify({ id: messageID }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const locatedItem = navigator("next");
+        router.push(`/message/${locatedItem.id}`, undefined, { shallow: true });
+      }
+    } catch (error) {
+      console.error("Error deleting message:", error);
+    }
+  };
+
+  const name = content?.name || "";
+  const firstName = name.split(" ")[0] || "";
+  const lastName = name.split(" ")[1] || "";
 
   return (
     <div className={styles.container}>
@@ -97,7 +114,6 @@ export default function MessageDetail() {
             <div className={styles.headerNavItem}>Compose</div>
             <div className={styles.headerNavItem}>Inbox</div>
             <div className={styles.headerNavItem}>Starred</div>
-            {/* Add more header navigation items as needed */}
           </div>
           <div className={styles.profileIcon}></div>
         </div>
@@ -163,7 +179,6 @@ export default function MessageDetail() {
               </div>
             </div>
             <p>{content?.message}</p>
-            {/* Add more content as needed */}
           </div>
         </div>
         <Scroll scrollContainerRef={scrollContainerRef} border={border} />
