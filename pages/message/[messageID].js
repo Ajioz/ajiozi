@@ -257,6 +257,18 @@ export default function MessageDetail({
           </div>
         </div>
         <Scroll scrollContainerRef={scrollContainerRef} border={border} />
+
+        {/* New Footer */}
+        <footer className={styles.footer}>
+          <div className={styles.footerContent}>
+            <p>&copy; {new Date().getFullYear() } ajiozMail. All rights reserved.</p>
+            <nav>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
+              <a href="/contact">Contact Us</a>
+            </nav>
+          </div>
+        </footer>
       </div>
     </div>
   );
