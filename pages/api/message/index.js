@@ -98,19 +98,23 @@ const messageHandler = async (req, res) => {
         try {
           const { id } = req.body;
           const db = client.db();
-          const message = await db.collection("message").find({ _id: id });
+          const objectId = ObjectId.createFromHexString(id);
+
+          const message = await db.collection("message").findOne({ _id: objectId });
 
           if (!message) {
             return res.status(404).json({ message: "No such message" });
           }
 
-          const updateMsg = await db
+          const updateResult = await db
             .collection("message")
-            .updateOne({ _id: id }, { $set: { isRead: true } });
+            .updateOne({ _id: objectId }, { $set: { isRead: true } });
 
-          if (updateMsg) {
-            console.log({ message: "Updated successfully" });
-            return res.status(201).json({ message: "Updated successfully" });
+          if (updateResult.modifiedCount > 0) {
+            console.log("Message updated successfully");
+            return res.status(200).json({ message: "Updated successfully" });
+          } else {
+            return res.status(400).json({ message: "Update failed or no changes made" });
           }
         } catch (error) {
           console.error("Error updating message:", error);
