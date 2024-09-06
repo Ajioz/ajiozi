@@ -14,8 +14,8 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleStart = (url) => {
-      if (url !== router.asPath) {
-        timeoutId = setTimeout(() => setLoading(true), 100); // 100ms delay
+      if (url !== router.asPath) { //check of the page is alaredy cached before and ignore it being loaded from raw source
+        timeoutId = setTimeout(() => setLoading(true), 100); // 100ms delay to remove loader
       }
     };
     const handleComplete = () => {

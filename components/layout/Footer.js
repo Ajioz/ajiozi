@@ -144,24 +144,28 @@ export default function Footer({ session }) {
                 <div className="footer-widget contact-widget">
                   <h5 className="widget-title">Contact</h5>
                   <div className="widget-content">
-                    <div className="text">
-                      66 Road Broklyn Street, 600 <br />
-                      New York, USA
+                    <div className="text" style={{ marginBottom: 0 }}>
+                      Suite 205, The Biscuit Factory 39-43 Tanner Street London
+                      SE1 3BT United Kingdom
                     </div>
                     <ul className="contact-list">
                       <li className="contact-info">
-                        {" "}
-                        <i className="icon fa fa-envelope"></i>{" "}
+                        <i className="icon fa fa-envelope"></i>
                         <Link href="#" className="mailto:needhelp@company.com">
-                          needhelp@company.com
-                        </Link>{" "}
+                          help@ajiozi.com
+                        </Link>
                       </li>
                       <li className="contact-info">
-                        {" "}
-                        <i className="icon fa fa-phone"></i>{" "}
-                        <Link href="#" className="tel:+1-666-888-0000">
-                          +92 666 888 0000
-                        </Link>{" "}
+                        <i className="icon fa fa-phone"></i>
+                        <Link href="#" className="tel:+2348064107055">
+                          +234 8064 1070 55
+                        </Link>
+                      </li>
+                      <li className="contact-info">
+                        <i className="icon fa fa-phone"></i>
+                        <Link href="#" className="tel:+2348064107055">
+                          +44 20 3123 4567
+                        </Link>
                       </li>
                       {isUser ? (
                         <>

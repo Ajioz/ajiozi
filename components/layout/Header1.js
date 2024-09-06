@@ -21,12 +21,12 @@ export default function Header1({
             <div className="top-left">
               <ul className="list-style-one">
                 <li>
-                  <i className="fa fa-map-marker"></i> 31 Birmingham, London
+                  <i className="fa fa-map-marker"></i> Suite 205, Tanner Str London SE1 3BT United Kingdom
                 </li>
                 <li>
                   <i className="fa fa-envelope"></i>{" "}
-                  <Link href="#" className="mailto:needhelp@company.com">
-                    needhelp@company.com
+                  <Link href="#" className="mailto:help@ajiozi.com">
+                    help@ajiozi.com
                   </Link>
                 </li>
               </ul>
@@ -141,7 +141,7 @@ export default function Header1({
                 <div className="contact-info-box">
                   <i className="icon lnr-icon-phone-handset" />
                   <span className="title">Call Now</span>
-                  <Link href="/tel:+92880098670">+92 (8800) - 98670</Link>
+                  <Link href="/tel:+44 20 3123 4567">++44 20 3123 4567</Link>
                 </div>
               </li>
               <li>
