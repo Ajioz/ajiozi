@@ -28,18 +28,18 @@ function MyApp({ Component, pageProps }) {
     window.wow.init();
   }, []);
   return (
-    <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />
-    </SessionProvider>
     // <SessionProvider session={pageProps.session}>
-    //   {!loading ? (
-    //     <Component {...pageProps} />
-    //   ) : (
-    //     <div className="preloader">
-    //       <span className="loader"></span>
-    //     </div>
-    //   )}
+    //   <Component {...pageProps} />
     // </SessionProvider>
+    <SessionProvider session={pageProps.session}>
+      {!loading ? (
+        <Component {...pageProps} />
+      ) : (
+        <div className="preloader">
+          <span className="loader"></span>
+        </div>
+      )}
+    </SessionProvider>
   );
 }
 

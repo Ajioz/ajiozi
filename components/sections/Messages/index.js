@@ -7,16 +7,30 @@ const formatDate = (dateString) => {
   const now = new Date();
   const diffTime = now - date;
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffWeeks = Math.floor(diffDays / 7);
   const diffYears = now.getFullYear() - date.getFullYear();
 
+  const isYesterday = now.getDate() - date.getDate() === 1 && diffDays < 2;
+
   if (diffYears >= 1) {
-    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-  } else if (diffDays < 1) {
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    // If the message is from a previous year, show month and year
+    return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  } else if (diffWeeks >= 1 || diffDays > 6) {
+    // If the message is more than a week old, show month and day
+    return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  } else if (isYesterday) {
+    // If the message is from yesterday, show "Yesterday" and time
+    return `Yesterday ${date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}`;
+  } else if (diffDays >= 2) {
+    // If the message is from earlier this week, show day of the week and time
+    return `${date.toLocaleDateString("en-US", { weekday: "short" })} ${date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}`;
   } else {
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    // If the message is from today, show only the time
+    return date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
   }
 };
+
+
 
 const Messages = ({ messages }) => {
 
@@ -78,7 +92,7 @@ const Messages = ({ messages }) => {
             {truncateMessage(message.phone, 18)}
           </div>
           <div className={classes.date}>
-            {truncateMessage(formatDate(message.createdAt), 14)}
+            {truncateMessage(formatDate(message.createdAt))}
           </div>
           <i
             className={`${"icon fa fa-trash"} ${classes.chevron}`}

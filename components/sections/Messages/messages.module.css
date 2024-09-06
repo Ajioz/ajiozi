@@ -24,7 +24,9 @@
 .containerUnread {
   font-weight: bolder;
 }
-
+.date {
+  width: 150px !important;
+}
 .chevron {
   color: transparent;
   transition: color 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -65,10 +67,12 @@
 }
 
 @media (max-width: 768px) {
-  .container {
+  .containerUnread,
+  .containerRead {
     flex-direction: column;
     height: auto;
     padding: 10px;
+    align-items: flex-start;
   }
   .sn,
   .name,
@@ -77,23 +81,37 @@
   .phone,
   .date {
     width: 100%;
+    margin-bottom: 5px;
+  }
+  .message {
+    font-weight: bold;
     margin-bottom: 10px;
   }
   .chevron {
-    align-self: flex-end;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .date {
+    font-size: 0.9em;
+    color: #666;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 5px;
+  .containerUnread,
+  .containerRead {
+    padding: 8px;
   }
-  .sn,
-  .name,
-  .message,
+  .message {
+    font-size: 0.95em;
+  }
   .email,
-  .phone,
+  .phone {
+    font-size: 0.9em;
+  }
   .date {
-    margin-bottom: 5px;
+    font-size: 0.85em;
   }
 }
