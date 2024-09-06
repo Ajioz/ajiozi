@@ -111,7 +111,6 @@ const messageHandler = async (req, res) => {
             .updateOne({ _id: objectId }, { $set: { isRead: true } });
 
           if (updateResult.modifiedCount > 0) {
-            console.log("Message updated successfully");
             return res.status(200).json({ message: "Updated successfully" });
           } else {
             return res.status(400).json({ message: "Update failed or no changes made" });

@@ -2,6 +2,11 @@ import { useState, useEffect } from "react";
 import Notification from "../ui/notification";
 import { notify } from "../lib/helpers";
 
+
+const style = {
+  color: "#fff"
+}
+
 const Contact2 = () => {
   const [requestStatus, setRequestStatus] = useState(null); //pending, success, error||none
   const [requestError, setRequestError] = useState(null);
@@ -85,6 +90,7 @@ const Contact2 = () => {
                     <div className="row">
                       <div className="form-group col-lg-6 col-md-12 col-sm-12">
                         <input
+                          style={style}
                           type="text"
                           name="full_name"
                           value={data.name}
@@ -95,6 +101,7 @@ const Contact2 = () => {
                       </div>
                       <div className="form-group col-lg-6 col-md-12 col-sm-12">
                         <input
+                          style={style}
                           type="email"
                           name="Email"
                           value={data.email}
@@ -105,6 +112,7 @@ const Contact2 = () => {
                       </div>
                       <div className="form-group col-lg-6 col-md-12 col-sm-12">
                         <input
+                          style={style}
                           type="text"
                           name="phone"
                           value={data.phone}
@@ -115,6 +123,7 @@ const Contact2 = () => {
                       </div>
                       <div className="form-group col-lg-6 col-md-12 col-sm-12">
                         <input
+                          style={style}
                           type="text"
                           name="subject"
                           value={data.subject}
@@ -125,6 +134,7 @@ const Contact2 = () => {
                       </div>
                       <div className="form-group col-lg-12">
                         <textarea
+                          style={style}
                           name="message"
                           placeholder="Write message"
                           value={data.message}
