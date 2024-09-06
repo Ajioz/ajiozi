@@ -77,7 +77,12 @@ const messageHandler = async (req, res) => {
         const { id } = req.body; // Keep using req.body
         if (!id) {
           // Change the sort order to descending by createdAt
-          const docs = await getAllDocs(client, "message", { createdAt: -1 }, {});
+          const docs = await getAllDocs(
+            client,
+            "message",
+            { createdAt: -1 },
+            {}
+          );
           return res.status(200).json(docs);
         } else {
           const msg = await getOneDoc(client, "message", id);
@@ -93,7 +98,7 @@ const messageHandler = async (req, res) => {
         try {
           const { id } = req.body;
           const db = client.db();
-          const message = await db.collection("message").findOne({ _id: id });
+          const message = await db.collection("message").find({ _id: id });
 
           if (!message) {
             return res.status(404).json({ message: "No such message" });
@@ -104,6 +109,7 @@ const messageHandler = async (req, res) => {
             .updateOne({ _id: id }, { $set: { isRead: true } });
 
           if (updateMsg) {
+            console.log({ message: "Updated successfully" });
             return res.status(201).json({ message: "Updated successfully" });
           }
         } catch (error) {

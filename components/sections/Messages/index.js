@@ -76,8 +76,7 @@ const Messages = ({ messages }) => {
             message.isRead ? classes.containerRead : classes.containerUnread
           }
           onClick={() => handleDetails(message._id)}
-          key={message._id}
-        >
+          key={message._id}>
           <div className={classes.sn}>{index + 1}</div>
           <div className={classes.name}>
             {truncateMessage(message.name, 18)}
