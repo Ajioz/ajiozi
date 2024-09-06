@@ -10,10 +10,18 @@ import "../public/css/style.css";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  let timeoutId;
 
   useEffect(() => {
-    const handleStart = () => setLoading(true);
-    const handleComplete = () => setLoading(false);
+    const handleStart = (url) => {
+      if (url !== router.asPath) {
+        timeoutId = setTimeout(() => setLoading(true), 100); // 100ms delay
+      }
+    };
+    const handleComplete = () => {
+      clearTimeout(timeoutId);
+      setLoading(false);
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -24,6 +32,7 @@ function MyApp({ Component, pageProps }) {
     window.wow.init();
 
     return () => {
+      clearTimeout(timeoutId);
       router.events.off("routeChangeStart", handleStart);
       router.events.off("routeChangeComplete", handleComplete);
       router.events.off("routeChangeError", handleComplete);
