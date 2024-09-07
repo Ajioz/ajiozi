@@ -22,12 +22,16 @@ import VideoTm from "@/components/sections/VideoTm";
 import Service1T2 from "@/components/sections/Service1T2";
 import Process from "@/components/sections/Process1";
 
+const homeHead = {
+  headTitle: "Ajiozi | Premier Software Development & Tech Solutions",
+  description: "Welcome to Ajiozi, a leading software company offering top-tier software development, embedded systems, IoT technology, and comprehensive tech training. Partner with us for innovative solutions and exceptional service.",
+  keywords: "Ajiozi, software development, tech solutions, embedded systems, IoT, technology, training, research, innovation, premier services",
+};
 
 export default function Home() {
-
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1}>
+      <Layout headerStyle={1} footerStyle={1} head={homeHead}>
         <Slider1 />
         <Services />
         <Marquee />

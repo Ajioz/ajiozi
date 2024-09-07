@@ -6,6 +6,7 @@ export default function Menu() {
   const pathname = usePathname();
   const links = [
     { href: '/', label: 'Home' },
+    { href: '/about', label: 'About us' },
     { href: '/services', label: 'Services' },
     { href: '/projects', label: 'Projects' },
     { href: '/article', label: 'Blog' },
