@@ -14,7 +14,7 @@ const projectHead = {
 export default function pageProjectDetails() {
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1}>
+      <Layout headerStyle={1} footerStyle={1} head={projectHead}>
         <PageTitle pageName="Project Details" />
         <ProjectDetails />
         <Projects2 />
