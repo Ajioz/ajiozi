@@ -22,7 +22,7 @@ const Funfact1 = () => {
                   {" "}
                   <i className="icon flaticon-targeted-marketing"></i>
                   <div className="count-box">
-                    <CounterUp count={450} time={3} />
+                    <CounterUp count={453} time={3} />
                   </div>
                   <h6 className="counter-title">Project Completed</h6>
                 </div>
@@ -35,7 +35,7 @@ const Funfact1 = () => {
                   {" "}
                   <i className="icon flaticon-diplomat"></i>
                   <div className="count-box">
-                    <CounterUp count={326} time={3} />
+                    <CounterUp count={16} time={3} />
                   </div>
                   <h6 className="counter-title">IT Specialists</h6>
                 </div>
@@ -48,7 +48,7 @@ const Funfact1 = () => {
                   {" "}
                   <i className="icon flaticon-recommend"></i>
                   <div className="count-box">
-                    <CounterUp count={860} time={3} />
+                    <CounterUp count={102} time={3} /><span></span>
                   </div>
                   <h6 className="counter-title">Satisfied Clients</h6>
                 </div>
