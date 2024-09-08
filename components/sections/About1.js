@@ -54,8 +54,8 @@ const About1 = () => {
                   <div className="bottom-box">
                     <div className="author-box"> <img src="images/resource/about1-thumb.jpg" alt="Image"/>
                       <div className="info">
-                        <h4 className="name">Brittary Herman</h4>
-                        <div className="designation">CEO & Founder of Company</div>
+                        <h4 className="name">Sandra Isianya</h4>
+                        <div className="designation">CFO & Co-Founder - Ajiozi</div>
                       </div>
                     </div>
                     <a href="/" className="theme-btn btn-style-one"><span className="btn-title">Discover more</span></a>

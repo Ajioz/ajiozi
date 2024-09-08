@@ -15,32 +15,30 @@ const About2 = () => {
                     {" "}
                     <span className="sub-title">about the company</span>
                     <h2>
-                      Expert of software & <br />
-                      tech programming
+                      Leaders in Software & <br />
+                      Tech Innovation
                     </h2>
                     <div className="text">
-                      Web designing in a powerful way of just not an only
-                      professions, however, in a passion for our Company. We
-                      have to a tendency to believe the idea that smart looking
-                      of any website is the first impression on visitors.
+                      Web design is not just our profession—it's our passion. 
+                      We firmly believe that a website's visual appeal creates 
+                      the critical first impression for visitors. Our expertise 
+                      lies in crafting powerful, innovative designs that 
+                      captivate and engage your audience from the moment they 
+                      land on your site.
                     </div>
                   </div>
                   <ul className="list-style-two two-col">
                     <li>
-                      <i className="icon fa fa-check-circle"></i>Maecenas
-                      pulvinar ligula
+                      <i className="icon fa fa-check-circle"></i>Responsive Web Design
                     </li>
                     <li>
-                      <i className="icon fa fa-check-circle"></i>Non proin netus
-                      natoque
+                      <i className="icon fa fa-check-circle"></i>User Experience (UX) Optimization
                     </li>
                     <li>
-                      <i className="icon fa fa-check-circle"></i>Porta hinteger
-                      neque
+                      <i className="icon fa fa-check-circle"></i>Custom Web Development
                     </li>
                     <li>
-                      <i className="icon fa fa-check-circle"></i>Porta hinteger
-                      neque
+                      <i className="icon fa fa-check-circle"></i>SEO-Friendly Websites
                     </li>
                   </ul>
                   <div className="bottom-box">
@@ -52,8 +50,8 @@ const About2 = () => {
                         />
                       </figure>
                       <div className="info">
-                        <h4 className="name">Aleesha brown</h4>
-                        <div className="designation">CEO & CO Founder</div>
+                        <h4 className="name">Onoriode Sunday</h4>
+                        <div className="designation">CEO & Founder - Ajiozi</div>
                       </div>
                     </div>
                     <Link href="about" className="theme-btn btn-style-one">
