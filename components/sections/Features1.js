@@ -16,9 +16,8 @@ const Features1 = () => {
                     for Your Industry
                   </h2>
                   <div className="text">
-                    There are many variations of passages of available but
-                    majority <br />
-                    have suffered alteration in some form
+                    We offer a wide range of customizable IT services tailored to<br />
+                    meet the unique needs of your industry.
                   </div>
                 </div>
                 <Link href="about" className="theme-btn btn-style-one">
@@ -33,8 +32,8 @@ const Features1 = () => {
                   <div className="feature-block col-lg-6 col-md-4 col-sm-6">
                     <div className="inner-box">
                       {" "}
-                      <i className="icon fa fa-globe"></i>
-                      <h5 className="title">Website</h5>
+                      <i className="icon fab fa-apple"></i>
+                      <h5 className="title">iOS</h5>
                     </div>
                   </div>
 
@@ -58,7 +57,7 @@ const Features1 = () => {
                     <div className="inner-box">
                       {" "}
                       <i className="icon fa fa-pen-ruler"></i>
-                      <h5 className="title">Designing</h5>
+                      <h5 className="title">Software Architecture</h5>
                     </div>
                   </div>
 
@@ -66,7 +65,7 @@ const Features1 = () => {
                     <div className="inner-box">
                       {" "}
                       <i className="icon fa fa-lightbulb"></i>
-                      <h5 className="title">Technology</h5>
+                      <h5 className="title">IoT Technology</h5>
                     </div>
                   </div>
 
@@ -74,7 +73,7 @@ const Features1 = () => {
                     <div className="inner-box">
                       {" "}
                       <i className="icon fa fa-brain-circuit"></i>
-                      <h5 className="title">Solutions</h5>
+                      <h5 className="title">Smart Solutions</h5>
                     </div>
                   </div>
                 </div>

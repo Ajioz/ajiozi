@@ -41,10 +41,9 @@ export default function Home() {
         <Funfact />
         <Features1 />
         <VideoTm />
-        <Features2 />
+        <Features2T2 />
         <Service1T2 />
         <br />
-        <Features2T2 />
         <Features2T3 />
         <Features2T4 />
         <Testimonial />
