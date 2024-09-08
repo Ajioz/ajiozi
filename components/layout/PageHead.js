@@ -10,43 +10,46 @@ const PageHead = ({ headTitle, description, keywords }) => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Ajiozi",
-    "url": "https://www.ajiozi.com",
-    "logo": logoUrl,
-    "sameAs": [
+    name: "Ajiozi",
+    url: "https://www.ajiozi.com",
+    logo: logoUrl,
+    sameAs: [
       "https://www.facebook.com/ajiozi",
       "https://www.twitter.com/ajiozi",
-      "https://www.linkedin.com/company/ajiozi"
+      "https://www.linkedin.com/company/ajiozi",
     ],
-    "contactPoint": {
+    contactPoint: {
       "@type": "ContactPoint",
-      "telephone": "+234-806-410-7055",
-      "contactType": "Customer Service"
+      telephone: "+234-806-410-7055",
+      contactType: "Customer Service",
     },
-    "founders": [
+    founders: [
       {
         "@type": "Person",
-        "name": "Ajiroghene Sunday"
+        name: "Ajiroghene Sunday",
+        jobTitle: "CEO", // Added jobTitle to indicate CEO
       },
       {
         "@type": "Person",
-        "name": "Sandra Isianya"
+        name: "Sandra Isianya",
+        jobTitle: "CFO",
       },
       {
         "@type": "Person",
-        "name": "Richard Iteke"
-      }
+        name: "Richard Iteke",
+      },
     ],
-    "foundingDate": "2020-01-01",
-    "foundingLocation": "Delta, Nigeria",
-    "address": {
+    foundingDate: "2020-01-01",
+    foundingLocation: "Delta, Nigeria",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "31 Airport Road",
-      "addressLocality": "Delta",
-      "addressRegion": "DTH",
-      "postalCode": "332213",
-      "addressCountry": "NG"
-    }
+      streetAddress: "31 Airport Road",
+      addressLocality: "Delta",
+      addressRegion: "DTH",
+      postalCode: "332213",
+      addressCountry: "NG",
+    },
+    stockPrice: "$2", // Custom property
   };
 
   return (
