@@ -5,7 +5,7 @@ const PageHead = ({ headTitle, description, keywords }) => {
   const defaultDescription = "Ajiozi is a leading software company specializing in cutting-edge software solutions, embedded systems, IoT technology, training, and research.";
   const defaultKeywords = "Ajiozi, software solutions, embedded systems, IoT, Internet of Things, technology, training, research, leading tech company";
 
-  const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || "https://www.ajiozi.com/logo.png";
+  const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || "/images/logo.png";
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -26,21 +26,25 @@ const PageHead = ({ headTitle, description, keywords }) => {
     "founders": [
       {
         "@type": "Person",
-        "name": "Founder Name 1"
+        "name": "Ajiroghene Sunday"
       },
       {
         "@type": "Person",
-        "name": "Founder Name 2"
+        "name": "Sandra Isianya"
+      },
+      {
+        "@type": "Person",
+        "name": "Richard Iteke"
       }
     ],
     "foundingDate": "2020-01-01",
-    "foundingLocation": "Lagos, Nigeria",
+    "foundingLocation": "Delta, Nigeria",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Ajiozi Street",
-      "addressLocality": "Lagos",
-      "addressRegion": "LA",
-      "postalCode": "100001",
+      "streetAddress": "31 Airport Road",
+      "addressLocality": "Delta",
+      "addressRegion": "DTH",
+      "postalCode": "332213",
       "addressCountry": "NG"
     }
   };
