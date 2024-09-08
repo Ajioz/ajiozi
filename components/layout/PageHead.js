@@ -26,7 +26,7 @@ const PageHead = ({ headTitle, description, keywords }) => {
     founders: [
       {
         "@type": "Person",
-        name: "Ajiroghene Sunday",
+        name: "Onoriode Sunday",
         jobTitle: "CEO", // Added jobTitle to indicate CEO
       },
       {
@@ -39,6 +39,13 @@ const PageHead = ({ headTitle, description, keywords }) => {
         name: "Richard Iteke",
       },
     ],
+    team: [ // New team array
+      {
+        "@type": "Person",
+        name: "Ajiroghene Sunday",
+        jobTitle: "Team Lead, Software Engineering",
+      },
+    ],
     foundingDate: "2020-01-01",
     foundingLocation: "Delta, Nigeria",
     address: {
@@ -49,7 +56,7 @@ const PageHead = ({ headTitle, description, keywords }) => {
       postalCode: "332213",
       addressCountry: "NG",
     },
-    stockPrice: "$2", // Custom property
+    stockStatus: "Privately held, with strong growth potential", // Updated stock status
   };
 
   return (
