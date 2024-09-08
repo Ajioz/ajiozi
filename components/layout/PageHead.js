@@ -5,12 +5,14 @@ const PageHead = ({ headTitle, description, keywords }) => {
   const defaultDescription = "Ajiozi is a leading software company specializing in cutting-edge software solutions, embedded systems, IoT technology, training, and research.";
   const defaultKeywords = "Ajiozi, software solutions, embedded systems, IoT, Internet of Things, technology, training, research, leading tech company";
 
+  const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || "https://www.ajiozi.com/logo.png";
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Ajiozi",
     "url": "https://www.ajiozi.com",
-    "logo": "https://www.ajiozi.com/logo.png",
+    "logo": logoUrl,
     "sameAs": [
       "https://www.facebook.com/ajiozi",
       "https://www.twitter.com/ajiozi",
@@ -20,6 +22,26 @@ const PageHead = ({ headTitle, description, keywords }) => {
       "@type": "ContactPoint",
       "telephone": "+234-806-410-7055",
       "contactType": "Customer Service"
+    },
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Founder Name 1"
+      },
+      {
+        "@type": "Person",
+        "name": "Founder Name 2"
+      }
+    ],
+    "foundingDate": "2020-01-01",
+    "foundingLocation": "Lagos, Nigeria",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Ajiozi Street",
+      "addressLocality": "Lagos",
+      "addressRegion": "LA",
+      "postalCode": "100001",
+      "addressCountry": "NG"
     }
   };
 
