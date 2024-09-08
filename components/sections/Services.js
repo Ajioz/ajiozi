@@ -10,12 +10,12 @@ const Services2 = () => {
               <div className="inner-box">
                 <div className="sec-title text-gradient mb-5 mb-lg-0">
                   <h2>
-                    Get the best technology <br />
-                    services & solutions
+                    Elevate Your Business with <br />
+                    Future-Ready Solutions
                   </h2>
                   <div className="text">
-                    There are many variations of passages of available but
-                    majority have suffered alteration in some form
+                    Unlock your company's full potential with our tailored services,
+                    designed to drive growth and innovation in today's digital landscape.
                   </div>
                 </div>
               </div>

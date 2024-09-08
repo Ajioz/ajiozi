@@ -26,14 +26,15 @@ const Slider1 = () => {
               aria-label="Empowering Your Business with Ajiozi's IT Solutions"
             ></div>
             <div className="auto-container content-box">
-              <div className="text">Driving Your Business Forward with Ajiozi's Cutting-Edge IT Solutions</div>
+              <div className="text">
+                Driving Your Business Forward with Ajiozi's Cutting-Edge IT
+                Solutions
+              </div>
               <h1 className="title">
-                Transforming <br className="d-none d-md-block" /> Your IT Experience
+                Transforming <br className="d-none d-md-block" /> Your IT
+                Experience
               </h1>
-              <Link
-                href="page-taxi"
-                className="theme-btn btn-style-one dark-line"
-              >
+              <Link href="about" className="theme-btn btn-style-one dark-line">
                 <span className="btn-title">Learn More</span>
               </Link>
             </div>
@@ -46,14 +47,14 @@ const Slider1 = () => {
               aria-label="Empowering Your Business with Ajiozi's IT Solutions"
             ></div>
             <div className="auto-container content-box">
-              <div className="text">Empowering Your Business with Ajiozi's IT Solutions</div>
+              <div className="text">
+                Empowering Your Business with Ajiozi's IT Solutions
+              </div>
               <h1 className="title">
-                Innovating <br className="d-none d-md-block" /> Your IT Landscape
+                Innovating <br className="d-none d-md-block" /> Your IT
+                Landscape
               </h1>
-              <Link
-                href="page-taxi"
-                className="theme-btn btn-style-one dark-line"
-              >
+              <Link href="about" className="theme-btn btn-style-one dark-line">
                 <span className="btn-title">Learn More</span>
               </Link>
             </div>
