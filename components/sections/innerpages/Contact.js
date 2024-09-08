@@ -191,8 +191,8 @@ export default function Contactpage() {
                     </div>
                     <div className="text">
                       <h6>Write email</h6>
-                      <a href="mailto:needhelp@company.com">
-                        needhelp@company.com
+                      <a href="mailto:needhelp@ajiozi.com">
+                        needhelp@ajiozi.com
                       </a>
                     </div>
                   </li>

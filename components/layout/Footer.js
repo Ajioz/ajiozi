@@ -151,7 +151,7 @@ export default function Footer({ session }) {
                     <ul className="contact-list">
                       <li className="contact-info">
                         <i className="icon fa fa-envelope"></i>
-                        <Link href="#" className="mailto:needhelp@company.com">
+                        <Link href="#" className="mailto:needhelp@ajiozi.com">
                           help@ajiozi.com
                         </Link>
                       </li>

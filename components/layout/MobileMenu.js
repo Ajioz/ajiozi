@@ -1,45 +1,26 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from 'next/navigation';
 
 export default function MobileMenu() {
-  const [isActive, setIsActive] = useState({
-    status: false,
-    key: "",
-  });
+  const pathname = usePathname();
 
-  const handleClick = (key) => {
-    if (isActive.key === key) {
-      setIsActive({
-        status: false,
-      });
-    } else {
-      setIsActive({
-        status: true,
-        key,
-      });
-    }
-  };
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About us' },
+    { href: '/services', label: 'Services' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/article', label: 'Blog' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
   return (
-    <>
-      <ul className="navigation clearfix">
-        {/*Keep This Empty / Menu will come through Javascript*/}
-        <li className="current dropdown">
-          <Link href="/">Home</Link>
+    <ul className="navigation clearfix">
+      {links.map(({ href, label }) => (
+        <li key={href} className={pathname === href ? 'current' : ''}>
+          <Link href={href}>{label}</Link>
         </li>
-        <li className="dropdown">
-          <Link href="/services">Services</Link>
-        </li>
-        <li className="dropdown">
-          <Link href="/projects">Projects</Link>
-        </li>
-        <li className="dropdown">
-          <Link href="/news-grid">Blog</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
-      </ul>
-    </>
+      ))}
+    </ul>
   );
 }

@@ -22,8 +22,8 @@ export default function Header2({
               <ul className="list-style-one">
                 <li>
                   <i className="fa fa-envelope"></i>{" "}
-                  <Link href="#" className="mailto:needhelp@company.com">
-                    needhelp@company.com
+                  <Link href="#" className="mailto:needhelp@ajiozi.com">
+                    needhelp@ajiozi.com
                   </Link>
                 </li>
                 <li>
@@ -153,7 +153,7 @@ export default function Header2({
                 <div className="contact-info-box">
                   <span className="icon lnr-icon-envelope1" />
                   <span className="title">Send Email</span>
-                  <Link href="/mailto:help@company.com">help@company.com</Link>
+                  <Link href="/mailto:help@ajiozi.com">help@ajiozi.com</Link>
                 </div>
               </li>
               <li>
