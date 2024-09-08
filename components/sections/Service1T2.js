@@ -73,11 +73,11 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Providing the solutions for non-IT businesses.
+                      Transforming ideas into innovative, market-ready products.
                     </div>
                     <div className="icon-box">
                       {" "}
-                      <i className="icon flaticon-bank"></i>{" "}
+                      <i className="icon flaticon-web-development"></i>{" "}
                     </div>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Providing the solutions for non-IT businesses.
+                      Boosting online presence and driving targeted growth.
                     </div>
                     <div className="icon-box">
                       {" "}
@@ -115,7 +115,7 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Providing the solutions for non-IT businesses.
+                      Protecting your digital assets with advanced cybersecurity.
                     </div>
                     <div className="icon-box">
                       {" "}
@@ -136,7 +136,7 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Providing the solutions for non-IT businesses.
+                      Crafting intuitive and visually appealing user experiences.
                     </div>
                     <div className="icon-box">
                       {" "}
@@ -157,7 +157,7 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Providing the solutions for non-IT businesses.
+                      Unlocking insights from your data for informed decisions.
                     </div>
                     <div className="icon-box">
                       {" "}
@@ -173,16 +173,16 @@ const Service1T2 = () => {
                   <div className="content-box">
                     <h4 className="title">
                       <Link href="service-details">
-                        Data <br />
-                        analysis
+                        Cloud <br />
+                        solutions
                       </Link>
                     </h4>
                     <div className="text">
-                      Providing the solutions for non-IT businesses.
+                      Scalable and flexible cloud infrastructure for your business.
                     </div>
                     <div className="icon-box">
                       {" "}
-                      <i className="icon flaticon-laptop"></i>{" "}
+                      <i className="icon flaticon-cloud"></i>{" "}
                     </div>
                   </div>
                 </div>
