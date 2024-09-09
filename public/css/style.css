@@ -9530,11 +9530,11 @@ Section Title
   text-align: center;
 }
 .client-block a:hover img {
-  opacity: 0.8;
+  opacity: 1;
 }
 .client-block img {
   display: inline-block !important;
-  opacity: 0.2;
+  opacity: 0.8;
   width: auto !important;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;

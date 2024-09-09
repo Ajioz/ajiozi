@@ -44,43 +44,61 @@ const swiperOptions = {
 };
 const Clients1 = () => {
   return (
-  <>
-  <section className="clients-section pull-up">
-    <div className="auto-container">
-      <div className="outer-box"> 
-        <div className="sponsors-outer"> 
-
-          <Swiper {...swiperOptions} className="clients-carousel owl-carousel owl-theme disable-navs">
-            {/* Clients Block */}
-            <SwiperSlide className="client-block">
-            <Link href="#"><img src="images/clients/1.png" alt="Image"/> </Link>
-            </SwiperSlide>
-            {/* Clients Block */}
-            <SwiperSlide className="client-block">
-            <Link href="#"><img src="images/clients/1.png" alt="Image"/> </Link>
-            </SwiperSlide>
-            {/* Clients Block */}
-            <SwiperSlide className="client-block">
-            <Link href="#"><img src="images/clients/1.png" alt="Image"/> </Link>
-            </SwiperSlide>
-            {/* Clients Block */}
-            <SwiperSlide className="client-block">
-            <Link href="#"><img src="images/clients/1.png" alt="Image"/> </Link>
-            </SwiperSlide>
-            {/* Clients Block */}
-            <SwiperSlide className="client-block">
-            <Link href="#"><img src="images/clients/1.png" alt="Image"/> </Link>
-            </SwiperSlide>
-            {/* Clients Block */}
-            <SwiperSlide className="client-block">
-            <Link href="#"><img src="images/clients/1.png" alt="Image"/> </Link>
-            </SwiperSlide>
-          </Swiper>
+    <>
+      <section className="clients-section pull-up">
+        <div className="auto-container">
+          <div className="outer-box">
+            <div className="sponsors-outer">
+              <Swiper
+                {...swiperOptions}
+                className="clients-carousel owl-carousel owl-theme disable-navs" >
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/hikvision.png" alt="hikvision" />{" "}
+                  </Link>
+                </SwiperSlide>
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/yeager.jpg" alt="Yeager" />{" "}
+                  </Link>
+                </SwiperSlide>
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/udacity.png" alt="Image" />{" "}
+                  </Link>
+                </SwiperSlide>
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/mictra.jpg" alt="Image" />{" "}
+                  </Link>
+                </SwiperSlide>
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/ziva.png" alt="Image" />{" "}
+                  </Link>
+                </SwiperSlide>
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/skyit.jpg" alt="Image" />{" "}
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/kimuto.png" alt="Image" />{" "}
+                  </Link>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  </>
+      </section>
+    </>
   );
 };
 export default Clients1
