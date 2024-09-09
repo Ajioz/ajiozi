@@ -51,11 +51,19 @@ const Clients1 = () => {
             <div className="sponsors-outer">
               <Swiper
                 {...swiperOptions}
-                className="clients-carousel owl-carousel owl-theme disable-navs" >
+                className="clients-carousel owl-carousel owl-theme disable-navs"
+              >
                 {/* Clients Block */}
                 <SwiperSlide className="client-block">
                   <Link href="#">
                     <img src="images/clients/hikvision.png" alt="hikvision" />{" "}
+                  </Link>
+                </SwiperSlide>
+
+                {/* Clients Block */}
+                <SwiperSlide className="client-block">
+                  <Link href="#">
+                    <img src="images/clients/udacity.jpg" alt="Image" />{" "}
                   </Link>
                 </SwiperSlide>
                 {/* Clients Block */}
@@ -67,13 +75,13 @@ const Clients1 = () => {
                 {/* Clients Block */}
                 <SwiperSlide className="client-block">
                   <Link href="#">
-                    <img src="images/clients/udacity.png" alt="Image" />{" "}
+                    <img src="images/clients/mictra.jpg" alt="Image" />{" "}
                   </Link>
                 </SwiperSlide>
                 {/* Clients Block */}
                 <SwiperSlide className="client-block">
                   <Link href="#">
-                    <img src="images/clients/mictra.jpg" alt="Image" />{" "}
+                    <img src="images/clients/kimuto.png" alt="Image" />{" "}
                   </Link>
                 </SwiperSlide>
                 {/* Clients Block */}
@@ -86,11 +94,6 @@ const Clients1 = () => {
                 <SwiperSlide className="client-block">
                   <Link href="#">
                     <img src="images/clients/skyit.jpg" alt="Image" />{" "}
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide className="client-block">
-                  <Link href="#">
-                    <img src="images/clients/kimuto.png" alt="Image" />{" "}
                   </Link>
                 </SwiperSlide>
               </Swiper>
