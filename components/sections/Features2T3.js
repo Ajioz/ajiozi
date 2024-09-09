@@ -1,3 +1,7 @@
+const style = {
+  color: "#f1a82a"
+}
+
 const Features2T3 = () => {
   return (
     <>
@@ -27,42 +31,45 @@ const Features2T3 = () => {
                 <div className="feature-block-five col-md-4 col-sm-6">
                   <div className="inner">
                     {" "}
-                    <i className="icon fa fa-city"></i>
+                    <i className="icon fa fa-city" style={style}></i>
                     <h5 className="title">Automation</h5>
                   </div>
                 </div>
                 <div className="feature-block-five col-md-4 col-sm-6">
                   <div className="inner">
                     {" "}
-                    <i className="icon fa fa-robot"></i>
-                    <h5 className="title">Robotics</h5>
+                    <i className="icon fa fa-robot" style={style}></i>
+                    <h5 className="title">Smart Engines</h5>
                   </div>
                 </div>
                 <div className="feature-block-five col-md-4 col-sm-6">
                   <div className="inner">
                     {" "}
-                    <i className="icon fa fa-atom"></i>
+                    <i className="icon fa fa-atom" style={style}></i>
                     <h5 className="title">Smart Energy</h5>
                   </div>
                 </div>
                 <div className="feature-block-five col-md-4 col-sm-6">
                   <div className="inner">
                     {" "}
-                    <i className="icon flaticon-graphic-design"></i>
-                    <h5 className="title">Iot</h5>
+                    <i
+                      className="icon flaticon-graphic-design"
+                      style={style}
+                    ></i>
+                    <h5 className="title">Industrial Iot</h5>
                   </div>
                 </div>
                 <div className="feature-block-five col-md-4 col-sm-6">
                   <div className="inner">
                     {" "}
-                    <i className="icon fas fa-watch"></i>
-                    <h5 className="title">Wearable</h5>
+                    <i className="icon fas fa-watch" style={style}></i>
+                    <h5 className="title">Smart View</h5>
                   </div>
                 </div>
                 <div className="feature-block-five col-md-4 col-sm-6">
                   <div className="inner">
                     {" "}
-                    <i className="icon fa fa-tools"></i>
+                    <i className="icon fa fa-tools" style={style}></i>
                     <h5 className="title">Maintenance</h5>
                   </div>
                 </div>

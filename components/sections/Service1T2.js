@@ -50,6 +50,7 @@ const Service1T2 = () => {
       <section className="services-section-two">
         <div className="bg bg-pattern-1"></div>
         <div className="auto-container">
+          
           <div className="sec-title light text-center text-gradient">
             {" "}
             <span className="sub-title">what we’re offering</span>
@@ -58,6 +59,7 @@ const Service1T2 = () => {
               services & solutions
             </h2>
           </div>
+
           <Swiper
             {...swiperOptions}
             className="services-carousel owl-carousel owl-theme disabled-nav"
@@ -83,6 +85,7 @@ const Service1T2 = () => {
                 </div>
               </div>
             </SwiperSlide>
+
             <SwiperSlide>
               <div className="service-block-two">
                 <div className="inner-box">
@@ -104,6 +107,7 @@ const Service1T2 = () => {
                 </div>
               </div>
             </SwiperSlide>
+
             <SwiperSlide>
               <div className="service-block-two">
                 <div className="inner-box">
@@ -115,7 +119,8 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Protecting your digital assets with advanced cybersecurity.
+                      Protecting your digital assets with advanced
+                      cybersecurity.
                     </div>
                     <div className="icon-box">
                       {" "}
@@ -125,6 +130,7 @@ const Service1T2 = () => {
                 </div>
               </div>
             </SwiperSlide>
+
             <SwiperSlide>
               <div className="service-block-two">
                 <div className="inner-box">
@@ -136,7 +142,8 @@ const Service1T2 = () => {
                       </Link>
                     </h4>
                     <div className="text">
-                      Crafting intuitive and visually appealing user experiences.
+                      Crafting intuitive and visually appealing user
+                      experiences.
                     </div>
                     <div className="icon-box">
                       {" "}
@@ -146,6 +153,30 @@ const Service1T2 = () => {
                 </div>
               </div>
             </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="service-block-two">
+                <div className="inner-box">
+                  <div className="content-box">
+                    <h4 className="title">
+                      <Link href="service-details">
+                        Cloud <br />
+                        solutions
+                      </Link>
+                    </h4>
+                    <div className="text">
+                      Scalable and flexible cloud infrastructure for your
+                      business.
+                    </div>
+                    <div className="icon-box">
+                      {" "}
+                      <i className="icon flaticon-cloud"></i>{" "}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+
             <SwiperSlide>
               <div className="service-block-two">
                 <div className="inner-box">
@@ -167,28 +198,8 @@ const Service1T2 = () => {
                 </div>
               </div>
             </SwiperSlide>
-            <SwiperSlide>
-              <div className="service-block-two">
-                <div className="inner-box">
-                  <div className="content-box">
-                    <h4 className="title">
-                      <Link href="service-details">
-                        Cloud <br />
-                        solutions
-                      </Link>
-                    </h4>
-                    <div className="text">
-                      Scalable and flexible cloud infrastructure for your business.
-                    </div>
-                    <div className="icon-box">
-                      {" "}
-                      <i className="icon flaticon-cloud"></i>{" "}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
           </Swiper>
+
         </div>
       </section>
     </>
