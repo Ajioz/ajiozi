@@ -113,7 +113,7 @@ export default function Footer({ session }) {
                       </li>
 
                       <li>
-                        <Link href="https://x.com/ajiozi_ltd">
+                        <Link href="https://x.com/ajiozi_ltd" target="_blank">
                           <i className="fab fa-twitter"></i>
                         </Link>
                       </li>
