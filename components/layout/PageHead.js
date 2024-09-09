@@ -14,9 +14,9 @@ const PageHead = ({ headTitle, description, keywords }) => {
     url: "https://www.ajiozi.com",
     logo: logoUrl,
     sameAs: [
-      "https://www.facebook.com/ajiozi",
-      "https://www.twitter.com/ajiozi",
-      "https://www.linkedin.com/company/ajiozi",
+      "https://web.facebook.com/Ajiozinitiative",
+      "https://x.com/ajiozi_ltd",
+      "https://www.linkedin.com/company/ajiozi-limited",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -39,7 +39,8 @@ const PageHead = ({ headTitle, description, keywords }) => {
         name: "Richard Iteke",
       },
     ],
-    team: [ // New team array
+    team: [
+      // New team array
       {
         "@type": "Person",
         name: "Ajiroghene Sunday",

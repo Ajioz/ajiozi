@@ -88,23 +88,33 @@ export default function Footer({ session }) {
                     </div>
                     <ul className="social-icon-two">
                       <li>
-                        <Link href="#">
-                          <i className="fab fa-twitter"></i>
+                        <Link
+                          href="https://www.linkedin.com/company/ajiozi-limited"
+                          target="_blank"
+                        >
+                          <i className="fab fa-linkedin"></i>
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link
+                          href="whatsapp://send?text=Hello, I am interested in learning more about your services. Could you please provide more details?&phone=+2348151654368"
+                          target="_blank"
+                        >
+                          <i className="fab fa-whatsapp"></i>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="https://web.facebook.com/Ajiozinitiative"
+                          target="_blank"
+                        >
                           <i className="fab fa-facebook"></i>
                         </Link>
                       </li>
+
                       <li>
-                        <Link href="#">
-                          <i className="fab fa-pinterest-p"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          <i className="fab fa-instagram"></i>
+                        <Link href="https://x.com/ajiozi_ltd">
+                          <i className="fab fa-twitter"></i>
                         </Link>
                       </li>
                     </ul>
@@ -164,7 +174,7 @@ export default function Footer({ session }) {
                       <li className="contact-info">
                         <i className="icon fa fa-phone"></i>
                         <Link href="#" className="tel:+2348064107055">
-                          +44 20 3123 4567
+                          +234 8151 6543 68
                         </Link>
                       </li>
                       {isUser ? (

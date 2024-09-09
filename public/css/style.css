@@ -887,7 +887,7 @@ Scroll To Top style
   -webkit-transform: scale(0);
           transform: scale(0);
   /* background-color: skyblue; */
-  background-color: var(--theme-color1);
+  background-color: goldenrod;
   content: "";
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
