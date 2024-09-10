@@ -103,7 +103,7 @@ const Testimonial1 = () => {
                           <div className="content-box">
                             <figure className="thumb">
                               <img
-                                src="images/resource/testi1-thumb2.jpg"
+                                src="images/resource/testi2-thumb1.jpg"
                                 alt="Image"
                               />
                             </figure>
@@ -140,7 +140,7 @@ const Testimonial1 = () => {
                           <div className="content-box">
                             <figure className="thumb">
                               <img
-                                src="images/resource/testi1-thumb1.jpg"
+                                src="images/resource/testi1-thumb2.jpg"
                                 alt="Image"
                               />
                             </figure>
