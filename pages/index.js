@@ -1,3 +1,4 @@
+// import Features2 from "@/components/sections/Features2";
 import Layout from "@/components/layout/Layout";
 import Slider1 from "@/components/sections/Slider1";
 import About from "@/components/sections/About";
@@ -7,7 +8,6 @@ import Clients from "@/components/sections/Clients";
 import Contact from "@/components/sections/Contact";
 import Faq from "@/components/sections/Faq";
 import Features1 from "@/components/sections/Features1";
-import Features2 from "@/components/sections/Features2";
 import Features2T2 from "@/components/sections/Features2T2";
 import Features2T3 from "@/components/sections/Features2T3";
 import Features2T4 from "@/components/sections/Features2T4";

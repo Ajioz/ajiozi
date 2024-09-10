@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getAllEvents } from "@/dummy";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import LoginModal from "./login";
@@ -155,8 +154,7 @@ export default function Footer({ session }) {
                   <h5 className="widget-title">Contact</h5>
                   <div className="widget-content">
                     <div className="text" style={{ marginBottom: 0 }}>
-                      Suite 205, The Biscuit Factory 39-43 Tanner Street London
-                      SE1 3BT United Kingdom
+                      #31 Airport Road, Delta, Nigeria
                     </div>
                     <ul className="contact-list">
                       <li className="contact-info">
