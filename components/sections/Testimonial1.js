@@ -192,9 +192,9 @@ const Testimonial1 = () => {
                               <i className="fa fa-star"></i>
                             </div>
                             <div className="info-box">
-                              <h4 className="name">Emily Davis</h4>
+                              <h4 className="name">Okondu Emma</h4>
                               <span className="designation">
-                                Operations Manager
+                                Board Chairperson/CEO EMSAJ PUBLISHING Global
                               </span>
                             </div>
                             <div className="text">
