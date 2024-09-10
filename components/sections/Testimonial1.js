@@ -81,9 +81,9 @@ const Testimonial1 = () => {
                               <i className="fa fa-star"></i>
                             </div>
                             <div className="info-box">
-                              <h4 className="name">David Williams</h4>
+                              <h4 className="name">Emmanuel Okih</h4>
                               <span className="designation">
-                                Founder of Agency
+                                Founder/CEO Renergio Service
                               </span>
                             </div>
                             <div className="text">
@@ -118,7 +118,7 @@ const Testimonial1 = () => {
                               <i className="fa fa-star"></i>
                             </div>
                             <div className="info-box">
-                              <h4 className="name">Michael Brown</h4>
+                              <h4 className="name">Blessing Egbedi</h4>
                               <span className="designation">
                                 Managing Director
                               </span>
@@ -155,9 +155,9 @@ const Testimonial1 = () => {
                               <i className="fa fa-star"></i>
                             </div>
                             <div className="info-box">
-                              <h4 className="name">Sarah Johnson</h4>
+                              <h4 className="name">Daniel Eweh</h4>
                               <span className="designation">
-                                CEO of Tech Solutions
+                                Founder/CEO SkyIT Solar
                               </span>
                             </div>
                             <div className="text">
@@ -170,7 +170,7 @@ const Testimonial1 = () => {
                         </div>
                       </div>
                     </SwiperSlide>
-                    
+
                     <SwiperSlide>
                       <div className="testimonial-block mb-0">
                         <div className="inner-box">
