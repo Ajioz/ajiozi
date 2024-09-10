@@ -71,33 +71,38 @@ export default function Contactpage() {
           <div className="row">
             <div className="col-xl-7 col-lg-6">
               <div className="sec-title">
-                <span className="sub-title">Send us email</span>
-                <h2>Feel free to write</h2>
+                <span className="sub-title">Contact Us</span>
+                <h2>We'd Love to Hear From You</h2>
+                <p>Feel free to reach out to us with any questions or comments you may have. We're here to help!</p>
               </div>
               {/*  Contact Form  */}
               <form id="contact_form" onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="mb-3">
+                      <label htmlFor="form_name">Name</label>
                       <input
+                        id="form_name"
                         name="form_name"
                         className="form-control"
                         type="text"
                         value={data.name}
                         onChange={handleChange("name")}
-                        placeholder="Enter Name"
+                        placeholder="Enter your name"
                       />
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="mb-3">
+                      <label htmlFor="form_email">Email</label>
                       <input
+                        id="form_email"
                         name="form_email"
                         className="form-control required email"
                         type="email"
                         value={data.email}
                         onChange={handleChange("email")}
-                        placeholder="Enter Email"
+                        placeholder="Enter your email"
                       />
                     </div>
                   </div>
@@ -105,37 +110,43 @@ export default function Contactpage() {
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="mb-3">
+                      <label htmlFor="form_subject">Subject</label>
                       <input
+                        id="form_subject"
                         name="form_subject"
                         className="form-control required"
                         type="text"
                         value={data.subject}
                         onChange={handleChange("subject")}
-                        placeholder="Enter Subject"
+                        placeholder="Enter the subject"
                       />
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="mb-3">
+                      <label htmlFor="form_phone">Phone</label>
                       <input
+                        id="form_phone"
                         name="form_phone"
                         className="form-control"
                         type="number"
                         value={data.phone}
                         onChange={handleChange("phone")}
-                        placeholder="Enter Phone"
+                        placeholder="Enter your phone number"
                       />
                     </div>
                   </div>
                 </div>
                 <div className="mb-3">
+                  <label htmlFor="form_message">Message</label>
                   <textarea
+                    id="form_message"
                     name="form_message"
                     className="form-control required"
                     rows="7"
                     value={data.message}
                     onChange={handleChange("message")}
-                    placeholder="Enter Message"
+                    placeholder="Enter your message"
                   ></textarea>
                 </div>
                 <div className="mb-5">
@@ -150,7 +161,7 @@ export default function Contactpage() {
                     className="theme-btn btn-style-one me-2"
                     data-loading-text="Please wait..."
                   >
-                    <span className="btn-title">Send message</span>
+                    <span className="btn-title">Send Message</span>
                   </button>
                   <button
                     type="reset"
@@ -165,13 +176,9 @@ export default function Contactpage() {
             <div className="col-xl-5 col-lg-6">
               <div className="contact-details__right">
                 <div className="sec-title">
-                  <span className="sub-title">Need any help?</span>
-                  <h2>Get in touch with us</h2>
-                  <div className="text">
-                    Lorem ipsum is simply free text available dolor sit amet
-                    consectetur notted adipisicing elit sed do eiusmod tempor
-                    incididunt simply dolore magna.
-                  </div>
+                  <span className="sub-title">Need Assistance?</span>
+                  <h2>Contact Information</h2>
+                  <p>We're here to help you with any questions or concerns you may have. Reach out to us through any of the following methods:</p>
                 </div>
                 <ul className="list-unstyled contact-details__info">
                   <li>
@@ -179,7 +186,7 @@ export default function Contactpage() {
                       <span className="lnr-icon-phone-plus"></span>
                     </div>
                     <div className="text">
-                      <h6>Have any question?</h6>
+                      <h6>Call Us</h6>
                       <a href="tel:980089850">
                         <span>Free</span> +92 (020)-9850
                       </a>
@@ -190,7 +197,7 @@ export default function Contactpage() {
                       <span className="lnr-icon-envelope1"></span>
                     </div>
                     <div className="text">
-                      <h6>Write email</h6>
+                      <h6>Email Us</h6>
                       <a href="mailto:needhelp@ajiozi.com">
                         needhelp@ajiozi.com
                       </a>
@@ -201,8 +208,8 @@ export default function Contactpage() {
                       <span className="lnr-icon-location"></span>
                     </div>
                     <div className="text">
-                      <h6>Visit anytime</h6>
-                      <span>66 broklyn golden street. New York</span>
+                      <h6>Visit Us</h6>
+                      <span>66 Brooklyn Golden Street, New York</span>
                     </div>
                   </li>
                 </ul>
