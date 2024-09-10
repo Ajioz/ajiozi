@@ -103,43 +103,6 @@ const Testimonial1 = () => {
                           <div className="content-box">
                             <figure className="thumb">
                               <img
-                                src="images/resource/testi2-thumb1.jpg"
-                                alt="Image"
-                              />
-                            </figure>
-                            <figure className="image-2">
-                              <img src="images/icons/quote-icon.png" alt="" />
-                            </figure>
-                            <div className="rating">
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                            </div>
-                            <div className="info-box">
-                              <h4 className="name">Sarah Johnson</h4>
-                              <span className="designation">
-                                CEO of Tech Solutions
-                              </span>
-                            </div>
-                            <div className="text">
-                              Working with Ajiozi has been a pleasure. Their
-                              attention to detail and commitment to customer
-                              satisfaction is unparalleled. We look forward to
-                              continuing our partnership.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide>
-                      <div className="testimonial-block mb-0">
-                        <div className="inner-box">
-                          <div className="content-box">
-                            <figure className="thumb">
-                              <img
                                 src="images/resource/testi1-thumb2.jpg"
                                 alt="Image"
                               />
@@ -177,7 +140,44 @@ const Testimonial1 = () => {
                           <div className="content-box">
                             <figure className="thumb">
                               <img
-                                src="images/resource/testi1-thumb1.jpg"
+                                src="images/resource/testi2-thumb1.jpg"
+                                alt="Image"
+                              />
+                            </figure>
+                            <figure className="image-2">
+                              <img src="images/icons/quote-icon.png" alt="" />
+                            </figure>
+                            <div className="rating">
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                              <i className="fa fa-star"></i>
+                            </div>
+                            <div className="info-box">
+                              <h4 className="name">Sarah Johnson</h4>
+                              <span className="designation">
+                                CEO of Tech Solutions
+                              </span>
+                            </div>
+                            <div className="text">
+                              Working with Ajiozi has been a pleasure. Their
+                              attention to detail and commitment to customer
+                              satisfaction is unparalleled. We look forward to
+                              continuing our partnership.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    
+                    <SwiperSlide>
+                      <div className="testimonial-block mb-0">
+                        <div className="inner-box">
+                          <div className="content-box">
+                            <figure className="thumb">
+                              <img
+                                src="images/resource/testi2-thumb2.jpg"
                                 alt="Image"
                               />
                             </figure>
