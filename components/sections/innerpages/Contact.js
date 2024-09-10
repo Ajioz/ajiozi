@@ -195,7 +195,7 @@ export default function Contactpage() {
                     <div className="text">
                       <h6>Call Us</h6>
                       <a href="tel:980089850">
-                        <span>Free</span> +92 (020)-9850
+                        <span>Free</span> +234 8064 1070 55
                       </a>
                     </div>
                   </li>
@@ -206,7 +206,7 @@ export default function Contactpage() {
                     <div className="text">
                       <h6>Email Us</h6>
                       <a href="mailto:needhelp@ajiozi.com">
-                        needhelp@ajiozi.com
+                        help@ajiozi.com
                       </a>
                     </div>
                   </li>
@@ -216,7 +216,7 @@ export default function Contactpage() {
                     </div>
                     <div className="text">
                       <h6>Visit Us</h6>
-                      <span>66 Brooklyn Golden Street, New York</span>
+                      <span>31 Airport Road, Delta, Nigeria</span>
                     </div>
                   </li>
                 </ul>
@@ -249,3 +249,4 @@ export default function Contactpage() {
     </>
   );
 }
+
