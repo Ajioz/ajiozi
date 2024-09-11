@@ -131,7 +131,7 @@ const Projects2 = () => {
                         <Link href="project-details">
                           <img
                             src="images/resource/project-3.jpg"
-                            alt="Image"
+                            alt="project-3"
                           />
                         </Link>
                       </figure>
@@ -161,7 +161,7 @@ const Projects2 = () => {
                         <Link href="project-details">
                           <img
                             src="images/resource/project-4.jpg"
-                            alt="Image"
+                            alt="project-4"
                           />
                         </Link>
                       </figure>
@@ -190,8 +190,8 @@ const Projects2 = () => {
                       <figure className="image">
                         <Link href="project-details">
                           <img
-                            src="images/resource/project-1.jpg"
-                            alt="Image"
+                            src="images/resource/project-5.jpg"
+                            alt="project-5"
                           />
                         </Link>
                       </figure>
@@ -220,8 +220,8 @@ const Projects2 = () => {
                       <figure className="image">
                         <Link href="project-details">
                           <img
-                            src="images/resource/project-2.jpg"
-                            alt="Image"
+                            src="images/resource/project-6.jpg"
+                            alt="project-6"
                           />
                         </Link>
                       </figure>
