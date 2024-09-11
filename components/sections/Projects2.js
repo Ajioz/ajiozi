@@ -114,8 +114,8 @@ const Projects2 = () => {
                       <div className="text">IT Technology</div>
                       <h4 className="title">
                         <Link href="project-details">
-                          Data recovery <br />
-                          analysis
+                          Extended Reality <br />
+                          IoT/AR Research
                         </Link>
                       </h4>
                     </div>
@@ -144,8 +144,8 @@ const Projects2 = () => {
                       <div className="text">IT Technology</div>
                       <h4 className="title">
                         <Link href="project-details">
-                          Data recovery <br />
-                          analysis
+                          Hotel Management <br />
+                          Reservation
                         </Link>
                       </h4>
                     </div>
@@ -201,11 +201,12 @@ const Projects2 = () => {
                       <Link href="project-details">
                         <i className="icon fa fa-angle-right"></i>
                       </Link>
-                      <div className="text">IT Technology</div>
+                      <div className="text">Modern Medicine</div>
                       <h4 className="title">
                         <Link href="project-details">
-                          Data recovery <br />
-                          analysis
+                          Telemedicine
+                          <br />
+                          Remote Doctor
                         </Link>
                       </h4>
                     </div>
@@ -231,11 +232,11 @@ const Projects2 = () => {
                       <Link href="project-details">
                         <i className="icon fa fa-angle-right"></i>
                       </Link>
-                      <div className="text">IT Technology</div>
+                      <div className="text">Modern Medicine</div>
                       <h4 className="title">
                         <Link href="project-details">
-                          Data recovery <br />
-                          analysis
+                          Telemedicine<br />
+                          Book Doctor
                         </Link>
                       </h4>
                     </div>
