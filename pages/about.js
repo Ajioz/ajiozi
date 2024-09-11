@@ -4,7 +4,7 @@ import Award2 from "@/components/sections/Award";
 import Clients1 from "@/components/sections/Clients";
 import Features2T2 from "@/components/sections/Features2T2";
 import PageTitle from "@/components/sections/PageTitle";
-import Team1 from "@/components/sections/Team1";
+// import Team1 from "@/components/sections/Team1";
 import Video2T2 from "@/components/sections/VideoTm";
 
 const aboutHead = {
@@ -22,7 +22,7 @@ export default function PageAbout() {
         <Video2T2 />
         <Features2T2 />
         <Award2 />
-        <Team1 />
+        {/* <Team1 /> */}
         <Clients1 />
       </Layout>
     </>
