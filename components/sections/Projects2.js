@@ -71,7 +71,7 @@ const Projects2 = () => {
                         <Link href="project-details">
                           <img
                             src="images/resource/project-1.jpg"
-                            alt="Image"
+                            alt="project-1"
                           />
                         </Link>
                       </figure>
@@ -81,17 +81,18 @@ const Projects2 = () => {
                       <Link href="project-details">
                         <i className="icon fa fa-angle-right"></i>
                       </Link>
-                      <div className="text">IT Technology</div>
+                      <div className="text">online Market</div>
                       <h4 className="title">
                         <Link href="project-details">
-                          Data recovery <br />
-                          analysis
+                          e-Commerce <br />
+                          Shopping
                         </Link>
                       </h4>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="project-block">
                   <div className="inner-box">
@@ -100,7 +101,7 @@ const Projects2 = () => {
                         <Link href="project-details">
                           <img
                             src="images/resource/project-2.jpg"
-                            alt="Image"
+                            alt="project-2"
                           />
                         </Link>
                       </figure>
@@ -121,6 +122,7 @@ const Projects2 = () => {
                   </div>
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="project-block">
                   <div className="inner-box">
@@ -150,6 +152,7 @@ const Projects2 = () => {
                   </div>
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="project-block">
                   <div className="inner-box">
@@ -168,17 +171,18 @@ const Projects2 = () => {
                       <Link href="project-details">
                         <i className="icon fa fa-angle-right"></i>
                       </Link>
-                      <div className="text">IT Technology</div>
+                      <div className="text">IoT Technology</div>
                       <h4 className="title">
                         <Link href="project-details">
-                          Data recovery <br />
-                          analysis
+                          Smart Lock <br />
+                          Automation
                         </Link>
                       </h4>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="project-block">
                   <div className="inner-box">
@@ -208,6 +212,7 @@ const Projects2 = () => {
                   </div>
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="project-block">
                   <div className="inner-box">
