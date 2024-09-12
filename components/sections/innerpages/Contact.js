@@ -28,7 +28,6 @@ export default function Contactpage() {
     return () => clearTimeout(timer);
   }, [requestStatus]);
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -205,8 +204,8 @@ export default function Contactpage() {
                     </div>
                     <div className="text">
                       <h6>Email Us</h6>
-                      <a href="mailto:needhelp@ajiozi.com">
-                        help@ajiozi.com
+                      <a href="mailto:needajiozi@ajiozi.com">
+                        ajiozi@ajiozi.com
                       </a>
                     </div>
                   </li>
@@ -249,4 +248,3 @@ export default function Contactpage() {
     </>
   );
 }
-
