@@ -1,35 +1,42 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { throttle } from "lodash";
 
 const Scroll = ({ scrollContainerRef, border }) => {
   const [scrollY, setScrollY] = useState(0);
+  const lastBorderState = useRef(false); // Keeps track of the last state passed to border
 
-  useEffect(() => {
-    const handleScroll = () => {
+  const handleScroll = useRef(
+    throttle(() => {
       if (scrollContainerRef.current) {
         setScrollY(scrollContainerRef.current.scrollTop);
       }
-    };
+    }, 100)
+  ).current; // Ensure `handleScroll` is not recreated on each render
 
+  useEffect(() => {
     const container = scrollContainerRef.current;
-    if (container) { // Check if container is defined
+    if (container) {
       container.addEventListener("scroll", handleScroll);
     }
 
+    // Cleanup function to remove the scroll event listener
     return () => {
-      if (container) { // Check if container is defined
+      if (container) {
         container.removeEventListener("scroll", handleScroll);
       }
+      handleScroll.cancel(); // Clean up the throttled function to prevent memory leaks
     };
-  }, [scrollContainerRef]);
+  }, [scrollContainerRef]); // No need for `handleScroll` in dependencies, as it's stable
 
-  if (scrollY > 25) {
-    border(true);
-  } else {
-    border(false);
-  }
+  useEffect(() => {
+    const borderState = scrollY > 25;
+    if (borderState !== lastBorderState.current) {
+      border(borderState);
+      lastBorderState.current = borderState;
+    }
+  }, [scrollY, border]);
 
-  // Return null or some JSX
-  return null; // or return <div>...</div>;
+  return null;
 };
 
 export default Scroll;
