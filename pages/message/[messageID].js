@@ -7,17 +7,7 @@ import styles from "./MessageDetail.module.css";
 import { fetchMessage, fetchMessages } from "@/utils/util-fetch";
 
 export async function getStaticProps({ params }) {
-  const fetched = await fetchMessages();
-
-    // Check if fetched.messages is an array, handle error if not
-  const messages = Array.isArray(fetched?.messages) ? fetched.messages : [];
-
-  if (fetched?.error || messages.length === 0) {
-    return {
-      notFound: true, // Handle case when no messages are found or error occurs
-    };
-  }
-
+  const messages = await fetchMessages();
   const messageID = params?.messageID || messages[0]?._id || null;
   const message = messageID ? await fetchMessage(messageID) : null;
 
@@ -32,11 +22,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const messages = await fetchMessages(); // Ensure this returns an array
-  if (!Array.isArray(messages)) {
-    console.error("Fetched messages is not an array:", messages);
-    return { paths: [], fallback: false }; // Handle the error appropriately
-  }
+  const messages = await fetchMessages();
   const paths = messages.map((message) => ({
     params: { messageID: message._id.toString() },
   }));
@@ -49,16 +35,9 @@ export default function MessageDetail({
   initialMessage,
   initialMessageID,
 }) {
-
-  const router = useRouter();
-  // Fallback handling: Show a loading state while page is being generated
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
   const scrollContainerRef = useRef(null);
+  const router = useRouter();
   const { messageID } = router.query;
-  
 
   const [content, setContent] = useState(initialMessage || {});
   const [messages, setMessages] = useState(initialMessages || []);
@@ -125,15 +104,15 @@ export default function MessageDetail({
         });
 
         if (!response.ok) {
-          throw new Error("Failed to mark message as read");
+          throw new Error('Failed to mark message as read');
         }
 
         const result = await response.json();
-        console.log("Message marked as read:", result);
+        console.log('Message marked as read:', result);
 
         // Update local state
-        setMessages((prevMessages) =>
-          prevMessages.map((msg) =>
+        setMessages(prevMessages => 
+          prevMessages.map(msg => 
             msg._id === id ? { ...msg, isRead: true } : msg
           )
         );
@@ -282,9 +261,7 @@ export default function MessageDetail({
         {/* New Footer */}
         <footer className={styles.footer}>
           <div className={styles.footerContent}>
-            <p>
-              &copy; {new Date().getFullYear()} ajiozMail. All rights reserved.
-            </p>
+            <p>&copy; {new Date().getFullYear() } ajiozMail. All rights reserved.</p>
             <nav>
               <a href="/privacy">Privacy Policy</a>
               <a href="/terms">Terms of Service</a>

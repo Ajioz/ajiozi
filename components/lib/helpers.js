@@ -1,5 +1,6 @@
 export const extractIds = (arrayObj) => {
-  return arrayObj?.map(({ _id }) => _id);
+  if (!Array.isArray(arrayObj)) return []; // Ensure arrayObj is an array
+  return arrayObj.map(({ _id }) => _id);
 };
 
 export const showItem = (arrayObj, currentId, locate) => {
@@ -22,6 +23,8 @@ export const showItem = (arrayObj, currentId, locate) => {
 };
 
 export const countProps = (arrayObj, target) => {
+  // Ensure arrayObj is an array
+  if (!Array.isArray(arrayObj)) return 0; 
   return arrayObj?.filter((item) => item.isRead === target).length;
 };
 
