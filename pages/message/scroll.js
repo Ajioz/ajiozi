@@ -18,6 +18,11 @@ const Scroll = ({ scrollContainerRef, border }) => {
     };
   }, [scrollContainerRef]);
 
+  console.log('Value of t:', t); // Check what t is before it's called
+  if (typeof t !== 'function') {
+      throw new Error('Expected t to be a function, but got: ' + typeof t);
+  }
+
   if (scrollY > 25) {
     border(true);
   } else {
