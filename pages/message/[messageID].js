@@ -22,7 +22,11 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const messages = await fetchMessages();
+  const messages = await fetchMessages(); // Ensure this returns an array
+  if (!Array.isArray(messages)) {
+    console.error("Fetched messages is not an array:", messages);
+    return { paths: [], fallback: false }; // Handle the error appropriately
+  }
   const paths = messages.map((message) => ({
     params: { messageID: message._id.toString() },
   }));
