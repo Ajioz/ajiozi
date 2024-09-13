@@ -21,8 +21,7 @@ export default function Header1({
             <div className="top-left">
               <ul className="list-style-one">
                 <li>
-                  <i className="fa fa-map-marker"></i> Suite 205, Tanner Str
-                  London SE1 3BT United Kingdom
+                  <i className="fa fa-map-marker"></i> 31 Airport Road, by Old Airport, Delta, Nigeria
                 </li>
                 <li>
                   <i className="fa fa-envelope"></i>{" "}
