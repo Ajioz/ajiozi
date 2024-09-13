@@ -9,6 +9,17 @@ export default NextAuth({
   session: {
     strategy: "jwt", // Ensure this is set to "jwt" if you're not using a database
   },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`, // Use a secure cookie name
+      options: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production", // Set to true in production
+        sameSite: "lax",
+        path: "/",
+      },
+    },
+  },
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
