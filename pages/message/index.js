@@ -20,7 +20,15 @@ export default MessagesPage;
 
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
-  const messages = await fetchMessages();
+  let messages = [];
+
+  try {
+    messages = await fetchMessages();
+  } catch (error) {
+    console.error("Error fetching messages:", error);
+    // Handle the error appropriately, e.g., set messages to an empty array or a default value
+    messages = []; // or you can set a default message
+  }
 
   if (!session) {
     return {
