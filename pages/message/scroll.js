@@ -11,17 +11,16 @@ const Scroll = ({ scrollContainerRef, border }) => {
     };
 
     const container = scrollContainerRef.current;
-    container.addEventListener("scroll", handleScroll);
+    if (container) { // Check if container is defined
+      container.addEventListener("scroll", handleScroll);
+    }
 
     return () => {
-      container.removeEventListener("scroll", handleScroll);
+      if (container) { // Check if container is defined
+        container.removeEventListener("scroll", handleScroll);
+      }
     };
   }, [scrollContainerRef]);
-
-  console.log('Value of t:', t); // Check what t is before it's called
-  if (typeof t !== 'function') {
-      throw new Error('Expected t to be a function, but got: ' + typeof t);
-  }
 
   if (scrollY > 25) {
     border(true);
@@ -29,7 +28,8 @@ const Scroll = ({ scrollContainerRef, border }) => {
     border(false);
   }
 
-  return;
+  // Return null or some JSX
+  return null; // or return <div>...</div>;
 };
 
 export default Scroll;
