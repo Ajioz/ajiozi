@@ -1,57 +1,47 @@
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { verifyPassword } from "@/utils/auth";
-import { connectDB } from "@/utils/connectDB";
+import React from "react";
+import { getSession } from "next-auth/react";
+import Messages from "@/components/sections/Messages";
+import Layout from "@/components/layout/Layout";
+import PageTitle from "@/components/sections/PageTitle";
+import { fetchMessages } from "@/utils/util-fetch";
 
-export default NextAuth({
-  session: {
-    strategy: "jwt", // Ensure this is set to "jwt" if you're not using a database
-  },
-  cookies: {
-    sessionToken: {
-      name: `__Secure-next-auth.session-token`, // Use a secure cookie name
-      options: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // Set to true in production
-        sameSite: "none", // Change to 'none' if you need cross-site access
-        path: "/",
-        domain:
-          process.env.COOKIE_DOMAIN ||
-          "ajiozi.vercel.app" ||
-          "ajiozi.com" ||
-          "https://ajiozi.com", // Set a default domain
+const MessagesPage = ({ messages }) => {
+  return (
+    <>
+      <Layout headerStyle={1} footerStyle={1}>
+        <PageTitle pageName="Messages" />
+        <Messages messages={messages} />
+      </Layout>
+    </>
+  );
+};
+
+export default MessagesPage;
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });z
+  let messages = [];
+
+  try {
+    messages = await fetchMessages();
+  } catch (error) {
+    console.error("Error fetching messages:", error);
+    // Handle the error appropriately, e.g., set messages to an empty array or a default value
+    messages = []; // or you can set a default message
+  }
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
       },
+    };
+  }
+  return {
+    props: {
+      session,
+      messages,
     },
-  },
-  providers: [
-    CredentialsProvider({
-      name: "Credentials",
-      async authorize(credentials) {
-        let client;
-        try {
-          client = await connectDB();
-          const usersCollection = client.db().collection("admin");
-          const user = await usersCollection.findOne({
-            email: credentials.email,
-          });
-
-          if (!user) throw new Error("No user found");
-
-          const isValidPassword = await verifyPassword(
-            credentials.password,
-            user.password
-          );
-
-          if (!isValidPassword) throw new Error("Invalid password");
-
-          return { email: user.email };
-        } catch (error) {
-          console.error("Authorization error:", error.message);
-          throw new Error("Authorization failed");
-        } finally {
-          if (client) client.close();
-        }
-      },
-    }),
-  ],
-});
+  };
+}
