@@ -1,3 +1,4 @@
+/*
 import { connectDB } from "@/utils/connectDB";
 import { ObjectId } from "mongodb"; // Added import for ObjectId
 
@@ -154,8 +155,9 @@ const messageHandler = async (req, res) => {
 };
 
 export default messageHandler;
+*/
 
-/*
+
 import { connectDB } from "@/utils/connectDB";
 import { ObjectId } from "mongodb";
 
@@ -327,4 +329,3 @@ const messageHandler = async (req, res) => {
 };
 
 export default messageHandler;
-*/
