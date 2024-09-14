@@ -15,8 +15,9 @@ export default NextAuth({
       options: {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production", // Set to true in production
-        sameSite: "lax",
+        sameSite: "none", // Change to 'none' if you need cross-site access
         path: "/",
+        domain: process.env.COOKIE_DOMAIN || undefined, // Add domain if needed
       },
     },
   },
