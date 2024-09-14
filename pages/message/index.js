@@ -19,7 +19,7 @@ const MessagesPage = ({ messages }) => {
 export default MessagesPage;
 
 export async function getServerSideProps(context) {
-  const session = await getSession({ req: context.req });z
+  const session = await getSession({ req: context.req });
   let messages = [];
 
   try {
