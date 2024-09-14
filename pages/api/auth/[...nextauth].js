@@ -50,8 +50,8 @@ export default NextAuth({
             email: user.email,
           };
         } catch (error) {
-          console.error(error.message);
-          throw new Error("Authorization failed"); // Added error throw for better handling
+          console.error("Authorization error:", error.message); // Improved logging
+          throw new Error("Authorization failed");
         } finally {
           if (client) client.close(); // Ensure client is closed only if it was initialized
         }
