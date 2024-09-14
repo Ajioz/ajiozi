@@ -17,7 +17,7 @@ export default NextAuth({
         secure: process.env.NODE_ENV === "production", // Set to true in production
         sameSite: "none", // Change to 'none' if you need cross-site access
         path: "/",
-        domain: process.env.COOKIE_DOMAIN || "ajiozi.vercel.app", // Set a default domain
+        domain: process.env.COOKIE_DOMAIN || "ajiozi.vercel.app" || "ajiozi.com" || "https://ajiozi.com" // Set a default domain
       },
     },
   },
@@ -51,8 +51,9 @@ export default NextAuth({
           };
         } catch (error) {
           console.error(error.message);
+          throw new Error("Authorization failed"); // Added error throw for better handling
         } finally {
-          client.close();
+          if (client) client.close(); // Ensure client is closed only if it was initialized
         }
       },
     }),
