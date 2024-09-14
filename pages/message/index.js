@@ -15,7 +15,11 @@ export default NextAuth({
         secure: process.env.NODE_ENV === "production", // Set to true in production
         sameSite: "none", // Change to 'none' if you need cross-site access
         path: "/",
-        domain: process.env.COOKIE_DOMAIN || "ajiozi.vercel.app", // Ensure domain matches your deployment
+        domain:
+          process.env.COOKIE_DOMAIN ||
+          "ajiozi.vercel.app" ||
+          "ajiozi.com" ||
+          "https://ajiozi.com", // Set a default domain
       },
     },
   },

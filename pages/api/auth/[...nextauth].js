@@ -3,8 +3,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyPassword } from "@/utils/auth";
 import { connectDB } from "@/utils/connectDB";
 
-
-
 export default NextAuth({
   session: {
     strategy: "jwt", // Ensure this is set to "jwt" if you're not using a database
@@ -17,7 +15,11 @@ export default NextAuth({
         secure: process.env.NODE_ENV === "production", // Set to true in production
         sameSite: "none", // Change to 'none' if you need cross-site access
         path: "/",
-        domain: process.env.COOKIE_DOMAIN || "ajiozi.vercel.app" || "ajiozi.com" || "https://ajiozi.com" // Set a default domain
+        domain:
+          process.env.COOKIE_DOMAIN ||
+          "ajiozi.vercel.app" ||
+          "ajiozi.com" ||
+          "https://ajiozi.com", // Set a default domain
       },
     },
   },
@@ -59,5 +61,3 @@ export default NextAuth({
     }),
   ],
 });
-
-
