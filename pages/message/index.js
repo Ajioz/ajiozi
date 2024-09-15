@@ -5,7 +5,6 @@ import { fetchMessages } from "@/utils/util-fetch";
 import { getSession } from "next-auth/react";
 
 const MessagesPage = ({ messages, session }) => { // Added session to props
-  console.log("Session:", session); // Debugging to check session structure
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
@@ -20,7 +19,6 @@ export default MessagesPage;
 
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
-  console.log("Session:", session); // Debugging to check session structure
 
   let messages = [];
 
