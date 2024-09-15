@@ -17,7 +17,6 @@ const MessagesPage = ({ messages }) => {
 
 export default MessagesPage;
 
-
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
   console.log("Session:", session); // Debugging to check session structure
@@ -32,7 +31,7 @@ export async function getServerSideProps(context) {
   }
 
   // Check if session exists and has a valid user
-  if (!session || !session.user) {
+  if (!session) {
     return {
       redirect: {
         destination: "/",
