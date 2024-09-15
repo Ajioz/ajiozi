@@ -1,7 +1,7 @@
+
 export const fetchMessages = async () => {
   try {
-    const apiUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
-    console.log(`Fetching messages from: ${apiUrl}/api/message`);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Use environment variable for base URL
 
     if (!/^https?:\/\//.test(apiUrl)) {
       throw new Error(`Invalid API URL: ${apiUrl}`);
