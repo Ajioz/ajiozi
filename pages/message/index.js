@@ -2,6 +2,7 @@ import Messages from "@/components/sections/Messages";
 import Layout from "@/components/layout/Layout";
 import PageTitle from "@/components/sections/PageTitle";
 import { fetchMessages } from "@/utils/util-fetch";
+import { getSession } from "next-auth/react";
 
 const MessagesPage = ({ messages }) => {
   return (
