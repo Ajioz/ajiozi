@@ -5,7 +5,7 @@ import { fetchMessages } from "@/utils/util-fetch";
 import { getSession } from "next-auth/react";
 
 const MessagesPage = ({ messages }) => {
-  console.log({ messages });
+  console.log("Session:", session); // Debugging to check session structure
   return (
     <>
       <Layout headerStyle={1} footerStyle={1}>
@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
   // Check if session exists and has a valid user
   if (!session) {
     return {
-      props:{ messages: session},
+      props: { messages, session },
       redirect: {
         destination: "/",
         permanent: false,

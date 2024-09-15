@@ -17,11 +17,12 @@ export const fetchMessages = async () => {
     }
 
     const data = await res.json();
+    console.log(`Messages fetched: ${data}`);
+    
     if (Array.isArray(data)) {
       return data;
     }
     throw new Error("Fetched data is not an array");
-    
   } catch (error) {
     console.error("Error fetching messages:", error.message);
     // Return an empty array to ensure serializable data
