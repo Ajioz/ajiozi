@@ -25,6 +25,11 @@ const isValidEmail = (email) => {
 const messageHandler = async (req, res) => {
   let client;
 
+  // Add CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE'); // Allowed methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allowed headers
+
   try {
     client = await connectDB();
 
@@ -160,6 +165,7 @@ export default messageHandler;
 
 import { connectDB } from "@/utils/connectDB";
 import { ObjectId } from "mongodb";
+import Cors from "cors";
 
 export const insertDoc = async (client, collection, doc) => {
   const db = client.db();
@@ -181,8 +187,29 @@ const isValidEmail = (email) => {
   return emailRegex.test(email);
 };
 
+
+// Initialize CORS middleware
+const cors = Cors({
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  origin: '*', // Allow all origins or specify your frontend URL
+});
+
+// Helper method to run middleware
+const runMiddleware = (req, res, fn) =>
+  new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+      return resolve(result);
+    });
+  });
+
 const messageHandler = async (req, res) => {
   let client;
+
+  // Run CORS middleware
+  await runMiddleware(req, res, cors);
 
   try {
     client = await connectDB();
