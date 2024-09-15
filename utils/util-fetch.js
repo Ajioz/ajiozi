@@ -1,6 +1,6 @@
 export const fetchMessages = async () => {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const apiUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
     console.log(`Fetching messages from: ${apiUrl}/api/message`);
 
     if (!/^https?:\/\//.test(apiUrl)) {
@@ -18,7 +18,7 @@ export const fetchMessages = async () => {
 
     const data = await res.json();
     console.log(`Messages fetched: ${data}`);
-    
+
     if (Array.isArray(data)) {
       return data;
     }
