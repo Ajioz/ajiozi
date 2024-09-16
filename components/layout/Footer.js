@@ -27,8 +27,7 @@ const badgeStyle = {
 };
 
 export default function Footer({ session }) {
-  console.log(session) //debugging
-
+ 
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
