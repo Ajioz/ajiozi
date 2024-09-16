@@ -1,7 +1,8 @@
 
 export const fetchMessages = async () => {
   try {
-    const apiUrl = process.env.NEXTAUTH_URL; // Use environment variable for base URL
+    // Use NEXT_PUBLIC_API_URL for client-side API requests
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || window.location.origin;
 
     if (!/^https?:\/\//.test(apiUrl)) {
       throw new Error(`Invalid API URL: ${apiUrl}`);
