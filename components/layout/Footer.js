@@ -68,7 +68,6 @@ export default function Footer({ session }) {
     <>
       <footer className="main-footer footer-style-one">
         <div className="icon-dots-2"></div>
-
         <div className="widgets-section">
           <div className="auto-container">
             <div className="row">
