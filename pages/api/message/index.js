@@ -51,7 +51,6 @@ const messageHandler = async (req, res) => {
 
     switch (req.method) {
       case "POST":
-        console.log(req.body)
         try {
           const { name, email, subject, phone, message } = req.body;
 
@@ -77,7 +76,7 @@ const messageHandler = async (req, res) => {
             createdAt: new Date(),
           };
 
-          // await insertDoc(client, "message", newMessage);
+          await insertDoc(client, "message", newMessage);
 
           return res.status(201).json({
             message: "Message saved successfully!",
