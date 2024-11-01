@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Layout from "@/components/layout/Layout";
 import PageTitle from "@/components/sections/PageTitle";
 import NewsDetails from "@/components/sections/innerpages/NewsDetails";
@@ -12,11 +13,15 @@ const blogHead = {
 };
 
 export default function pageNewsDetails() {
+  const router = useRouter();
+  const { id } = router.query;
+  console.log({id})
+
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
         <PageTitle pageName="Article Details" />
-        <NewsDetails />
+        <NewsDetails data={data} />
       </Layout>
     </>
   );
