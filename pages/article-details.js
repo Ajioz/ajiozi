@@ -12,17 +12,28 @@ const blogHead = {
     "Ajiozi blog, software development, tech insights, embedded systems, IoT, technology trends, tutorials, tech community, innovation, expert articles",
 };
 
-export default function pageNewsDetails() {
+export default function pageNewsDetails({ articles }) {
   const router = useRouter();
   const { id } = router.query;
-  console.log({id})
+  console.log({ id });
 
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
         <PageTitle pageName="Article Details" />
-        <NewsDetails data={data} />
+        <NewsDetails data={articles[id]} />
       </Layout>
     </>
   );
 }
+
+export async function getServerSideProps() {
+  const articles = await getBlogs();
+
+  return {
+    props: {
+      articles,
+    },
+  };
+}
+

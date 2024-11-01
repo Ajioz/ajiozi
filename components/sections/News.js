@@ -2,31 +2,30 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const baseUrl = "https://ajiroghene.dev";
 
-const News1 = () => {
-  const [articles, setArticles] = useState([]);
+
+const News1 = ({ articles }) => {
+  // const [articles, setArticles] = useState([]);
   // const [activeData, setActiveData] = useState({});
   const { push } = useRouter();
 
-  useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const article = await fetch(`${baseUrl}/api/blogPosts`);
-        if (article.ok) {
-          const data = await article.json();
-          console.log(data);
-          setArticles(data.slice(0, 3));
-        }
-      } catch (error) {
-        console.log("Failed to fetch articles", error.message);
-      }
-    };
-    fetchBlog();
-  }, []);
+  // useEffect(() => {
+  //   const fetchBlog = async () => {
+  //     try {
+  //       const article = await fetch(`${baseUrl}/api/blogPosts`);
+  //       if (article.ok) {
+  //         const data = await article.json();
+  //         // console.log(data);
+  //         setArticles(data.slice(0, 3));
+  //       }
+  //     } catch (error) {
+  //       console.log("Failed to fetch articles", error.message);
+  //     }
+  //   };
+  //   fetchBlog();
+  // }, []);
 
   const onClick = (id) => {
-    // setActiveData(data[value]);
     push({ pathname: "/article-details", query: { id } });
   };
 
@@ -43,7 +42,7 @@ const News1 = () => {
             </h2>
           </div>
           <div className="row">
-            {articles?.map((item, i) => (
+            {articles?.slice(0, 3)?.map((item, i) => (
               <div
                 className="news-block col-lg-4 col-sm-6 wow fadeInUp"
                 key={item.id}

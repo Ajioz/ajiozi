@@ -24,11 +24,13 @@ import Process from "@/components/sections/Process1";
 
 const homeHead = {
   headTitle: "Ajiozi | Premier Software Development & Tech Solutions",
-  description: "Welcome to Ajiozi, a leading software company offering top-tier software development, embedded systems, IoT technology, and comprehensive tech training. Partner with us for innovative solutions and exceptional service.",
-  keywords: "Ajiozi, software development, tech solutions, embedded systems, IoT, technology, training, research, innovation, premier services",
+  description:
+    "Welcome to Ajiozi, a leading software company offering top-tier software development, embedded systems, IoT technology, and comprehensive tech training. Partner with us for innovative solutions and exceptional service.",
+  keywords:
+    "Ajiozi, software development, tech solutions, embedded systems, IoT, technology, training, research, innovation, premier services",
 };
 
-export default function Home() {
+export default function Home({ articles }) {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={homeHead}>
@@ -51,10 +53,20 @@ export default function Home() {
         <Award />
         <Clients />
         <Contact />
-        <News />
+        <News articles={articles} />
         <CallToAction />
         <Map />
       </Layout>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const articles = await getBlogs();
+
+  return {
+    props: {
+      articles,
+    },
+  };
 }
