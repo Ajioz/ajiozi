@@ -1,5 +1,4 @@
 import { MongoClient } from "mongodb";
-import { notFound } from "next/navigation";
 
 const connectString = process.env.MONGODB_URL_LOCAL;
 // const connectString = process.env.MONGODB_URL_DEV;
@@ -11,7 +10,7 @@ export const connectDB = async () => {
   try {
     return await MongoClient.connect(connectString);
   } catch (error) {
-    console.log("failed to connect to db");
-    throw notFound(); // {{ edit_1 }}: Rethrow the error for further handling
+    console.log("Failed to connect to DB:", error);
+    throw new Error("Database connection failed");
   }
 };
