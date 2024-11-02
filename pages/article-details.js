@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Layout from "@/components/layout/Layout";
 import PageTitle from "@/components/sections/PageTitle";
 import NewsDetails from "@/components/sections/innerpages/NewsDetails";
+import { getBlogs } from '@/utils/util-fetch';
 
 const blogHead = {
   headTitle:

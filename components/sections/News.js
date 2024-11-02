@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 
 
 const News1 = ({ articles }) => {
-  // const [articles, setArticles] = useState([]);
-  // const [activeData, setActiveData] = useState({});
   const { push } = useRouter();
-
-  // useEffect(() => {
-  //   const fetchBlog = async () => {
-  //     try {
-  //       const article = await fetch(`${baseUrl}/api/blogPosts`);
-  //       if (article.ok) {
-  //         const data = await article.json();
-  //         // console.log(data);
-  //         setArticles(data.slice(0, 3));
-  //       }
-  //     } catch (error) {
-  //       console.log("Failed to fetch articles", error.message);
-  //     }
-  //   };
-  //   fetchBlog();
-  // }, []);
 
   const onClick = (id) => {
     push({ pathname: "/article-details", query: { id } });

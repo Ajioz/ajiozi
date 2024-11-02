@@ -21,6 +21,7 @@ import Testimonial from "@/components/sections/Testimonial1";
 import VideoTm from "@/components/sections/VideoTm";
 import Service1T2 from "@/components/sections/Service1T2";
 import Process from "@/components/sections/Process1";
+import { getBlogs } from "@/utils/util-fetch";
 
 const homeHead = {
   headTitle: "Ajiozi | Premier Software Development & Tech Solutions",
