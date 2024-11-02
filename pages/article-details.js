@@ -16,13 +16,21 @@ const blogHead = {
 export default function pageNewsDetails({ articles }) {
   const router = useRouter();
   const { id } = router.query;
-  console.log(articles[0]);
+
+  if (id === undefined) {
+    return <div>Loading...</div>;
+  }
+
+  const article = articles.find(article => article.id === id);
+
+  if(!article)  return <div>Article not found</div>
+  
 
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
         <PageTitle pageName="Article Details" />
-        <NewsDetails data={articles[0]} />
+        <NewsDetails article={article} />
       </Layout>
     </>
   );

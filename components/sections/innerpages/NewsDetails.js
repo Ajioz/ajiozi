@@ -1,6 +1,6 @@
 import Link from "next/link";
-export default function NewsDetails({data}) {
-  console.log(data)
+export default function NewsDetails({ article }) {
+  console.log(article);
 
   return (
     <>
@@ -11,7 +11,7 @@ export default function NewsDetails({data}) {
             <div className="col-xl-8 col-lg-7">
               <div className="blog-details__left">
                 <div className="blog-details__img">
-                  <img src="/images/resource/article-details.jpg" alt="" />
+                  <img src={article.img} alt="" />
                   <div className="blog-details__date">
                     <span className="day">28</span>
                     <span className="month">Aug</span>
@@ -30,9 +30,7 @@ export default function NewsDetails({data}) {
                       </Link>
                     </li>
                   </ul>
-                  <h3 className="blog-details__title">
-                    Delivering the best web design agency
-                  </h3>
+                  <h3 className="blog-details__title">{article.mainHeading}</h3>
                   <p className="blog-details__text-2">
                     Mauris non dignissim purus, ac commodo diam. Donec sit amet
                     lacinia nulla. Aliquam quis purus in justo pulvinar tempor.

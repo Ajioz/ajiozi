@@ -41,7 +41,7 @@ export const getBlogs = async () => {
     const article = await fetch(`${baseUrl}/api/blogPosts`);
     if (article.ok) {
       const data = await article.json();
-      console.log(data);
+      // console.log(data);
       return data;
     }
   } catch (error) {

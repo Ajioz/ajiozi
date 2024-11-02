@@ -35,28 +35,28 @@ export default function Home({ articles }) {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={homeHead}>
-        <Slider1 />
-        <Services />
-        <Marquee />
-        <About />
-        <Faq />
-        <Process />
-        <Funfact />
-        <Features1 />
-        <VideoTm />
-        <Features2T2 />
-        <Service1T2 />
+        {/* <Slider1 /> */}
+        {/* <Services /> */}
+        {/* <Marquee /> */}
+        {/* <About /> */}
+        {/* <Faq /> */}
+        {/* <Process /> */}
+        {/* <Funfact /> */}
+        {/* <Features1 /> */}
+        {/* <VideoTm /> */}
+        {/* <Features2T2 /> */}
+        {/* <Service1T2 /> */}
         <br />
-        <Features2T3 />
-        <Features2T4 />
-        <Testimonial />
-        <Projects2 />
-        <Award />
-        <Clients />
-        <Contact />
+        {/* <Features2T3 /> */}
+        {/* <Features2T4 /> */}
+        {/* <Testimonial /> */}
+        {/* <Projects2 /> */}
+        {/* <Award /> */}
+        {/* <Clients /> */}
+        {/* <Contact /> */}
         <News articles={articles} />
-        <CallToAction />
-        <Map />
+        {/* <CallToAction /> */}
+        {/* <Map /> */}
       </Layout>
     </>
   );
