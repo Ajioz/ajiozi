@@ -1,7 +1,8 @@
 import Link from "next/link";
-export default function NewsDetails({ article }) {
-  console.log(article);
-
+export default function NewsDetails({ article, articles }) {
+  // console.log(articles);
+  // use reduce to create an array without duplicate, 
+  // use the array to create categories
   return (
     <>
       {/* Blog Details Start */}
@@ -13,15 +14,19 @@ export default function NewsDetails({ article }) {
                 <div className="blog-details__img">
                   <img src={article.img} alt="" />
                   <div className="blog-details__date">
-                    <span className="day">28</span>
-                    <span className="month">Aug</span>
+                    {article.date && article.date.date && (
+                      <span className="day">{article.date.date}</span>
+                    )}
+                    {article.date && article.date.month && (
+                      <span className="month">{article.date.month}</span>
+                    )}
                   </div>
                 </div>
                 <div className="blog-details__content">
                   <ul className="list-unstyled blog-details__meta">
                     <li>
                       <Link href="article-details">
-                        <i className="fas fa-user-circle"></i> Admin
+                        <i className="fas fa-user-circle"></i> {article.author}
                       </Link>{" "}
                     </li>
                     <li>
@@ -63,8 +68,7 @@ export default function NewsDetails({ article }) {
                   <p className="blog-details__tags">
                     {" "}
                     <span>Tags</span>{" "}
-                    <Link href="article-details">Business</Link>{" "}
-                    <Link href="article-details">Agency</Link>{" "}
+                    <Link href="article-details">{article.tag}</Link>{" "}
                   </p>
                   <div className="blog-details__social-list">
                     {" "}
@@ -92,107 +96,6 @@ export default function NewsDetails({ article }) {
                     <Link href="article-details" rel="next">
                       How to lead a healthy &amp; well-balanced life
                     </Link>
-                  </div>
-                </div>
-                <div className="comment-one">
-                  <h3 className="comment-one__title">2 Comments</h3>
-                  <div className="comment-one__single">
-                    <div className="comment-one__image">
-                      {" "}
-                      <img src="/images/resource/team14-3.png" alt="" />{" "}
-                    </div>
-                    <div className="comment-one__content">
-                      <h4>Kevin Martin</h4>
-                      <p>
-                        Mauris non dignissim purus, ac commodo diam. Donec sit
-                        amet lacinia nulla. Aliquam quis purus in justo pulvinar
-                        tempor. Aliquam tellus nulla, sollicitudin at euismod.
-                      </p>
-                      <Link
-                        href="article-details"
-                        className="theme-btn btn-style-one comment-one__btn"
-                      >
-                        <span className="btn-title">Reply</span>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="comment-one__single">
-                    <div className="comment-one__image">
-                      {" "}
-                      <img src="/images/resource/team14-2.png" alt="" />{" "}
-                    </div>
-                    <div className="comment-one__content">
-                      <h4>Sarah Albert</h4>
-                      <p>
-                        Mauris non dignissim purus, ac commodo diam. Donec sit
-                        amet lacinia nulla. Aliquam quis purus in justo pulvinar
-                        tempor. Aliquam tellus nulla, sollicitudin at euismod.
-                      </p>
-                      <Link
-                        href="article-details"
-                        className="theme-btn btn-style-one comment-one__btn"
-                      >
-                        <span className="btn-title">Reply</span>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="comment-form">
-                    <h3 className="comment-form__title mb-40">
-                      Leave a Comment
-                    </h3>
-                    <form
-                      id="contact_form"
-                      name="contact_form"
-                      className=""
-                      action="includes/sendmail.php"
-                      method="post"
-                    >
-                      <div className="row">
-                        <div className="col-sm-6">
-                          <div className="mb-3">
-                            <input
-                              name="form_name"
-                              className="form-control"
-                              type="text"
-                              placeholder="Enter Name"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-sm-6">
-                          <div className="mb-3">
-                            <input
-                              name="form_email"
-                              className="form-control required email"
-                              type="email"
-                              placeholder="Enter Email"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mb-3">
-                        <textarea
-                          name="form_message"
-                          className="form-control required"
-                          rows="5"
-                          placeholder="Enter Message"
-                        ></textarea>
-                      </div>
-                      <div className="mb-3">
-                        <input
-                          name="form_botcheck"
-                          className="form-control"
-                          type="hidden"
-                          value=""
-                        />
-                        <button
-                          type="submit"
-                          className="theme-btn btn-style-one"
-                          data-loading-text="Please wait..."
-                        >
-                          <span className="btn-title">Submit Comment</span>
-                        </button>
-                      </div>
-                    </form>
                   </div>
                 </div>
               </div>
@@ -266,39 +169,13 @@ export default function NewsDetails({ article }) {
                 <div className="sidebar__single sidebar__category">
                   <h3 className="sidebar__title">Categories</h3>
                   <ul className="sidebar__category-list list-unstyled">
-                    <li>
-                      <Link href="article-details">
-                        Business<span className="icon-right-arrow"></span>
-                      </Link>{" "}
-                    </li>
-                    <li className="active">
-                      <Link href="article-details">
-                        Digital Agency<span className="icon-right-arrow"></span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="article-details">
-                        Introductions<span className="icon-right-arrow"></span>
-                      </Link>{" "}
-                    </li>
-                    <li>
-                      <Link href="article-details">
-                        New Technologies
-                        <span className="icon-right-arrow"></span>
-                      </Link>{" "}
-                    </li>
-                    <li>
-                      <Link href="article-details">
-                        Parallax Effects
-                        <span className="icon-right-arrow"></span>
-                      </Link>{" "}
-                    </li>
-                    <li>
-                      <Link href="article-details">
-                        Web Development
-                        <span className="icon-right-arrow"></span>
-                      </Link>{" "}
-                    </li>
+                    {articles.map((article) => (
+                      <li key={article.id}>
+                        <Link href="article-details">
+                          {article.tag}<span className="icon-right-arrow"></span>
+                        </Link>{" "}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="sidebar__single sidebar__tags">
@@ -311,61 +188,6 @@ export default function NewsDetails({ article }) {
                     <Link href="#">Experience</Link>{" "}
                     <Link href="#">Technology</Link>{" "}
                   </div>
-                </div>
-                <div className="sidebar__single sidebar__comments">
-                  <h3 className="sidebar__title">Recent Comments</h3>
-                  <ul className="sidebar__comments-list list-unstyled">
-                    <li>
-                      <div className="sidebar__comments-icon">
-                        {" "}
-                        <i className="fas fa-comments"></i>{" "}
-                      </div>
-                      <div className="sidebar__comments-text-box">
-                        <p>
-                          A wordpress commenter on <br />
-                          launch new mobile app
-                        </p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="sidebar__comments-icon">
-                        {" "}
-                        <i className="fas fa-comments"></i>{" "}
-                      </div>
-                      <div className="sidebar__comments-text-box">
-                        <p>
-                          {" "}
-                          <span>John Doe</span> on template:
-                        </p>
-                        <h5>comments</h5>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="sidebar__comments-icon">
-                        {" "}
-                        <i className="fas fa-comments"></i>{" "}
-                      </div>
-                      <div className="sidebar__comments-text-box">
-                        <p>
-                          A wordpress commenter on <br />
-                          launch new mobile app
-                        </p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="sidebar__comments-icon">
-                        {" "}
-                        <i className="fas fa-comments"></i>{" "}
-                      </div>
-                      <div className="sidebar__comments-text-box">
-                        <p>
-                          {" "}
-                          <span>John Doe</span> on template:
-                        </p>
-                        <h5>comments</h5>
-                      </div>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>

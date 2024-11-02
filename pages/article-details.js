@@ -30,7 +30,7 @@ export default function pageNewsDetails({ articles }) {
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
         <PageTitle pageName="Article Details" />
-        <NewsDetails article={article} />
+        <NewsDetails article={article} articles={articles} />
       </Layout>
     </>
   );
