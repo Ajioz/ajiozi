@@ -1,5 +1,6 @@
 import Link from "next/link";
 export default function NewsDetails({data}) {
+  console.log(data)
 
   return (
     <>

@@ -16,13 +16,13 @@ const blogHead = {
 export default function pageNewsDetails({ articles }) {
   const router = useRouter();
   const { id } = router.query;
-  console.log({ id });
+  console.log(articles[0]);
 
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
         <PageTitle pageName="Article Details" />
-        <NewsDetails data={articles[id]} />
+        <NewsDetails data={articles[0]} />
       </Layout>
     </>
   );
