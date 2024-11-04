@@ -1,37 +1,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
-import styles from './NewsDetails.module.css'; // Import the CSS module
+import styles from './NewsDetails.module.css'; 
 
 
 export default function NewsDetails({ article, articles }) {
-  const [Tags, setTags] = useState(reduceGroupedItem(articles));
 
-  const options2 = [
-    {
-      label: "Engineering",
-      value: ["mastering-the-debugging-process-for-engineers"],
-    },
-    {
-      label: "Code Practise",
-      value: ["mastering-javascript:-a-modern-guide-for-developers"],
-    },
-    {
-      label: "Technology",
-      value: [
-        "the-future-of-seo-if-chatgpt-kills-search-engines",
-        "how-to-become-a-successful-freelancer",
-      ],
-    },
-    {
-      label: "Development",
-      value: ["wordpress-for-software-development"],
-    },
-    {
-      label: "Marketing",
-      value: ["effective-marketing-strategy"],
-    },
-  ];
+  const [Tags, setTags] = useState(reduceGroupedItem(articles));
 
   return (
     <>

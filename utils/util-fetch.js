@@ -63,14 +63,14 @@ const splitGroup = (obj) => {
 };
 
 export const reduceGroupedItem = (items) => {
-  const groupedItem =  items.reduce((acc, item) => {
+  const groupedItem = items.reduce((acc, item) => {
     const category = item.tag;
     if (!acc[category]) {
       acc[category] = [];
     }
-    acc[category].push(item.mainHeading.toLowerCase().split(" ").join("-"));
+    acc[category].push(item.mainHeading);
+    // acc[category].push(item.mainHeading.toLowerCase().split(" ").join("-"));
     return acc;
   }, {});
   return splitGroup(groupedItem);
 };
-
