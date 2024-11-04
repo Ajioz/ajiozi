@@ -1,8 +1,13 @@
+// import { reduceGroupedItem } from "@/utils/util-fetch";
 import Link from "next/link";
 export default function NewsDetails({ article, articles }) {
-  // console.log(articles);
-  // use reduce to create an array without duplicate, 
-  // use the array to create categories
+  // reduceGroupedItem(articles);
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
   return (
     <>
       {/* Blog Details Start */}
@@ -171,9 +176,16 @@ export default function NewsDetails({ article, articles }) {
                   <ul className="sidebar__category-list list-unstyled">
                     {articles.map((article) => (
                       <li key={article.id}>
-                        <Link href="article-details">
+                        <select>
+                          {options.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
+                        {/* <Link href="article-details">
                           {article.tag}<span className="icon-right-arrow"></span>
-                        </Link>{" "}
+                        </Link>{" "} */}
                       </li>
                     ))}
                   </ul>

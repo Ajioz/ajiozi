@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-
-
 const News1 = ({ articles }) => {
   const { push } = useRouter();
 
@@ -31,7 +29,10 @@ const News1 = ({ articles }) => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <Link href="article-details">
+                      <Link
+                        href="a#"
+                        onClick={() => onClick(item.id)}
+                      >
                         <img src={item.img} alt="articleImg" />
                       </Link>
                     </figure>
@@ -55,7 +56,9 @@ const News1 = ({ articles }) => {
                       </li>
                     </ul>
                     <h4 className="title">
-                      <Link href="article-details">{item.mainHeading}</Link>
+                      <Link href="#" onClick={() => onClick(item.id)}>
+                        {item.mainHeading}
+                      </Link>
                     </h4>
                     <div className="text">
                       {item.sections[0]?.content[4]?.substring(0, 92) ||

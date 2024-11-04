@@ -32,6 +32,10 @@ const homeHead = {
 };
 
 export default function Home({ articles }) {
+  if (id === undefined || !articles) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={homeHead}>
@@ -63,7 +67,12 @@ export default function Home({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const articles = await getBlogs();
+  let articles;
+  try {
+    articles = await getBlogs();
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     props: {

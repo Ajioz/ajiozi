@@ -48,3 +48,29 @@ export const getBlogs = async () => {
     console.log("Failed to fetch articles", error.message);
   }
 };
+
+const splitGroup = (obj) => {
+  let myArray = [];
+  for (key in obj) {
+    let value = obj[key];
+    let myObject = {
+      label: key,
+      value,
+    };
+    myArray.push(myObject);
+  }
+  return myArray;
+};
+
+export const reduceGroupedItem = (items) => {
+  const groupedItem =  items.reduce((acc, item) => {
+    const category = item.tag;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(item.name);
+    return acc;
+  }, {});
+  return splitGroup(groupedItem);
+};
+

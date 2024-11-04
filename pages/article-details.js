@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Layout from "@/components/layout/Layout";
 import PageTitle from "@/components/sections/PageTitle";
 import NewsDetails from "@/components/sections/innerpages/NewsDetails";
-import { getBlogs } from '@/utils/util-fetch';
+import { getBlogs } from "@/utils/util-fetch";
 
 const blogHead = {
   headTitle:
@@ -17,14 +17,13 @@ export default function pageNewsDetails({ articles }) {
   const router = useRouter();
   const { id } = router.query;
 
-  if (id === undefined) {
+  if (id === undefined || !articles) {
     return <div>Loading...</div>;
   }
 
-  const article = articles.find(article => article.id === id);
+  const article = articles.find((article) => article.id === id);
 
-  if(!article)  return <div>Article not found</div>
-  
+  if (!article) return <div>Article not found</div>;
 
   return (
     <>
@@ -37,7 +36,12 @@ export default function pageNewsDetails({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const articles = await getBlogs();
+  let articles;
+  try {
+    articles = await getBlogs();
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     props: {
@@ -45,4 +49,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
