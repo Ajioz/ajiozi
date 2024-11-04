@@ -21,7 +21,7 @@ export default function pageNewsDetails({ articles }) {
     return <div>Loading...</div>;
   }
 
-  const article = articles.find((article) => article.id === id);
+  const article = articles?.find((article) => article.id === id);
 
   if (!article) return <div>Article not found</div>;
 
@@ -36,7 +36,7 @@ export default function pageNewsDetails({ articles }) {
 }
 
 export async function getServerSideProps() {
-  let articles;
+  let articles = [];
   try {
     articles = await getBlogs();
   } catch (error) {

@@ -32,7 +32,7 @@ const homeHead = {
 };
 
 export default function Home({ articles }) {
-  if (id === undefined || !articles) {
+  if (!articles) {
     return <div>Loading...</div>;
   }
 
@@ -67,7 +67,7 @@ export default function Home({ articles }) {
 }
 
 export async function getServerSideProps() {
-  let articles;
+  let articles = [];
   try {
     articles = await getBlogs();
   } catch (error) {

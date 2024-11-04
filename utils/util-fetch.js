@@ -41,17 +41,17 @@ export const getBlogs = async () => {
     const article = await fetch(`${baseUrl}/api/blogPosts`);
     if (article.ok) {
       const data = await article.json();
-      // console.log(data);
       return data;
     }
   } catch (error) {
     console.log("Failed to fetch articles", error.message);
+    return [];
   }
 };
 
 const splitGroup = (obj) => {
   let myArray = [];
-  for (key in obj) {
+  for (let key in obj) {
     let value = obj[key];
     let myObject = {
       label: key,
@@ -68,7 +68,7 @@ export const reduceGroupedItem = (items) => {
     if (!acc[category]) {
       acc[category] = [];
     }
-    acc[category].push(item.name);
+    acc[category].push(item.mainHeading.toLowerCase().split(" ").join("-"));
     return acc;
   }, {});
   return splitGroup(groupedItem);

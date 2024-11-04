@@ -1,11 +1,36 @@
-// import { reduceGroupedItem } from "@/utils/util-fetch";
+import { useState } from "react";
 import Link from "next/link";
+import { reduceGroupedItem } from "@/utils/util-fetch";
+import styles from './NewsDetails.module.css'; // Import the CSS module
+
+
 export default function NewsDetails({ article, articles }) {
-  // reduceGroupedItem(articles);
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+  const [Tags, setTags] = useState(reduceGroupedItem(articles));
+
+  const options2 = [
+    {
+      label: "Engineering",
+      value: ["mastering-the-debugging-process-for-engineers"],
+    },
+    {
+      label: "Code Practise",
+      value: ["mastering-javascript:-a-modern-guide-for-developers"],
+    },
+    {
+      label: "Technology",
+      value: [
+        "the-future-of-seo-if-chatgpt-kills-search-engines",
+        "how-to-become-a-successful-freelancer",
+      ],
+    },
+    {
+      label: "Development",
+      value: ["wordpress-for-software-development"],
+    },
+    {
+      label: "Marketing",
+      value: ["effective-marketing-strategy"],
+    },
   ];
 
   return (
@@ -174,31 +199,35 @@ export default function NewsDetails({ article, articles }) {
                 <div className="sidebar__single sidebar__category">
                   <h3 className="sidebar__title">Categories</h3>
                   <ul className="sidebar__category-list list-unstyled">
-                    {articles.map((article) => (
-                      <li key={article.id}>
-                        <select>
-                          {options.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
+                    {Tags.map((group) => (
+                      <li key={group.label} className={styles.categoryItem}>
+                        {" "}
+                        {/* Add class for styling */}
+                        <select className={styles.select}>
+                          {" "}
+                          {/* Add class for styling */}
+                          <option disabled selected>
+                            {group.label}
+                          </option>
+                          {group.value.map((item) => (
+                            <option value={item} key={item}>
+                              <Link href="article-details">{item}</Link>
                             </option>
                           ))}
                         </select>
-                        {/* <Link href="article-details">
-                          {article.tag}<span className="icon-right-arrow"></span>
-                        </Link>{" "} */}
                       </li>
                     ))}
+                    {/* <Link href="article-details">
+                      {article.tag}<span className="icon-right-arrow"></span>
+                    </Link>{" "} */}
                   </ul>
                 </div>
                 <div className="sidebar__single sidebar__tags">
                   <h3 className="sidebar__title">Tags</h3>
                   <div className="sidebar__tags-list">
-                    {" "}
-                    <Link href="#">Consulting</Link>{" "}
-                    <Link href="#">Agency</Link> <Link href="#">Business</Link>{" "}
-                    <Link href="#">Digital</Link>{" "}
-                    <Link href="#">Experience</Link>{" "}
-                    <Link href="#">Technology</Link>{" "}
+                    {Tags.map((tag) => (
+                      <Link href="#">{tag.label.split(" ")[0]}</Link>
+                    ))}
                   </div>
                 </div>
               </div>
