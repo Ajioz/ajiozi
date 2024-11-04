@@ -176,11 +176,7 @@ export default function NewsDetails({ article, articles }) {
                   <ul className="sidebar__category-list list-unstyled">
                     {Tags.map((group) => (
                       <li key={group.label} className={styles.categoryItem}>
-                        {" "}
-                        {/* Add class for styling */}
                         <select className={styles.select}>
-                          {" "}
-                          {/* Add class for styling */}
                           <option disabled selected>
                             {group.label}
                           </option>
@@ -192,9 +188,6 @@ export default function NewsDetails({ article, articles }) {
                         </select>
                       </li>
                     ))}
-                    {/* <Link href="article-details">
-                      {article.tag}<span className="icon-right-arrow"></span>
-                    </Link>{" "} */}
                   </ul>
                 </div>
                 <div className="sidebar__single sidebar__tags">
