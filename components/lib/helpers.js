@@ -24,8 +24,21 @@ export const showItem = (arrayObj, currentId, locate) => {
 
 export const countProps = (arrayObj, target) => {
   // Ensure arrayObj is an array
-  if (!Array.isArray(arrayObj)) return 0; 
+  if (!Array.isArray(arrayObj)) return 0;
   return arrayObj?.filter((item) => item.isRead === target).length;
+};
+
+export const currentArticle = (arrayObj, currentId) => {
+  const ids = extractIds(arrayObj);
+  console.log(ids);
+  const articlePosition = ids?.indexOf(currentId);
+  
+  if (!articlePosition) return;
+
+  const nextItemID = articlePosition + 1;
+  const prevItemID = articlePosition - 1;
+  console.log(articlePosition, nextItemID, prevItemID);
+  return { prevItemID, nextItemID };
 };
 
 export const notify = (state, error) => {

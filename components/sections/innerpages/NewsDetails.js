@@ -1,11 +1,19 @@
 import { Suspense, useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
 import styles from "./NewsDetails.module.css";
+import { currentArticle } from "@/components/lib/helpers";
 
 export default function NewsDetails({ artcleDetails, articles }) {
   const [article, setArticle] = useState(artcleDetails);
   const [Tags, setTags] = useState(reduceGroupedItem(articles));
+  const router = useRouter();
+  const path = router.query;
+  console.log(path)
+
+  const { nextItemID = "", prevItemID = "" } = currentArticle(articles);
+  console.log(nextItemID, prevItemID, path);
 
   return (
     <>
@@ -183,7 +191,6 @@ export default function NewsDetails({ artcleDetails, articles }) {
                           <select className={styles.select}>
                             <option disabled selected>
                               <Link href="article-details"> {group.label}</Link>{" "}
-                             
                             </option>
                             {group.value.map((item) => (
                               <option value={item} key={item}>
