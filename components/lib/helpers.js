@@ -38,7 +38,7 @@ export const currentArticle = (arrayObj, currentId) => {
   const nextItemID = articlePosition + 1;
   const prevItemID = articlePosition - 1;
   console.log(articlePosition, nextItemID, prevItemID);
-  return { prevItemID, nextItemID };
+  return { nextItemID, prevItemID };
 };
 
 export const notify = (state, error) => {

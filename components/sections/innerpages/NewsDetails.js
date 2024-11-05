@@ -5,15 +5,18 @@ import { reduceGroupedItem } from "@/utils/util-fetch";
 import styles from "./NewsDetails.module.css";
 import { currentArticle } from "@/components/lib/helpers";
 
-export default function NewsDetails({ artcleDetails, articles }) {
-  const [article, setArticle] = useState(artcleDetails);
+export default function NewsDetails({ article, articles }) {
+  // const [article, setArticle] = useState(artcleDetails);
   const [Tags, setTags] = useState(reduceGroupedItem(articles));
   const router = useRouter();
-  const path = router.query;
-  console.log(path)
+  const { id } = router.query;
+  console.log(id);
 
-  const { nextItemID = "", prevItemID = "" } = currentArticle(articles);
-  console.log(nextItemID, prevItemID, path);
+  const { nextItemID = "", prevItemID = "" } = currentArticle(
+    articles,
+    "011124"
+  );
+  console.log(nextItemID, prevItemID, id);
 
   return (
     <>
