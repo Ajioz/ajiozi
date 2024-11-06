@@ -20,7 +20,7 @@ export default function NewsDetails({ article, articles }) {
 
   return (
     <>
-      <Suspense fallback=<p>Loading...</p>>
+      {/* <Suspense fallback=<p>Loading...</p>> */}
         {/* Blog Details Start */}
 
         <section className="blog-details">
@@ -195,8 +195,8 @@ export default function NewsDetails({ article, articles }) {
                             <option disabled selected>
                               <Link href="article-details"> {group.label}</Link>{" "}
                             </option>
-                            {group.value.map((item) => (
-                              <option value={item} key={item}>
+                            {group.value.map((item, index) => (
+                              <option value={item} key={index}>
                                 <Link href="article-details">{item}</Link>
                               </option>
                             ))}
@@ -209,7 +209,7 @@ export default function NewsDetails({ article, articles }) {
                     <h3 className="sidebar__title">Tags</h3>
                     <div className="sidebar__tags-list">
                       {Tags.map((tag) => (
-                        <Link href="#">{tag.label.split(" ")[0]}</Link>
+                        <Link href="#" key={tag}>{tag.label.split(" ")[0]}</Link>
                       ))}
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export default function NewsDetails({ article, articles }) {
           </div>
         </section>
         {/* Blog Details End */}
-      </Suspense>
+      {/* </Suspense> */}
     </>
   );
 }

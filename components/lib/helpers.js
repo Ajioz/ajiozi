@@ -1,6 +1,6 @@
 export const extractIds = (arrayObj) => {
   if (!Array.isArray(arrayObj)) return []; // Ensure arrayObj is an array
-  return arrayObj.map(({ _id }) => _id);
+  return arrayObj.map((obj) => obj._id || obj.id);
 };
 
 export const showItem = (arrayObj, currentId, locate) => {
@@ -30,14 +30,16 @@ export const countProps = (arrayObj, target) => {
 
 export const currentArticle = (arrayObj, currentId) => {
   const ids = extractIds(arrayObj);
-  console.log(ids);
-  const articlePosition = ids?.indexOf(currentId);
-  
-  if (!articlePosition) return;
 
-  const nextItemID = articlePosition + 1;
-  const prevItemID = articlePosition - 1;
-  console.log(articlePosition, nextItemID, prevItemID);
+  const articlePosition = ids?.indexOf(currentId);
+
+  let prevItemID = articlePosition - 1;
+  let nextItemID = articlePosition + 1;
+
+  if (articlePosition <= 0) prevItemID = null;
+  if (articlePosition === ids.length - 1) nextItemID = null;
+
+  console.log({prevItemID, articlePosition, nextItemID});
   return { nextItemID, prevItemID };
 };
 
