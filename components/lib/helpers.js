@@ -39,8 +39,11 @@ export const currentArticle = (arrayObj, currentId) => {
   if (articlePosition <= 0) prevItemID = null;
   if (articlePosition === ids.length - 1) nextItemID = null;
 
-  console.log({prevItemID, articlePosition, nextItemID});
-  return { nextItemID, prevItemID };
+  const prevArticle = arrayObj?.find((obj) => (obj.id || obj._id) === ids[prevItemID]);
+  const nextArticle = arrayObj?.find((obj) => (obj.id || obj._id) === ids[nextItemID]);
+
+  // console.log({ prevArticle, nextArticle });
+  return { prevArticle, nextArticle };
 };
 
 export const notify = (state, error) => {
