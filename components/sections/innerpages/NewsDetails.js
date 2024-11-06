@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
@@ -13,11 +13,14 @@ export default function NewsDetails({ articleDetails, articles }) {
 
   const { prevArticle = {}, nextArticle = {} } = currentArticle(articles, id);
 
-
-  const loadArticle = useCallback((id) => {
+  useEffect(() => {
+    if(id) loadArticle(id)
+  }, [id])
+  
+  const loadArticle = (id) => {
     const newArticle = articles.find((article) => article.id === id);
     setArticle(newArticle);
-  },[article]);
+  };
 
   return (
     <>
