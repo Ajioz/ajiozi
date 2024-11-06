@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
@@ -11,20 +11,18 @@ export default function NewsDetails({ articleDetails, articles }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const { prevArticle = {}, nextArticle = {} } = currentArticle(
-    articles,
-    "011124"
-  );
-  
-  const loadArticle = () => {
-    console.log(id)
-  }
+  const { prevArticle = {}, nextArticle = {} } = currentArticle(articles, id);
+
+
+  const loadArticle = useCallback((id) => {
+    const newArticle = articles.find((article) => article.id === id);
+    setArticle(newArticle);
+  },[article]);
 
   return (
     <>
       <Suspense fallback=<p>Loading...</p>>
         {/* Blog Details Start */}
-
         <section className="blog-details">
           <div className="container">
             <div className="row">
@@ -111,18 +109,26 @@ export default function NewsDetails({ articleDetails, articles }) {
                   <div className="nav-links">
                     {Object.keys(prevArticle).length > 0 ? (
                       <div className="prev">
-                        <span onClick={()=> loadArticle(prevArticle.id)}>
+                        <Link
+                          href={`/article-details?id=${prevArticle.id}`}
+                          rel="prev"
+                          onClick={() => loadArticle(prevArticle.id)}
+                        >
                           {prevArticle.mainHeading}
-                        </span>
+                        </Link>
                       </div>
                     ) : (
                       <p></p>
                     )}
                     {Object.keys(nextArticle).length > 0 ? (
                       <div className="next">
-                        <span onClick={() => loadArticle(nextArticle.id)}>
+                        <Link
+                          href={`/article-details?id=${nextArticle.id}`}
+                          rel="prev"
+                          onClick={() => loadArticle(nextArticle.id)}
+                        >
                           {nextArticle.mainHeading}
-                        </span>
+                        </Link>
                       </div>
                     ) : (
                       <p></p>
