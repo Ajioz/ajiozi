@@ -2,11 +2,6 @@
 import Link from "next/link";
 
 const News1 = ({ articles }) => {
-  // const { push } = useRouter();
-
-  // const handleClick = (id) => {
-  //   push({ pathname: "/article-details", query: { id } });
-  // };
 
   return (
     <>

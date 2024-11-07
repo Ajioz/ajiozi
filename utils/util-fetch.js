@@ -35,6 +35,8 @@ export const fetchMessage = async (id) => {
   return data.find((message) => message._id === id);
 };
 
+
+// fetch blog post
 export const getBlogs = async () => {
   const baseUrl = process.env.BASE_URL;
   try {

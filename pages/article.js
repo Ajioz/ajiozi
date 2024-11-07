@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import PageTitle from "@/components/sections/PageTitle";
 import NewsGrid from "@/components/sections/innerpages/NewsGrid";
+import { getBlogs } from "@/utils/util-fetch";
 
 const blogHead = {
   headTitle:
@@ -11,13 +12,28 @@ const blogHead = {
     "Ajiozi blog, software development, tech insights, embedded systems, IoT, technology trends, tutorials, tech community, innovation, expert articles",
 };
 
-export default function pageNewsGrid() {
+export default function pageNewsGrid({ articles }) {
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
         <PageTitle pageName="Tech Article" />
-        <NewsGrid />
+        <NewsGrid articles={articles} />
       </Layout>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  let articles = [];
+  try {
+    articles = await getBlogs();
+  } catch (error) {
+    console.error(error);
+  }
+
+  return {
+    props: {
+      articles,
+    },
+  };
 }
