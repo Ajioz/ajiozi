@@ -73,8 +73,8 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, head
           {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} />}
           {children}
         </main>
-        {/* {!footerStyle && <Footer1 session={session} />} */}
-        {/* {footerStyle == 1 ? <Footer1 session={session} /> : null} */}
+        {!footerStyle && <Footer1 session={session} />}
+        {footerStyle == 1 ? <Footer1 session={session} /> : null}
       </div>
       <BackToTop />
     </>
