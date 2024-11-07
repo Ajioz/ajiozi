@@ -13,6 +13,7 @@ const blogHead = {
 };
 
 export default function pageNewsGrid({ articles }) {
+  console.log(articles);
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>

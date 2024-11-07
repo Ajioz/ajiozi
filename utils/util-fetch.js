@@ -40,7 +40,8 @@ export const fetchMessage = async (id) => {
 export const getBlogs = async () => {
   const baseUrl = process.env.BASE_URL;
   try {
-    const article = await fetch(`${baseUrl}/api/blogPosts`);
+    const article = await fetch("https://ajiroghene.dev/api/blogPosts");
+    // const article = await fetch(`${baseUrl}/api/blogPosts`);
     if (article.ok) {
       const data = await article.json();
       return data;
