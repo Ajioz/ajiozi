@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
@@ -21,6 +21,10 @@ export default function NewsDetails({ articleDetails, articles }) {
     const newArticle = articles.find((article) => article.id === id);
     setArticle(newArticle);
   };
+  
+  const handleTags = useCallback((item) => {
+    console.log(item);
+  }, []);
 
   return (
     <>
@@ -90,8 +94,7 @@ export default function NewsDetails({ articleDetails, articles }) {
                   <div className="blog-details__bottom">
                     <p className="blog-details__tags">
                       {" "}
-                      <span>Tags</span>{" "}
-                      <Link href="#">{article.tag}</Link>{" "}
+                      <span>Tags</span> <Link href="#">{article.tag}</Link>{" "}
                     </p>
                     <div className="blog-details__social-list">
                       {" "}
@@ -210,7 +213,10 @@ export default function NewsDetails({ articleDetails, articles }) {
                     <ul className="sidebar__category-list list-unstyled">
                       {Tags.map((group) => (
                         <li key={group.label} className={styles.categoryItem}>
-                          <select className={styles.select}>
+                          <select
+                            className={styles.select}
+                            onChange={(e) => handleTags(e.target.value)}
+                          >
                             <option disabled selected>
                               {group.label}
                             </option>
