@@ -14,14 +14,14 @@ export default function NewsDetails({ articleDetails, articles }) {
   const { prevArticle = {}, nextArticle = {} } = currentArticle(articles, id);
 
   useEffect(() => {
-    if(id) loadArticle(id)
-  }, [id])
-  
+    if (id) loadArticle(id);
+  }, [id]);
+
   const loadArticle = (id) => {
     const newArticle = articles.find((article) => article.id === id);
     setArticle(newArticle);
   };
-  
+
   const handleTags = useCallback((item) => {
     console.log(item);
   }, []);
@@ -152,62 +152,31 @@ export default function NewsDetails({ articleDetails, articles }) {
                       </button>
                     </form>
                   </div>
+
                   <div className="sidebar__single sidebar__post">
                     <h3 className="sidebar__title">Latest Posts</h3>
                     <ul className="sidebar__post-list list-unstyled">
-                      <li>
-                        <div className="sidebar__post-image">
-                          {" "}
-                          <img src="/images/resource/news-1.jpg" alt="" />{" "}
-                        </div>
-                        <div className="sidebar__post-content">
-                          <h3>
+                      {articles.slice(0, 3).map((article) => (
+                        <li>
+                          <div className="sidebar__post-image">
                             {" "}
-                            <span className="sidebar__post-content-meta">
-                              <i className="fas fa-user-circle"></i>Admin
-                            </span>{" "}
-                            <Link href="article-details">
-                              Top crypto exchange influencers
-                            </Link>
-                          </h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="sidebar__post-image">
-                          {" "}
-                          <img src="/images/resource/news-2.jpg" alt="" />{" "}
-                        </div>
-                        <div className="sidebar__post-content">
-                          <h3>
-                            {" "}
-                            <span className="sidebar__post-content-meta">
-                              <i className="fas fa-user-circle"></i>Admin
-                            </span>{" "}
-                            <Link href="article-details">
-                              Necessity may give us best virtual court
-                            </Link>{" "}
-                          </h3>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="sidebar__post-image">
-                          {" "}
-                          <img src="/images/resource/news-3.jpg" alt="" />{" "}
-                        </div>
-                        <div className="sidebar__post-content">
-                          <h3>
-                            {" "}
-                            <span className="sidebar__post-content-meta">
-                              <i className="fas fa-user-circle"></i>Admin
-                            </span>{" "}
-                            <Link href="article-details">
-                              You should know about business plan
-                            </Link>{" "}
-                          </h3>
-                        </div>
-                      </li>
+                            <img src={article.img} alt="" />{" "}
+                          </div>
+                          <div className="sidebar__post-content">
+                            <h3>
+                              {" "}
+                              <span className="sidebar__post-content-meta">
+                                <i className="fas fa-user-circle"></i>
+                                {article.author}
+                              </span>{" "}
+                              <Link href="article-details">{article.mainHeading}</Link>
+                            </h3>
+                          </div>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+
                   <div className="sidebar__single sidebar__category">
                     <h3 className="sidebar__title">Categories</h3>
                     <ul className="sidebar__category-list list-unstyled">
