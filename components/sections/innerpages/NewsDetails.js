@@ -5,6 +5,15 @@ import { reduceGroupedItem } from "@/utils/util-fetch";
 import styles from "./NewsDetails.module.css";
 import { currentArticle } from "@/components/lib/helpers";
 
+const style = {
+  textAlign: "center",
+  padding: "20px",
+  border: "1px solid #ccc",
+  borderRadius: "8px",
+  backgroundColor: "#f9f9f9",
+  color: "#333",
+};
+
 export default function NewsDetails({ articleDetails, articles }) {
   const [article, setArticle] = useState(articleDetails);
   const Tags = reduceGroupedItem(articles);
@@ -23,12 +32,21 @@ export default function NewsDetails({ articleDetails, articles }) {
   };
 
   const handleTags = useCallback((item) => {
-    console.log(item);
+    const foundArticle = articles.find((article) => article.mainHeading === item);
+    if (foundArticle) {
+      const itemId = foundArticle.id;
+      router.push({
+        pathname: "/article-details",
+        query: { id: itemId }
+      });
+    } else {
+      console.error("Article not found for the given item:", item);
+    }
   }, []);
 
   return (
     <>
-      <Suspense fallback=<p>Loading...</p>>
+      <Suspense fallback=<p style={style}>Loading...</p>>
         {/* Blog Details Start */}
         <section className="blog-details">
           <div className="container">
@@ -156,8 +174,8 @@ export default function NewsDetails({ articleDetails, articles }) {
                   <div className="sidebar__single sidebar__post">
                     <h3 className="sidebar__title">Latest Posts</h3>
                     <ul className="sidebar__post-list list-unstyled">
-                      {articles.slice(0, 3).map((article) => (
-                        <li>
+                      {articles.slice(0, 3).map((article, index) => (
+                        <li key={index}>
                           <div className="sidebar__post-image">
                             {" "}
                             <img src={article.img} alt="" />{" "}
@@ -169,7 +187,9 @@ export default function NewsDetails({ articleDetails, articles }) {
                                 <i className="fas fa-user-circle"></i>
                                 {article.author}
                               </span>{" "}
-                              <Link href="article-details">{article.mainHeading}</Link>
+                              <Link href="article-details">
+                                {article.mainHeading}
+                              </Link>
                             </h3>
                           </div>
                         </li>
