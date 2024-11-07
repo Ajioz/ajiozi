@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
@@ -91,20 +91,20 @@ export default function NewsDetails({ articleDetails, articles }) {
                     <p className="blog-details__tags">
                       {" "}
                       <span>Tags</span>{" "}
-                      <Link href="article-details">{article.tag}</Link>{" "}
+                      <Link href="#">{article.tag}</Link>{" "}
                     </p>
                     <div className="blog-details__social-list">
                       {" "}
-                      <Link href="article-details">
+                      <Link href="#">
                         <i className="fab fa-twitter"></i>
                       </Link>{" "}
-                      <Link href="article-details">
+                      <Link href="#">
                         <i className="fab fa-facebook"></i>
                       </Link>{" "}
-                      <Link href="article-details">
+                      <Link href="#">
                         <i className="fab fa-pinterest-p"></i>
                       </Link>{" "}
-                      <Link href="article-details">
+                      <Link href="#">
                         <i className="fab fa-instagram"></i>
                       </Link>{" "}
                     </div>
@@ -229,7 +229,7 @@ export default function NewsDetails({ articleDetails, articles }) {
                     <div className="sidebar__tags-list">
                       {Tags.map((tag, index) => (
                         <Link href="#" key={tag + index}>
-                          {tag.label.split(" ")[0]}
+                          {tag.label}
                         </Link>
                       ))}
                     </div>
