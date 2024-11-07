@@ -7,7 +7,7 @@ import { currentArticle } from "@/components/lib/helpers";
 
 export default function NewsDetails({ articleDetails, articles }) {
   const [article, setArticle] = useState(articleDetails);
-  const [Tags, setTags] = useState(reduceGroupedItem(articles));
+  const Tags = reduceGroupedItem(articles);
   const router = useRouter();
   const { id } = router.query;
 
