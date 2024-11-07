@@ -13,6 +13,27 @@ const blogHead = {
     "Ajiozi blog, software development, tech insights, embedded systems, IoT, technology trends, tutorials, tech community, innovation, expert articles",
 };
 
+const style = {
+  textAlign: "center",
+  padding: "20px",
+  border: "1px solid #ccc",
+  borderRadius: "8px",
+  backgroundColor: "#f9f9f9",
+  color: "#333",
+};
+
+function ArticleNotFound() {
+  return (
+    <div style={style}>
+      <h2>Article Not Found</h2>
+      <p>
+        We're sorry, the article you are looking for culd not b loaded this
+        time, try again later!
+      </p>
+    </div>
+  );
+}
+
 export default function pageNewsDetails({ articles }) {
   const router = useRouter();
   const { id } = router.query;
@@ -23,12 +44,12 @@ export default function pageNewsDetails({ articles }) {
 
   const article = articles?.find((article) => article.id === id);
 
-  if (!article) return <div>Article not found</div>;
+  if (!article) return <ArticleNotFound />; // Use the new component
 
   return (
     <>
       <Layout headerStyle={1} footerStyle={1} head={blogHead}>
-        <PageTitle pageName="Article Details" />
+        <PageTitle pageName={article.mainHeading} tag={article.tag} />
         <NewsDetails articleDetails={article} articles={articles} />
       </Layout>
     </>

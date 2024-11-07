@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Link from "next/link";
 
 const News1 = ({ articles }) => {
-  const { push } = useRouter();
+  // const { push } = useRouter();
 
-  const onClick = (id) => {
-    push({ pathname: "/article-details", query: { id } });
-  };
+  // const handleClick = (id) => {
+  //   push({ pathname: "/article-details", query: { id } });
+  // };
 
   return (
     <>
@@ -29,10 +29,7 @@ const News1 = ({ articles }) => {
                 <div className="inner-box">
                   <div className="image-box">
                     <figure className="image">
-                      <Link
-                        href="a#"
-                        onClick={() => onClick(item.id)}
-                      >
+                      <Link href="a#" onClick={() => handleClick(item.id)}>
                         <img src={item.img} alt="articleImg" />
                       </Link>
                     </figure>
@@ -56,7 +53,7 @@ const News1 = ({ articles }) => {
                       </li>
                     </ul>
                     <h4 className="title">
-                      <Link href="#" onClick={() => onClick(item.id)}>
+                      <Link href={`/article-details?id=${item.id}`}>
                         {item.mainHeading}
                       </Link>
                     </h4>
@@ -66,9 +63,8 @@ const News1 = ({ articles }) => {
                       ...{" "}
                     </div>
                     <Link
-                      href="#"
+                      href={`/article-details?id=${item.id}`}
                       className="read-more"
-                      onClick={() => onClick(item.id)}
                     >
                       Read More <i className="fa fa-long-arrow-right"></i>
                     </Link>
