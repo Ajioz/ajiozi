@@ -1,5 +1,5 @@
 // Production
-// /*
+/*
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyPassword } from "@/utils/auth";
@@ -53,11 +53,11 @@ export default NextAuth({
     }),
   ],
 });
-// */
+*/
 
 
 // Development
-/*
+// /*
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyPassword } from "@/utils/auth";
@@ -106,4 +106,4 @@ export default NextAuth({
   ],
   debug: true,
 });
-*/
+// */

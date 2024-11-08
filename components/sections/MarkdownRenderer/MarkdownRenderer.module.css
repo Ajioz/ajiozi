@@ -25,16 +25,15 @@
 }
 
 .section h3 {
-  font-size: 1.1rem;
-  color: goldenrod;
+  font-size: 1.5rem;
+  color: darkcyan;
 }
 .section h4 {
-  font-size: 0.8rem !important;
-  color: #c4c1c1 !important;
-  /* font-style: italic; */
+  font-size: 1.1rem !important;
+  color: #333 !important;
   text-transform: capitalize !important;
+  font-family: monospace;
   text-decoration: underline;
-  /* text-align: right; */
 }
 
 .post img {
@@ -123,17 +122,6 @@
   margin: 10px auto;
 }
 
-/* .codeBlock {
-  background-color: inherit;
-  color: white;
-  padding: 15px;
-  border-radius: 5px;
-  overflow-x: auto;
-}
-
-.codeBlock code {
-  background-color: transparent;
-} */
 
 .codeBlock {
   position: relative;

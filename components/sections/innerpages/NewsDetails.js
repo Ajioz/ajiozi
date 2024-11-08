@@ -4,6 +4,7 @@ import Link from "next/link";
 import { reduceGroupedItem } from "@/utils/util-fetch";
 import styles from "./NewsDetails.module.css";
 import { currentArticle } from "@/components/lib/helpers";
+import MarkdownRenderer from "../MarkdownRenderer";
 
 const style = {
   textAlign: "center",
@@ -81,33 +82,9 @@ export default function NewsDetails({ articleDetails, articles }) {
                     <h3 className="blog-details__title">
                       {article.mainHeading}
                     </h3>
-                    <p className="blog-details__text-2">
-                      Mauris non dignissim purus, ac commodo diam. Donec sit
-                      amet lacinia nulla. Aliquam quis purus in justo pulvinar
-                      tempor. Aliquam tellus nulla, sollicitudin at euismod nec,
-                      feugiat at nisi. Quisque vitae odio nec lacus interdum
-                      tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae
-                      est aliquet pellentesque vitae et nunc. Sed vitae leo
-                      vitae nisl pellentesque semper.
-                    </p>
-                    <p className="blog-details__text-2">
-                      Mauris non dignissim purus, ac commodo diam. Donec sit
-                      amet lacinia nulla. Aliquam quis purus in justo pulvinar
-                      tempor. Aliquam tellus nulla, sollicitudin at euismod nec,
-                      feugiat at nisi. Quisque vitae odio nec lacus interdum
-                      tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae
-                      est aliquet pellentesque vitae et nunc. Sed vitae leo
-                      vitae nisl pellentesque semper.
-                    </p>
-                    <p className="blog-details__text-2">
-                      Mauris non dignissim purus, ac commodo diam. Donec sit
-                      amet lacinia nulla. Aliquam quis purus in justo pulvinar
-                      tempor. Aliquam tellus nulla, sollicitudin at euismod nec,
-                      feugiat at nisi. Quisque vitae odio nec lacus interdum
-                      tempus. Phasellus a rhoncus erat. Vivamus vel eros vitae
-                      est aliquet pellentesque vitae et nunc. Sed vitae leo
-                      vitae nisl pellentesque semper.
-                    </p>
+                    <div className="blog-details__text-2">
+                      <MarkdownRenderer posts={[article]} isAll isAllBlog />
+                    </div>
                   </div>
                   <div className="blog-details__bottom">
                     <p className="blog-details__tags">
