@@ -126,14 +126,13 @@
 
 .codeBlock {
   position: relative;
-  background-color: inherit;
   border-radius: 6px;
   margin: 16px auto;
   white-space: pre-wrap;
   overflow-x: auto;
   max-width: 100%;
   padding: 20px 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.88);
 }
 
 .copyButton {
