@@ -164,7 +164,7 @@ export default function NewsDetails({ articleDetails, articles }) {
                                 <i className="fas fa-user-circle"></i>
                                 {article.author}
                               </span>{" "}
-                              <Link href="article-details">
+                              <Link href={`article-details?id=${article.id}`}>
                                 {article.mainHeading}
                               </Link>
                             </h3>
