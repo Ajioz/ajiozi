@@ -27,12 +27,13 @@
 .section h3 {
   font-size: 1.5rem;
   color: darkcyan;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .section h4 {
   font-size: 1.1rem !important;
   color: #333 !important;
   text-transform: capitalize !important;
-  font-family: monospace;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-decoration: underline;
 }
 
