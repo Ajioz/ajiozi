@@ -40,7 +40,6 @@ export const fetchMessage = async (id) => {
 export const getBlogs = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   try {
-    // const article = await fetch("https://ajiroghene.dev/api/blogPosts");
     const article = await fetch(`${baseUrl}/api/blogPosts`);
     if (article.ok) {
       const data = await article.json();
@@ -72,7 +71,6 @@ export const reduceGroupedItem = (items) => {
       acc[category] = [];
     }
     acc[category].push(item.mainHeading);
-    // acc[category].push(item.mainHeading.toLowerCase().split(" ").join("-"));
     return acc;
   }, {});
   return splitGroup(groupedItem);
